@@ -2,6 +2,7 @@
 
 import { Canvas } from '@react-three/fiber';
 import Metaball from '@/components/metaball';
+import { WordRotate } from './magicui/word-rotate';
 
 export default function Hero() {
   return (
@@ -12,14 +13,12 @@ export default function Hero() {
       </Canvas>
 
       {/* Content that can be scrolled to */}
-      <div className="-translate-x-1/2 pointer-events-none absolute top-64 left-1/2 flex w-full max-w-full justify-center p-8">
-        <div className="w-full max-w-2xl text-center text-white">
-          <h1 className="mb-4 font-bold text-4xl md:text-6xl">
-            Interactive Metaballs
-          </h1>
-          <p className="text-lg opacity-80 md:text-xl">
-            Move your mouse to interact
-          </p>
+      <div className="-translate-x-1/2 pointer-events-none absolute top-64 left-1/2 flex w-full max-w-full justify-center p-12">
+        <div className="w-full max-w-4xl text-center">
+          <WordRotate
+            className="font-[family-name:var(--font-uncial-antiqua)] font-bold text-9xl text-white/80 mix-blend-difference drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] backdrop-blur-sm"
+            words={['Developer', 'Designer', 'Creator']}
+          />
         </div>
       </div>
     </section>
