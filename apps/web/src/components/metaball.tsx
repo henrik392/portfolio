@@ -1,7 +1,7 @@
 'use client';
 
 import { useFrame, useThree } from '@react-three/fiber';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { type RawShaderMaterial, Vector2 } from 'three';
 
 const vertexShader = `
@@ -89,7 +89,7 @@ float map(vec3 p) {
 
     for (int i = 0; i < TRAIL_LENGTH; i++) {
         float fi = float(i);
-        vec2 pointerTrail = uPointerTrail[i] * uResolution / min(uResolution.x, uResolution.y);
+        vec2 pointerTrail = uPointerTrail[i];
 
         float sphere = sdSphere(
                 translate(p, vec3(pointerTrail, .0)),
@@ -176,10 +176,15 @@ export default function Metaball() {
 
   // Handle mouse movement
   const handlePointerMove = useCallback((event: PointerEvent) => {
-    // Convert to shader coordinate system - matching the fragment shader's expectation
-    // The shader uses: (gl_FragCoord.xy * 2.0 - uResolution) / min(uResolution.x, uResolution.y)
-    const x = event.clientX;
-    const y = window.innerHeight - event.clientY; // Flip Y coordinate to match shader
+    // Convert to normalized coordinates that match the shader's coordinate system
+    // The shader converts: (gl_FragCoord.xy * 2.0 - uResolution) / min(uResolution.x, uResolution.y)
+    const resolution = new Vector2(window.innerWidth, window.innerHeight);
+    const minDimension = Math.min(resolution.x, resolution.y);
+
+    const x = (event.clientX * 2.0 - resolution.x) / minDimension;
+    const y =
+      ((window.innerHeight - event.clientY) * 2.0 - resolution.y) /
+      minDimension;
 
     const newPos = new Vector2(x, y);
 
@@ -190,13 +195,12 @@ export default function Metaball() {
   }, []);
 
   // Set up mouse listener
-  useState(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('pointermove', handlePointerMove);
       return () => window.removeEventListener('pointermove', handlePointerMove);
     }
-    return;
-  });
+  }, [handlePointerMove]);
 
   useFrame((_state, delta) => {
     if (uniforms.uTime) {
