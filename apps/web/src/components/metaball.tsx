@@ -2,179 +2,192 @@
 
 import { useFrame, useThree } from '@react-three/fiber';
 import { useCallback, useRef, useState } from 'react';
-import { type RawShaderMaterial, Vector2, Vector3 } from 'three';
+import { type RawShaderMaterial, Vector2 } from 'three';
 
 const vertexShader = `
 attribute vec3 position;
-attribute vec2 uv;
-varying vec2 vUv;
+varying vec2 vTexCoord;
 
 void main() {
-  vUv = uv;
-  gl_Position = vec4(position, 1.0);
+    vTexCoord = position.xy * 0.5 + 0.5;
+    gl_Position = vec4(position, 1.0);
 }
 `;
 
 const fragmentShader = `
-precision highp float;
+precision mediump float;
 
-varying vec2 vUv;
-uniform vec2 u_resolution;
-uniform float u_time;
-uniform vec3 u_mouse[10];
-uniform int u_mouseCount;
+const int TRAIL_LENGTH = 15;
+const float EPS = 1e-4;
+const int ITR = 16;
+const float PI = acos(-1.0);
 
-// Noise function
-float hash(vec3 p) {
-  p = fract(p * 0.3183099 + 0.1);
-  p *= 17.0;
-  return fract(p.x * p.y * p.z * (p.x + p.y + p.z));
+uniform float uTime;
+uniform vec2 uResolution;
+uniform vec2 uPointerTrail[TRAIL_LENGTH];
+
+varying vec2 vTexCoord;
+
+float rnd3D(vec3 p) {
+    return fract(sin(dot(p, vec3(12.9898, 78.233, 37.719))) * 43758.5453123);
 }
 
-float noise(vec3 x) {
-  vec3 i = floor(x);
-  vec3 f = fract(x);
-  f = f * f * (3.0 - 2.0 * f);
-  
-  return mix(
-    mix(mix(hash(i + vec3(0, 0, 0)), hash(i + vec3(1, 0, 0)), f.x),
-        mix(hash(i + vec3(0, 1, 0)), hash(i + vec3(1, 1, 0)), f.x), f.y),
-    mix(mix(hash(i + vec3(0, 0, 1)), hash(i + vec3(1, 0, 1)), f.x),
-        mix(hash(i + vec3(0, 1, 1)), hash(i + vec3(1, 1, 1)), f.x), f.y), f.z);
+float noise3D(vec3 p) {
+    vec3 i = floor(p);
+    vec3 f = fract(p);
+
+    float a000 = rnd3D(i); // (0,0,0)
+    float a100 = rnd3D(i + vec3(1.0, 0.0, 0.0)); // (1,0,0)
+    float a010 = rnd3D(i + vec3(0.0, 1.0, 0.0)); // (0,1,0)
+    float a110 = rnd3D(i + vec3(1.0, 1.0, 0.0)); // (1,1,0)
+    float a001 = rnd3D(i + vec3(0.0, 0.0, 1.0)); // (0,0,1)
+    float a101 = rnd3D(i + vec3(1.0, 0.0, 1.0)); // (1,0,1)
+    float a011 = rnd3D(i + vec3(0.0, 1.0, 1.0)); // (0,1,1)
+    float a111 = rnd3D(i + vec3(1.0, 1.0, 1.0)); // (1,1,1)
+
+    vec3 u = f * f * (3.0 - 2.0 * f);
+    // vec3 u = f*f*f*(f*(f*6.0-15.0)+10.0);
+
+    float k0 = a000;
+    float k1 = a100 - a000;
+    float k2 = a010 - a000;
+    float k3 = a001 - a000;
+    float k4 = a000 - a100 - a010 + a110;
+    float k5 = a000 - a010 - a001 + a011;
+    float k6 = a000 - a100 - a001 + a101;
+    float k7 = -a000 + a100 + a010 - a110 + a001 - a101 - a011 + a111;
+
+    return k0 + k1 * u.x + k2 * u.y + k3 *u.z + k4 * u.x * u.y + k5 * u.y * u.z + k6 * u.z * u.x + k7 * u.x * u.y * u.z;
 }
 
-// SDF for sphere
-float sdSphere(vec3 p, float s) {
-  return length(p) - s;
-}
+// Camera
+vec3 origin = vec3(0.0, 0.0, 1.0);
+vec3 lookAt = vec3(0.0, 0.0, 0.0);
+vec3 cDir = normalize(lookAt - origin);
+vec3 cUp = vec3(0.0, 1.0, 0.0);
+vec3 cSide = cross(cDir, cUp);
 
-// Smooth minimum for blending
 float smoothMin(float d1, float d2, float k) {
-  float h = exp(-k * d1) + exp(-k * d2);
-  return -log(h) / k;
+    float h = exp(-k * d1) + exp(-k * d2);
+    return -log(h) / k;
 }
 
-// Scene SDF
+vec3 translate(vec3 p, vec3 t) {
+    return p - t;
+}
+
+float sdSphere(vec3 p, float s)
+{
+    return length(p) - s;
+}
+
 float map(vec3 p) {
-  float d = 1000.0;
-  
-  // Add noise to create organic surface
-  float noiseValue = noise(p * 2.0 + u_time * 0.5) * 0.1;
-  
-  // Main sphere
-  d = smoothMin(d, sdSphere(p, 0.8) + noiseValue, 8.0);
-  
-  // Mouse trail spheres
-  for(int i = 0; i < 10; i++) {
-    if(i >= u_mouseCount) break;
-    
-    vec3 mousePos = u_mouse[i];
-    float size = 0.3 * (1.0 - float(i) * 0.1);
-    d = smoothMin(d, sdSphere(p - mousePos, size) + noiseValue * 0.5, 12.0);
-  }
-  
-  return d;
+    float baseRadius = 8e-3;
+    float radius = baseRadius * float(TRAIL_LENGTH);
+    float k = 7.;
+    float d = 1e5;
+
+    for (int i = 0; i < TRAIL_LENGTH; i++) {
+        float fi = float(i);
+        vec2 pointerTrail = uPointerTrail[i] * uResolution / min(uResolution.x, uResolution.y);
+
+        float sphere = sdSphere(
+                translate(p, vec3(pointerTrail, .0)),
+                radius - baseRadius * fi
+            );
+
+        d = smoothMin(d, sphere, k);
+    }
+
+    float sphere = sdSphere(translate(p, vec3(1.0, -0.25, 0.0)), 0.55);
+    d = smoothMin(d, sphere, k);
+
+    return d;
 }
 
-// Calculate normal
-vec3 calcNormal(vec3 p) {
-  const float eps = 0.001;
-  vec2 h = vec2(eps, 0);
-  return normalize(vec3(
-    map(p + h.xyy) - map(p - h.xyy),
-    map(p + h.yxy) - map(p - h.yxy),
-    map(p + h.yyx) - map(p - h.yyx)
-  ));
+vec3 generateNormal(vec3 p) {
+    return normalize(vec3(
+            map(p + vec3(EPS, 0.0, 0.0)) - map(p + vec3(-EPS, 0.0, 0.0)),
+            map(p + vec3(0.0, EPS, 0.0)) - map(p + vec3(0.0, -EPS, 0.0)),
+            map(p + vec3(0.0, 0.0, EPS)) - map(p + vec3(0.0, 0.0, -EPS))
+        ));
 }
 
-// Ray marching
-float rayMarch(vec3 ro, vec3 rd) {
-  float t = 0.0;
-  for(int i = 0; i < 80; i++) {
-    vec3 p = ro + rd * t;
-    float d = map(p);
-    if(d < 0.001 || t > 20.0) break;
-    t += d;
-  }
-  return t;
+vec3 dropletColor(vec3 normal, vec3 rayDir) {
+    vec3 reflectDir = reflect(rayDir, normal);
+
+    float noisePosTime = noise3D(reflectDir * 2.0 + uTime);
+    float noiseNegTime = noise3D(reflectDir * 2.0 - uTime);
+
+    vec3 _color0 = vec3(0.1765, 0.1255, 0.2275) * noisePosTime;
+    vec3 _color1 = vec3(0.4118, 0.4118, 0.4157) * noiseNegTime;
+
+    float intensity = 2.3;
+    vec3 color = (_color0 + _color1) * intensity;
+
+    return color;
 }
 
 void main() {
-  vec2 uv = (vUv - 0.5) * 2.0;
-  uv.x *= u_resolution.x / u_resolution.y;
-  
-  // Camera setup
-  vec3 ro = vec3(0.0, 0.0, 3.0);
-  vec3 rd = normalize(vec3(uv, -1.0));
-  
-  // Ray march
-  float t = rayMarch(ro, rd);
-  
-  vec3 color = vec3(0.0);
-  
-  if(t < 20.0) {
-    vec3 p = ro + rd * t;
-    vec3 n = calcNormal(p);
-    
-    // Lighting
-    vec3 lightDir = normalize(vec3(1.0, 1.0, 1.0));
-    float diff = max(dot(n, lightDir), 0.0);
-    
-    // Reflection
-    vec3 refl = reflect(rd, n);
-    float spec = pow(max(dot(refl, lightDir), 0.0), 32.0);
-    
-    // Color based on position and noise
-    vec3 baseColor = mix(
-      vec3(0.2, 0.8, 1.0),
-      vec3(1.0, 0.4, 0.8),
-      noise(p * 3.0 + u_time)
-    );
-    
-    color = baseColor * (diff + 0.2) + vec3(spec);
-  }
-  
-  gl_FragColor = vec4(color, 1.0);
+    vec2 p = (gl_FragCoord.xy * 2.0 - uResolution) / min(uResolution.x, uResolution.y);
+
+    // Orthographic Camera
+    vec3 ray = origin + cSide * p.x + cUp * p.y;
+    vec3 rayDirection = cDir;
+
+    float dist = 0.0;
+
+    for (int i = 0; i < ITR; ++i) {
+        dist = map(ray);
+        ray += rayDirection * dist;
+        if (dist < EPS) break;
+    }
+
+    vec3 color = vec3(0.0);
+
+    if (dist < EPS) {
+        vec3 normal = generateNormal(ray);
+
+        color = dropletColor(normal, rayDirection);
+        // color = normal; // for debug
+    }
+
+    vec3 finalColor = pow(color, vec3(7.0));
+
+    gl_FragColor = vec4(finalColor, 1.0);
 }
 `;
 
 const createUniforms = (resolution: Vector2) => {
   return {
-    u_resolution: { value: resolution },
-    u_time: { value: 0 },
-    u_mouse: { value: new Array(10).fill(new Vector3()) },
-    u_mouseCount: { value: 0 },
+    uResolution: { value: resolution },
+    uTime: { value: 0 },
+    uPointerTrail: { value: new Array(15).fill(new Vector2()) },
   };
 };
 
 export default function Metaball() {
-  const { size, viewport } = useThree();
+  const { size } = useThree();
   const materialRef = useRef<RawShaderMaterial>(null);
-  const [mouseTrail, setMouseTrail] = useState<Vector3[]>([]);
+  const [mouseTrail, setMouseTrail] = useState<Vector2[]>([]);
   const [uniforms] = useState(() =>
     createUniforms(new Vector2(size.width, size.height))
   );
 
   // Handle mouse movement
-  const handlePointerMove = useCallback(
-    (event: PointerEvent) => {
-      const x = (event.clientX / window.innerWidth) * 2 - 1;
-      const y = -(event.clientY / window.innerHeight) * 2 + 1;
-      const z = 0;
+  const handlePointerMove = useCallback((event: PointerEvent) => {
+    // Convert to shader coordinate system - matching the fragment shader's expectation
+    // The shader uses: (gl_FragCoord.xy * 2.0 - uResolution) / min(uResolution.x, uResolution.y)
+    const x = event.clientX;
+    const y = window.innerHeight - event.clientY; // Flip Y coordinate to match shader
 
-      const newPos = new Vector3(
-        (x * viewport.width) / 2,
-        (y * viewport.height) / 2,
-        z
-      );
+    const newPos = new Vector2(x, y);
 
-      setMouseTrail((prev) => {
-        const newTrail = [newPos, ...prev.slice(0, 9)];
-        return newTrail;
-      });
-    },
-    [viewport]
-  );
+    setMouseTrail((prev) => {
+      const newTrail = [newPos, ...prev.slice(0, 14)];
+      return newTrail;
+    });
+  }, []);
 
   // Set up mouse listener
   useState(() => {
@@ -186,17 +199,20 @@ export default function Metaball() {
   });
 
   useFrame((_state, delta) => {
-    if (uniforms.u_time) {
-      uniforms.u_time.value += delta;
+    if (uniforms.uTime) {
+      uniforms.uTime.value += delta;
     }
 
-    if (uniforms.u_resolution) {
-      uniforms.u_resolution.value.set(size.width, size.height);
+    if (uniforms.uResolution) {
+      uniforms.uResolution.value.set(size.width, size.height);
     }
 
-    if (uniforms.u_mouse && uniforms.u_mouseCount) {
-      uniforms.u_mouse.value = mouseTrail.slice(0, 10);
-      uniforms.u_mouseCount.value = Math.min(mouseTrail.length, 10);
+    if (uniforms.uPointerTrail) {
+      const trail = mouseTrail.slice(0, 15);
+      while (trail.length < 15) {
+        trail.push(new Vector2(0, 0));
+      }
+      uniforms.uPointerTrail.value = trail;
     }
   });
 
