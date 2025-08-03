@@ -1,7 +1,7 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber';
-import Box from '@/components/box';
+import Metaball from '@/components/metaball';
 
 export default function Home() {
   return (
@@ -16,8 +16,7 @@ export default function Home() {
           position={[10, 10, 10]}
         />
         <pointLight decay={0} intensity={Math.PI} position={[-10, -10, -10]} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
+        <Metaball />
       </Canvas>
     </div>
   );
