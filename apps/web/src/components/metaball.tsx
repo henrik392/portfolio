@@ -181,12 +181,14 @@ export default function Metaball() {
     const resolution = new Vector2(window.innerWidth, window.innerHeight);
     const minDimension = Math.min(resolution.x, resolution.y);
 
-    const x = (event.clientX * 2.0 - resolution.x) / minDimension;
+    const x = (event.clientX * 4.0 - resolution.x) / minDimension;
     const y =
-      ((window.innerHeight - event.clientY) * 2.0 - resolution.y) /
+      ((window.innerHeight - event.clientY) * 4.0 - resolution.y) /
       minDimension;
 
     const newPos = new Vector2(x, y);
+    console.log(newPos);
+    console.log(event.clientX, event.clientY);
 
     setMouseTrail((prev) => {
       const newTrail = [newPos, ...prev.slice(0, 14)];
