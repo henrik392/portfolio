@@ -187,8 +187,6 @@ export default function Metaball() {
       minDimension;
 
     const newPos = new Vector2(x, y);
-    console.log(newPos);
-    console.log(event.clientX, event.clientY);
 
     setMouseTrail((prev) => {
       const newTrail = [newPos, ...prev.slice(0, 14)];
