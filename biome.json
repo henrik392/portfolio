@@ -24,6 +24,9 @@
     "rules": {
       "nursery": {
         "noUnknownAtRule": "off"
+      },
+      "a11y": {
+        "noStaticElementInteractions": "off"
       }
     }
   }

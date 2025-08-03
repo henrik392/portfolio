@@ -1,30 +1,24 @@
 'use client';
 
-const TITLE_TEXT = `
- ██████╗ ███████╗████████╗████████╗███████╗██████╗
- ██╔══██╗██╔════╝╚══██╔══╝╚══██╔══╝██╔════╝██╔══██╗
- ██████╔╝█████╗     ██║      ██║   █████╗  ██████╔╝
- ██╔══██╗██╔══╝     ██║      ██║   ██╔══╝  ██╔══██╗
- ██████╔╝███████╗   ██║      ██║   ███████╗██║  ██║
- ╚═════╝ ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚═╝  ╚═╝
-
- ████████╗    ███████╗████████╗ █████╗  ██████╗██╗  ██╗
- ╚══██╔══╝    ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝
-    ██║       ███████╗   ██║   ███████║██║     █████╔╝
-    ██║       ╚════██║   ██║   ██╔══██║██║     ██╔═██╗
-    ██║       ███████║   ██║   ██║  ██║╚██████╗██║  ██╗
-    ╚═╝       ╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝
- `;
+import { Canvas } from '@react-three/fiber';
+import Box from '@/components/box';
 
 export default function Home() {
   return (
-    <div className="container mx-auto max-w-3xl px-4 py-2">
-      <pre className="overflow-x-auto font-mono text-sm">{TITLE_TEXT}</pre>
-      <div className="grid gap-6">
-        <section className="rounded-lg border p-4">
-          <h2 className="mb-2 font-medium">API Status</h2>
-        </section>
-      </div>
+    <div>
+      <Canvas>
+        <ambientLight intensity={Math.PI / 2} />
+        <spotLight
+          angle={0.15}
+          decay={0}
+          intensity={Math.PI}
+          penumbra={1}
+          position={[10, 10, 10]}
+        />
+        <pointLight decay={0} intensity={Math.PI} position={[-10, -10, -10]} />
+        <Box position={[-1.2, 0, 0]} />
+        <Box position={[1.2, 0, 0]} />
+      </Canvas>
     </div>
   );
 }
