@@ -12,8 +12,8 @@ export default function Hero() {
       </Canvas>
 
       {/* Content that can be scrolled to */}
-      <div className="pointer-events-none absolute right-0 bottom-0 left-0 p-8">
-        <div className="text-center text-white">
+      <div className="-translate-x-1/2 pointer-events-none absolute top-64 left-1/2 flex w-full max-w-full justify-center p-8">
+        <div className="w-full max-w-2xl text-center text-white">
           <h1 className="mb-4 font-bold text-4xl md:text-6xl">
             Interactive Metaballs
           </h1>
