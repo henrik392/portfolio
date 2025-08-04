@@ -136,7 +136,7 @@ body {
 
 @layer components {
   .glass-navbar {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(60px) saturate(200%) brightness(80%);
     -webkit-backdrop-filter: blur(60px) saturate(200%) brightness(80%);
     border-radius: 16px;

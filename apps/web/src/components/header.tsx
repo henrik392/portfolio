@@ -34,7 +34,7 @@ export default function Header() {
       }`}
     >
       <div
-        className={`glass-navbar w-full transition-all duration-300 ${
+        className={`glass-navbar w-full backdrop-blur-sm transition-all duration-300 ${
           isScrolled
             ? 'border-white/20 border-b px-4 py-3'
             : 'border-transparent border-b px-6 py-4'
