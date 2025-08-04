@@ -1,0 +1,28 @@
+{
+  "name": "portfolio",
+  "compose": [
+    {
+      "name": "portfolio",
+      "appName": "portfolio",
+      "description": "Henrik Kvamme Portfolio - Full-Stack Developer showcase",
+      "env": [],
+      "mounts": [],
+      "redirects": [],
+      "security": [],
+      "dockerfile": "Dockerfile",
+      "buildArgs": {},
+      "ports": [
+        {
+          "publishedPort": 80,
+          "targetPort": 3001,
+          "protocol": "tcp"
+        },
+        {
+          "publishedPort": 443,
+          "targetPort": 3001,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  ]
+}
