@@ -1,4 +1,12 @@
 {
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.dokploy.com)",
+      "WebFetch(domain:railpack.com)",
+      "Bash(nslookup:*)",
+      "Bash(dig:*)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {
