@@ -29,8 +29,7 @@ export function BentoGrid() {
         icon="🦀"
         name="Rust"
       />
-      <ContactCard colSpan={1} />
-      <CtaBannerCard colSpan={3} />
+      <ContactCard colSpan={2} />
     </div>
   );
 }
