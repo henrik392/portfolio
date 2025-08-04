@@ -1,0 +1,18 @@
+# Nixpacks configuration for Turborepo - apps/web only
+[variables]
+NODE_ENV = "production"
+PORT = "3000"
+HOSTNAME = "0.0.0.0"
+
+# Use Bun as package manager and Node.js for runtime
+[phases.setup]
+nixPkgs = ["bun", "nodejs"]
+
+[phases.install]
+cmds = ["bun install --frozen-lockfile"]
+
+[phases.build]
+cmds = ["bun run build --filter=web"]
+
+[start]
+cmd = "node apps/web/.next/standalone/apps/web/server.js"
