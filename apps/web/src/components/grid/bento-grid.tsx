@@ -1,7 +1,7 @@
 import { AchievementCard } from './achievement-card';
 import { ContactCard } from './contact-card';
-import { CtaBannerCard } from './cta-banner-card';
 import { ExpertiseCard } from './expertise-card';
+import { GithubCard } from './github-card';
 import { HeroIntroCard } from './hero-intro-card';
 import { LocationCard } from './location-card';
 import { PhilosophyCard } from './philosophy-card';
@@ -29,6 +29,7 @@ export function BentoGrid() {
         icon="🦀"
         name="Rust"
       />
+      <GithubCard colSpan={1} />
       <ContactCard colSpan={2} />
     </div>
   );
