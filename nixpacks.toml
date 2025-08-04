@@ -12,7 +12,11 @@ nixPkgs = ["bun", "nodejs"]
 cmds = ["bun install --frozen-lockfile"]
 
 [phases.build]
-cmds = ["bun run build --filter=web"]
+cmds = [
+  "bun run build --filter=web",
+  "cp -r apps/web/.next/static apps/web/.next/standalone/apps/web/.next/static",
+  "cp -r apps/web/public apps/web/.next/standalone/apps/web/public"
+]
 
 [start]
-cmd = "node apps/web/.next/standalone/apps/web/server.js"
+cmd = "cd apps/web/.next/standalone && node apps/web/server.js"
