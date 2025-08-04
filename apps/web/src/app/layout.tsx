@@ -1,17 +1,19 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Uncial_Antiqua } from 'next/font/google';
+import { JetBrains_Mono, Mona_Sans, Uncial_Antiqua } from 'next/font/google';
 import '../index.css';
 import Header from '@/components/header';
 import Providers from '@/components/providers';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
+const monaSans = Mona_Sans({
+  variable: '--font-mona-sans',
+  display: 'swap',
+  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const monoFont = JetBrains_Mono({
+  variable: '--font-mono',
   subsets: ['latin'],
+  display: 'swap',
 });
 
 const uncialAntiqua = Uncial_Antiqua({
@@ -33,12 +35,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${uncialAntiqua.variable} antialiased`}
+        className={`${monaSans.variable} ${monoFont.variable} ${uncialAntiqua.variable} overflow-x-hidden antialiased`}
       >
         <Providers>
-          <div className="grid h-svh grid-rows-[auto_1fr]">
-            <Header />
-            {children}
+          <div className="grid h-svh grid-rows-[auto_1fr] bg-black">
+            <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+              <Header />
+            </div>
+            <main className="min-h-0 overflow-auto">{children}</main>
           </div>
         </Providers>
       </body>
