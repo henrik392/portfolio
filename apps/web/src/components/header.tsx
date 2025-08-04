@@ -36,8 +36,8 @@ export default function Header() {
       <div
         className={`glass-navbar w-full py-2 backdrop-blur-sm transition-all duration-300 ${
           isScrolled
-            ? 'border-white/20 border-b px-4'
-            : 'border-transparent border-b px-6'
+            ? 'border-white/20 border-b px-3 lg:px-4'
+            : 'border-transparent border-b px-2 lg:px-6'
         }`}
       >
         <div className="flex items-center justify-between">
