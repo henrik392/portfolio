@@ -3,6 +3,7 @@ import { ContactCard } from './contact-card';
 import { ExpertiseCard } from './expertise-card';
 import { GithubCard } from './github-card';
 import { HeroIntroCard } from './hero-intro-card';
+import { LinkedinCard } from './linkedin-card';
 import { LocationCard } from './location-card';
 import { PhilosophyCard } from './philosophy-card';
 import { ProfileCard } from './profile-card';
@@ -29,8 +30,9 @@ export function BentoGrid() {
         icon="🦀"
         name="Rust"
       />
-      <GithubCard colSpan={1} />
-      <ContactCard colSpan={2} />
+      <ContactCard colSpan={2} rowSpan={2} />
+      <GithubCard colSpan={1} rowSpan={1} />
+      <LinkedinCard colSpan={1} rowSpan={1} />
     </div>
   );
 }
