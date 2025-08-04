@@ -6,6 +6,7 @@ import Providers from '@/components/providers';
 
 const monaSans = Mona_Sans({
   variable: '--font-mona-sans',
+  subsets: ['latin'],
   display: 'swap',
   fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
 });
