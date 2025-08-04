@@ -1,0 +1,23 @@
+import { TiltCard } from '@/components/tilt-card';
+
+export function AchievementCard() {
+  return (
+    <TiltCard className="p-8" colSpan={3}>
+      <h3 className="mb-2 font-semibold text-sm text-white/70">Achievement</h3>
+      <div className="flex items-center gap-6">
+        <div className="text-center">
+          <div className="mb-3 text-5xl">🏆</div>
+        </div>
+        <div className="flex-1">
+          <h2 className="mb-2 font-bold text-white text-xl tracking-tight">
+            Norwegian Olympiad in Informatics
+          </h2>
+          <p className="text-white/80 leading-relaxed">
+            5th place winner - demonstrating advanced problem-solving skills in
+            competitive programming and algorithm optimization.
+          </p>
+        </div>
+      </div>
+    </TiltCard>
+  );
+}
