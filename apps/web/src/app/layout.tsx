@@ -38,11 +38,13 @@ export default function RootLayout({
         className={`${monaSans.variable} ${monoFont.variable} ${uncialAntiqua.variable} overflow-x-hidden antialiased`}
       >
         <Providers>
-          <div className="grid h-svh grid-rows-[auto_1fr] bg-black">
-            <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative h-svh bg-black">
+            {/* Overlay header */}
+            <div className="absolute top-0 right-0 left-0 z-50 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
               <Header />
             </div>
-            <main className="min-h-0 overflow-auto">{children}</main>
+
+            <main className="h-full overflow-auto">{children}</main>
           </div>
         </Providers>
       </body>
