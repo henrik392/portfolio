@@ -36,7 +36,7 @@ export default function Home() {
         {/* Simplified Layout */}
         <div className="space-y-12">
           {/* First Row - Technical & Achievement */}
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-2">
             {/* Large Technical Expertise */}
             <TiltCard className="p-8 lg:col-span-2 lg:p-10">
               <h2 className="mb-6 font-bold text-2xl text-white sm:text-3xl lg:text-4xl">
@@ -49,7 +49,7 @@ export default function Home() {
               </p>
 
               {/* Nested tech grid */}
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-xl border border-white/5 bg-white/5 p-4">
                   <h4 className="mb-2 font-medium text-sm text-white">
                     Frontend
@@ -108,14 +108,14 @@ export default function Home() {
           </div>
 
           {/* Second Row - Philosophy & Skills */}
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-2">
             {/* Philosophy Card */}
             <TiltCard className="p-8 lg:col-span-2 lg:p-10">
-              <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
+              <div className="flex flex-row gap-6 sm:flex-row sm:items-center">
+                <h2 className="mb-4 font-bold text-white text-xl sm:text-2xl">
+                  User Experience First
+                </h2>
                 <div className="flex-1">
-                  <h2 className="mb-4 font-bold text-white text-xl sm:text-2xl">
-                    User Experience First
-                  </h2>
                   <p className="text-white/80 leading-relaxed">
                     I'm passionate about crafting exceptional user experiences
                     that feel intuitive and delightful. Great technology should
@@ -167,7 +167,7 @@ export default function Home() {
         </div>
 
         {/* Personal & CTA Layout */}
-        <div className="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-3">
+        <div className="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-2">
           {/* Personal Info */}
           <TiltCard className="p-8 lg:col-span-2 lg:p-10">
             <h2 className="mb-8 font-bold text-2xl text-white sm:text-3xl">
