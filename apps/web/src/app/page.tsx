@@ -34,11 +34,11 @@ export default function Home() {
         </TiltCard>
 
         {/* Simplified Layout */}
-        <div className="space-y-8">
+        <div className="space-y-12">
           {/* First Row - Technical & Achievement */}
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Large Technical Expertise */}
-            <TiltCard className="p-8 sm:p-10 lg:col-span-2 lg:p-12">
+            <TiltCard className="p-8 lg:col-span-2 lg:p-10">
               <h2 className="mb-6 font-bold text-2xl text-white sm:text-3xl lg:text-4xl">
                 Technical Expertise
               </h2>
@@ -74,13 +74,13 @@ export default function Home() {
             </TiltCard>
 
             {/* Achievement Card */}
-            <TiltCard className="flex flex-col p-6 sm:p-8">
+            <TiltCard className="flex flex-col p-8 lg:col-span-1">
               <div className="mb-6 text-center">
                 <div className="mb-4 text-5xl">🏆</div>
-                <h2 className="mb-4 font-bold text-white text-xl">
+                <h2 className="mb-4 font-bold text-white text-xl lg:text-2xl">
                   Norwegian Olympiad
                 </h2>
-                <p className="text-sm text-white/80">
+                <p className="text-sm text-white/80 lg:text-base">
                   5th place winner in Informatics
                 </p>
               </div>
@@ -110,7 +110,7 @@ export default function Home() {
           {/* Second Row - Philosophy & Skills */}
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Philosophy Card */}
-            <TiltCard className="p-6 sm:p-8 lg:col-span-2">
+            <TiltCard className="p-8 lg:col-span-2 lg:p-10">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
                 <div className="flex-1">
                   <h2 className="mb-4 font-bold text-white text-xl sm:text-2xl">
@@ -137,27 +137,27 @@ export default function Home() {
             </TiltCard>
 
             {/* Current Stack */}
-            <TiltCard className="p-6 sm:p-8">
-              <h2 className="mb-6 font-bold text-white text-xl">
+            <TiltCard className="p-8 lg:col-span-1">
+              <h2 className="mb-6 font-bold text-white text-xl lg:text-2xl">
                 Current Stack
               </h2>
 
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-lg border border-white/5 bg-white/5 p-3 text-center">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-lg border border-white/5 bg-white/5 p-4 text-center">
                   <div className="mb-1 text-lg">⚛️</div>
-                  <p className="font-medium text-white/70 text-xs">React</p>
+                  <p className="font-medium text-sm text-white/70">React</p>
                 </div>
-                <div className="rounded-lg border border-white/5 bg-white/5 p-3 text-center">
+                <div className="rounded-lg border border-white/5 bg-white/5 p-4 text-center">
                   <div className="mb-1 text-lg">🔥</div>
-                  <p className="font-medium text-white/70 text-xs">Hono</p>
+                  <p className="font-medium text-sm text-white/70">Hono</p>
                 </div>
-                <div className="rounded-lg border border-white/5 bg-white/5 p-3 text-center">
+                <div className="rounded-lg border border-white/5 bg-white/5 p-4 text-center">
                   <div className="mb-1 text-lg">🦀</div>
-                  <p className="font-medium text-white/70 text-xs">Rust</p>
+                  <p className="font-medium text-sm text-white/70">Rust</p>
                 </div>
-                <div className="rounded-lg border border-white/5 bg-white/5 p-3 text-center">
+                <div className="rounded-lg border border-white/5 bg-white/5 p-4 text-center">
                   <div className="mb-1 text-lg">🐘</div>
-                  <p className="font-medium text-white/70 text-xs">
+                  <p className="font-medium text-sm text-white/70">
                     PostgreSQL
                   </p>
                 </div>
@@ -167,9 +167,9 @@ export default function Home() {
         </div>
 
         {/* Personal & CTA Layout */}
-        <div className="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-7">
+        <div className="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-3">
           {/* Personal Info */}
-          <TiltCard className="p-8 lg:col-span-4">
+          <TiltCard className="p-8 lg:col-span-2 lg:p-10">
             <h2 className="mb-8 font-bold text-2xl text-white sm:text-3xl">
               Beyond the Code
             </h2>
@@ -214,7 +214,7 @@ export default function Home() {
           </TiltCard>
 
           {/* CTA */}
-          <TiltCard className="flex flex-col justify-center p-8 lg:col-span-3">
+          <TiltCard className="flex flex-col justify-center p-8 lg:col-span-1">
             <div className="text-center">
               <h2 className="mb-4 font-bold text-white text-xl sm:text-2xl">
                 Ready to Collaborate?
