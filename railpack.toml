@@ -1,5 +1,7 @@
 [variables]
 NODE_ENV = "production"
+HOSTNAME = "0.0.0.0"
+PORT = "3000"
 
 [install]
 cmd = "bun install"
@@ -10,5 +12,5 @@ cmd = "bun run build --filter=web"
 
 [launch]
 # Start the web app
-cmd = "cd apps/web && bun run start --port 3001"
-port = 3001
+cmd = "cd apps/web && bun run start"
+port = 3000
