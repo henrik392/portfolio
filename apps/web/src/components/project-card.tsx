@@ -20,7 +20,7 @@ export function ProjectCard({
   liveUrl,
 }: ProjectCardProps) {
   return (
-    <TiltCard className="p-6">
+    <TiltCard className="p-6" colSpan={1}>
       <div className="flex gap-6">
         {/* Project Image */}
         <div className="flex-shrink-0">

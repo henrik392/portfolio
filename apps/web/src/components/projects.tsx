@@ -40,7 +40,7 @@ export function Projects() {
       </div>
 
       {/* Progress Message */}
-      <TiltCard className="mb-8 p-6 sm:p-8">
+      <TiltCard className="mb-8 p-6 sm:p-8" colSpan={1}>
         <p className="text-center text-white/80 leading-relaxed">
           I am currently working on self-hosting my projects, you can check my
           open source projects at Github:{' '}

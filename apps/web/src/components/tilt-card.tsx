@@ -32,17 +32,25 @@ export function TiltCard({
   );
 
   return (
-    <Tilt
+    <motion.div
       className={gridClasses}
-      tiltMaxAngleX={tiltMaxAngleX}
-      tiltMaxAngleY={tiltMaxAngleY}
+      initial={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, margin: '-50px' }}
+      whileInView={{ opacity: 1, y: 0 }}
     >
-      <div
-        className={cn('glass-card w-full overflow-hidden', className)}
-        {...props}
+      <Tilt
+        className="w-full"
+        tiltMaxAngleX={tiltMaxAngleX}
+        tiltMaxAngleY={tiltMaxAngleY}
       >
-        {children}
-      </div>
-    </Tilt>
+        <div
+          className={cn('glass-card w-full overflow-hidden', className)}
+          {...props}
+        >
+          {children}
+        </div>
+      </Tilt>
+    </motion.div>
   );
 }
