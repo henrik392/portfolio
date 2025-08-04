@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'motion/react';
 import type * as React from 'react';
 import Tilt from 'react-parallax-tilt';
 import { cn } from '@/lib/utils';

@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'motion/react';
 import { Footer } from '@/components/footer';
 import { BentoGrid } from '@/components/grid/bento-grid';
 import Hero from '@/components/hero';
@@ -9,18 +10,44 @@ export default function Home() {
   return (
     <div>
       {/* Full-width hero */}
-      <Hero />
+      <motion.div
+        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <Hero />
+      </motion.div>
 
       {/* Constrained content sections */}
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <motion.div
+        className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
+        initial={{ opacity: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        viewport={{ once: true, margin: '-100px' }}
+        whileInView={{ opacity: 1 }}
+      >
         <BentoGrid />
 
         {/* Projects */}
-        <Projects />
-      </div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true, margin: '-50px' }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          <Projects />
+        </motion.div>
+      </motion.div>
 
       {/* Footer */}
-      <Footer />
+      <motion.div
+        initial={{ opacity: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1 }}
+      >
+        <Footer />
+      </motion.div>
     </div>
   );
 }
