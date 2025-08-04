@@ -111,11 +111,26 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-2">
             {/* Philosophy Card */}
             <TiltCard className="p-8 lg:col-span-2 lg:p-10">
-              <div className="flex flex-row gap-6 sm:flex-row sm:items-center">
-                <h2 className="mb-4 font-bold text-white text-xl sm:text-2xl">
+              <div>
+                <h2 className="mb-4 block w-full font-bold text-white text-xl sm:text-2xl">
                   User Experience First
                 </h2>
-                <div className="flex-1">
+                <div className="relative">
+                  <div
+                    className="float-right mb-4 ml-6 w-56 rounded-2xl border border-white/10 bg-white/5 p-6 text-center sm:w-64"
+                    style={{
+                      shapeOutside: 'border-radius(1rem)',
+                      WebkitShapeOutside: 'border-radius(1rem)',
+                    }}
+                  >
+                    <div className="mb-3 text-3xl">✨</div>
+                    <p className="font-medium text-sm text-white">
+                      Crafting experiences that users love
+                    </p>
+                    <p className="mt-2 text-white/60 text-xs">
+                      Design meets functionality
+                    </p>
+                  </div>
                   <p className="text-white/80 leading-relaxed">
                     I'm passionate about crafting exceptional user experiences
                     that feel intuitive and delightful. Great technology should
@@ -123,16 +138,7 @@ export default function Home() {
                     out how things work.
                   </p>
                 </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center sm:w-64 sm:flex-shrink-0">
-                  <div className="mb-3 text-3xl">✨</div>
-                  <p className="font-medium text-sm text-white">
-                    Crafting experiences that users love
-                  </p>
-                  <p className="mt-2 text-white/60 text-xs">
-                    Design meets functionality
-                  </p>
-                </div>
+                <div className="clear-both" />
               </div>
             </TiltCard>
 
