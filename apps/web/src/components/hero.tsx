@@ -38,10 +38,10 @@ export default function Hero() {
       </Canvas>
 
       {/* Content that can be scrolled to */}
-      <div className="-translate-x-1/2 pointer-events-none absolute top-48 left-1/2 flex w-full max-w-full justify-center p-4 sm:top-56 sm:p-8 md:top-64 md:p-12">
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-4 sm:px-8 md:px-12">
         <div className="w-full max-w-sm text-center sm:max-w-2xl md:max-w-4xl">
           <WordRotate
-            className="font-[family-name:var(--font-uncial-antiqua)] font-bold text-4xl text-white/80 mix-blend-difference drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] backdrop-blur-sm sm:text-6xl md:text-8xl lg:text-9xl"
+            className="font-[family-name:var(--font-uncial-antiqua)] font-bold text-7xl text-white/80 mix-blend-difference drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] md:text-8xl lg:text-9xl"
             words={['Developer', 'Designer', 'Creator']}
           />
         </div>
