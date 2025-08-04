@@ -1,5 +1,4 @@
 import { ProjectCard } from '@/components/project-card';
-import { TiltCard } from '@/components/tilt-card';
 
 // Placeholder project data
 const projects = [
@@ -30,7 +29,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section className="mt-36">
+    <section className="relative mt-36">
       {/* Section Header */}
       <div className="mb-12 flex flex-col items-center text-center">
         <h2 className="mb-3 font-bold text-4xl text-white sm:text-5xl lg:text-6xl">
@@ -38,35 +37,23 @@ export function Projects() {
         </h2>
         <p className="text-white/70 text-xl sm:text-2xl">In progress 🚧</p>
       </div>
+      {/* Projects List with Blur Overlay */}
+      <div className="relative">
+        <div className="space-y-4">
+          {projects.map((project) => (
+            <ProjectCard
+              description={project.description}
+              githubUrl={project.githubUrl}
+              key={project.title}
+              liveUrl={project.liveUrl}
+              technologies={project.technologies}
+              title={project.title}
+            />
+          ))}
+        </div>
 
-      {/* Progress Message */}
-      <TiltCard className="mb-8 p-6 sm:p-8" colSpan={1}>
-        <p className="text-center text-white/80 leading-relaxed">
-          I am currently working on self-hosting my projects, you can check my
-          open source projects at Github:{' '}
-          <a
-            className="font-medium text-blue-200 underline decoration-blue-200/30 underline-offset-2 transition-colors hover:text-blue-100 hover:decoration-blue-100/50"
-            href="https://github.com/henrik392/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            https://github.com/henrik392/
-          </a>
-        </p>
-      </TiltCard>
-
-      {/* Projects List */}
-      <div className="space-y-4">
-        {projects.map((project) => (
-          <ProjectCard
-            description={project.description}
-            githubUrl={project.githubUrl}
-            key={project.title}
-            liveUrl={project.liveUrl}
-            technologies={project.technologies}
-            title={project.title}
-          />
-        ))}
+        {/* Blur Overlay - Only over Projects List */}
+        <div className="pointer-events-none absolute inset-0 bg-black/10 backdrop-blur-sm" />
       </div>
     </section>
   );
