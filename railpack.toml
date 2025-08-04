@@ -1,0 +1,14 @@
+[variables]
+NODE_ENV = "production"
+
+[install]
+cmd = "bun install"
+
+[build]
+# Build only the web app from the monorepo
+cmd = "bun run build --filter=web"
+
+[launch]
+# Start the web app
+cmd = "cd apps/web && bun run start"
+port = 3001
