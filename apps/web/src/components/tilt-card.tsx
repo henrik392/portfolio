@@ -45,7 +45,7 @@ export function TiltCard({
         tiltMaxAngleY={tiltMaxAngleY}
       >
         <div
-          className={cn('glass-card w-full overflow-hidden', className)}
+          className={cn('glass-card h-full w-full overflow-hidden', className)}
           {...props}
         >
           {children}
