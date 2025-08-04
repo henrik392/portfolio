@@ -16,7 +16,7 @@ export default function Logo() {
       </div>
 
       {/* Name text */}
-      <div className="text-lg tracking-wide sm:text-xl">
+      <div className="text-lg text-white tracking-wide sm:text-xl">
         <span className="font-medium">Henrik Kvamme</span>
       </div>
     </div>
