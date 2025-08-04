@@ -94,7 +94,7 @@ float sdSphere(vec3 p, float s)
 }
 
 float map(vec3 p) {
-    float baseRadius = 2.5e-2;
+    float baseRadius = 4.5e-2;
     float radius = baseRadius * float(TRAIL_LENGTH);
     float k = 7.;
     float d = 1e5;
@@ -117,7 +117,7 @@ float map(vec3 p) {
         0.8 + cos(uTime * 0.2) * 0.1,   // y: 0.7-0.9 (top area)
         sin(uTime * 0.1) * 0.2          // z: floating animation
     );
-    float sphere1 = sdSphere(translate(p, floatingPos1), 0.15 + 0.03 * sin(uTime * 0.7));
+    float sphere1 = sdSphere(translate(p, floatingPos1), 0.3 + 0.05 * sin(uTime * 0.7));
     d = smoothMin(d, sphere1, k);
 
     // Second floating metaball (left side)
@@ -126,7 +126,7 @@ float map(vec3 p) {
         0.3 + sin(uTime * 0.35) * 0.15, // y: 0.15-0.45 (lower-middle)
         cos(uTime * 0.15) * 0.2         // z: floating animation
     );
-    float sphere2 = sdSphere(translate(p, floatingPos2), 0.12 + 0.04 * cos(uTime * 0.5));
+    float sphere2 = sdSphere(translate(p, floatingPos2), 0.25 + 0.06 * cos(uTime * 0.5));
     d = smoothMin(d, sphere2, k);
 
     // Third floating metaball (top center)
@@ -135,7 +135,7 @@ float map(vec3 p) {
         0.9 + cos(uTime * 0.4) * 0.08,  // y: 0.82-0.98 (top area)
         sin(uTime * 0.2) * 0.15         // z: floating animation
     );
-    float sphere3 = sdSphere(translate(p, floatingPos3), 0.18 + 0.025 * sin(uTime * 0.9));
+    float sphere3 = sdSphere(translate(p, floatingPos3), 0.35 + 0.05 * sin(uTime * 0.9));
     d = smoothMin(d, sphere3, k);
 
     // Fourth floating metaball (bottom-right)
@@ -144,7 +144,7 @@ float map(vec3 p) {
         0.2 + sin(uTime * 0.3) * 0.1,   // y: 0.1-0.3 (bottom area)
         cos(uTime * 0.12) * 0.25        // z: floating animation
     );
-    float sphere4 = sdSphere(translate(p, floatingPos4), 0.14 + 0.035 * cos(uTime * 0.6));
+    float sphere4 = sdSphere(translate(p, floatingPos4), 0.28 + 0.06 * cos(uTime * 0.6));
     d = smoothMin(d, sphere4, k);
 
     // Fifth floating metaball (center area)
@@ -153,7 +153,7 @@ float map(vec3 p) {
         0.5 + cos(uTime * 0.6) * 0.2,   // y: 0.3-0.7 (center)
         sin(uTime * 0.4) * 0.2          // z: floating animation
     );
-    float sphere5 = sdSphere(translate(p, floatingPos5), 0.2 + 0.02 * sin(uTime * 1.1));
+    float sphere5 = sdSphere(translate(p, floatingPos5), 0.38 + 0.04 * sin(uTime * 1.1));
     d = smoothMin(d, sphere5, k);
 
     // Sixth floating metaball (bottom-left)
@@ -162,7 +162,7 @@ float map(vec3 p) {
         0.15 + sin(uTime * 0.45) * 0.1, // y: 0.05-0.25 (bottom area)
         cos(uTime * 0.18) * 0.2         // z: floating animation
     );
-    float sphere6 = sdSphere(translate(p, floatingPos6), 0.13 + 0.04 * cos(uTime * 0.8));
+    float sphere6 = sdSphere(translate(p, floatingPos6), 0.27 + 0.06 * cos(uTime * 0.8));
     d = smoothMin(d, sphere6, k);
 
     return d;
