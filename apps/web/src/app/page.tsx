@@ -10,9 +10,9 @@ export default function Home() {
       <Hero />
 
       {/* Constrained content sections */}
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         {/* Hero intro - compact */}
-        <TiltCard className="mb-16 p-6 sm:p-8 lg:mb-20 lg:p-10">
+        <TiltCard className="mb-20 p-6 sm:p-8 lg:mb-24 lg:p-10">
           <section>
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="mb-6 font-bold text-3xl text-white sm:text-4xl lg:text-5xl">
@@ -34,9 +34,9 @@ export default function Home() {
         </TiltCard>
 
         {/* Simplified Layout */}
-        <div className="space-y-12">
+        <div className="space-y-16">
           {/* First Row - Technical & Achievement */}
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-2 lg:items-stretch">
             {/* Large Technical Expertise */}
             <TiltCard className="p-8 lg:col-span-2 lg:p-10">
               <h2 className="mb-6 font-bold text-2xl text-white sm:text-3xl lg:text-4xl">
@@ -74,7 +74,7 @@ export default function Home() {
             </TiltCard>
 
             {/* Achievement Card */}
-            <TiltCard className="flex flex-col p-8 lg:col-span-1">
+            <TiltCard className="flex h-full flex-col p-8 lg:col-span-1">
               <div className="mb-6 text-center">
                 <div className="mb-4 text-5xl">🏆</div>
                 <h2 className="mb-4 font-bold text-white text-xl lg:text-2xl">
@@ -108,7 +108,7 @@ export default function Home() {
           </div>
 
           {/* Second Row - Philosophy & Skills */}
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-2 lg:items-stretch">
             {/* Philosophy Card */}
             <TiltCard className="p-8 lg:col-span-2 lg:p-10">
               <div>
@@ -145,7 +145,7 @@ export default function Home() {
             </TiltCard>
 
             {/* Current Stack */}
-            <TiltCard className="p-8 lg:col-span-1">
+            <TiltCard className="flex h-full flex-col p-8 lg:col-span-1">
               <h2 className="mb-6 font-bold text-white text-xl lg:text-2xl">
                 Current Stack
               </h2>
@@ -175,7 +175,7 @@ export default function Home() {
         </div>
 
         {/* Personal & CTA Layout */}
-        <div className="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-2">
+        <div className="mt-20 grid gap-6 lg:mt-24 lg:grid-cols-2 lg:items-stretch">
           {/* Personal Info */}
           <TiltCard className="p-8 lg:col-span-2 lg:p-10">
             <h2 className="mb-8 font-bold text-2xl text-white sm:text-3xl">
@@ -222,7 +222,7 @@ export default function Home() {
           </TiltCard>
 
           {/* CTA */}
-          <TiltCard className="flex flex-col justify-center p-8 lg:col-span-1">
+          <TiltCard className="flex h-full flex-col justify-center p-8 lg:col-span-1">
             <div className="text-center">
               <h2 className="mb-4 font-bold text-white text-xl sm:text-2xl">
                 Ready to Collaborate?
@@ -256,7 +256,7 @@ export default function Home() {
         </div>
 
         {/* Large CTA Banner */}
-        <TiltCard className="mt-8 p-8 sm:p-12 lg:p-16">
+        <TiltCard className="mt-20 p-8 sm:p-12 lg:p-16">
           <div className="text-center">
             <h2 className="mb-4 font-bold text-3xl text-white sm:text-4xl lg:text-5xl">
               Let's Build Something Amazing
