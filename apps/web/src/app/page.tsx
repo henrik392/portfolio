@@ -1,5 +1,6 @@
 'use client';
 
+import Tilt from 'react-parallax-tilt';
 import Hero from '@/components/hero';
 
 export default function Home() {
@@ -11,24 +12,26 @@ export default function Home() {
       {/* Constrained content sections */}
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Hero intro - compact */}
-        <section className="glass-card mb-16 p-6 sm:p-8 lg:mb-20 lg:p-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-6 font-bold text-3xl text-white sm:text-4xl lg:text-5xl">
-              Building the Future, One Line at a Time
-            </h2>
-            <p className="text-lg text-white/90 leading-relaxed sm:text-xl">
-              With a{' '}
-              <span className="font-medium text-white">
-                decade of development experience,
-              </span>{' '}
-              I have worked at multiple startups, and I'm now a{' '}
-              <span className="font-medium text-white">
-                consultant at Texicon
-              </span>{' '}
-              and passionate freelancer.
-            </p>
-          </div>
-        </section>
+        <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3}>
+          <section className="glass-card mb-16 p-6 sm:p-8 lg:mb-20 lg:p-10">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="mb-6 font-bold text-3xl text-white sm:text-4xl lg:text-5xl">
+                Building the Future, One Line at a Time
+              </h2>
+              <p className="text-lg text-white/90 leading-relaxed sm:text-xl">
+                With a{' '}
+                <span className="font-medium text-white">
+                  decade of development experience,
+                </span>{' '}
+                I have worked at multiple startups, and I'm now a{' '}
+                <span className="font-medium text-white">
+                  consultant at Texicon
+                </span>{' '}
+                and passionate freelancer.
+              </p>
+            </div>
+          </section>
+        </Tilt>
 
         {/* Simplified Layout */}
         <div className="space-y-8">
