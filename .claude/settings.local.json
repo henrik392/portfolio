@@ -4,7 +4,9 @@
       "WebFetch(domain:docs.dokploy.com)",
       "WebFetch(domain:railpack.com)",
       "Bash(nslookup:*)",
-      "Bash(dig:*)"
+      "Bash(dig:*)",
+      "Bash(bun run:*)",
+      "Bash(biome check:*)"
     ]
   },
   "hooks": {

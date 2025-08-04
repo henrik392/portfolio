@@ -1,8 +1,19 @@
 import type { Metadata } from 'next';
-import { JetBrains_Mono, Mona_Sans, Uncial_Antiqua } from 'next/font/google';
+import {
+  Geist_Mono,
+  JetBrains_Mono,
+  Mona_Sans,
+  Uncial_Antiqua,
+} from 'next/font/google';
 import '../index.css';
 import Header from '@/components/header';
 import Providers from '@/components/providers';
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 const monaSans = Mona_Sans({
   variable: '--font-mona-sans',
@@ -36,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${monaSans.variable} ${monoFont.variable} ${uncialAntiqua.variable} overflow-x-hidden antialiased`}
+        className={`${geistMono.variable} ${monaSans.variable} ${monoFont.variable} ${uncialAntiqua.variable} overflow-x-hidden antialiased`}
       >
         <Providers>
           <div className="relative h-svh bg-black">
