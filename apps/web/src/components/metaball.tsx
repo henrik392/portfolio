@@ -28,6 +28,18 @@ uniform vec2 uPointerTrail[TRAIL_LENGTH];
 
 varying vec2 vTexCoord;
 
+// Convert normalized coordinates (0-1) to screen-aware shader coordinates
+vec3 normalizedToShaderPos(float x, float y, float z) {
+    float aspectRatio = uResolution.x / uResolution.y;
+    float minDimension = min(uResolution.x, uResolution.y);
+
+    // Convert 0-1 to -1 to 1, then scale by aspect ratio
+    float shaderX = (x * 4.0 - 1.0) * aspectRatio;
+    float shaderY = (y * 4.0 - 1.0);
+
+    return vec3(shaderX, shaderY, z);
+}
+
 float rnd3D(vec3 p) {
     return fract(sin(dot(p, vec3(12.9898, 78.233, 37.719))) * 43758.5453123);
 }
@@ -82,7 +94,7 @@ float sdSphere(vec3 p, float s)
 }
 
 float map(vec3 p) {
-    float baseRadius = 1.5e-2;
+    float baseRadius = 2.5e-2;
     float radius = baseRadius * float(TRAIL_LENGTH);
     float k = 7.;
     float d = 1e5;
@@ -99,13 +111,59 @@ float map(vec3 p) {
         d = smoothMin(d, sphere, k);
     }
 
-    vec3 floatingPos = vec3(
-        sin(uTime * 0.3) * 0.4 + 1.5,
-        cos(uTime * 0.2) * 0.3 + 0.8,
-        sin(uTime * 0.1) * 0.2
+    // First floating metaball (top-right area)
+    vec3 floatingPos1 = normalizedToShaderPos(
+        0.85 + sin(uTime * 0.3) * 0.1,  // x: 0.75-0.95 (right side)
+        0.8 + cos(uTime * 0.2) * 0.1,   // y: 0.7-0.9 (top area)
+        sin(uTime * 0.1) * 0.2          // z: floating animation
     );
-    float sphere = sdSphere(translate(p, floatingPos), 0.8);
-    d = smoothMin(d, sphere, k);
+    float sphere1 = sdSphere(translate(p, floatingPos1), 0.15 + 0.03 * sin(uTime * 0.7));
+    d = smoothMin(d, sphere1, k);
+
+    // Second floating metaball (left side)
+    vec3 floatingPos2 = normalizedToShaderPos(
+        0.15 + cos(uTime * 0.4) * 0.08, // x: 0.07-0.23 (left side)
+        0.3 + sin(uTime * 0.35) * 0.15, // y: 0.15-0.45 (lower-middle)
+        cos(uTime * 0.15) * 0.2         // z: floating animation
+    );
+    float sphere2 = sdSphere(translate(p, floatingPos2), 0.12 + 0.04 * cos(uTime * 0.5));
+    d = smoothMin(d, sphere2, k);
+
+    // Third floating metaball (top center)
+    vec3 floatingPos3 = normalizedToShaderPos(
+        0.4 + sin(uTime * 0.25) * 0.15, // x: 0.25-0.55 (center-left)
+        0.9 + cos(uTime * 0.4) * 0.08,  // y: 0.82-0.98 (top area)
+        sin(uTime * 0.2) * 0.15         // z: floating animation
+    );
+    float sphere3 = sdSphere(translate(p, floatingPos3), 0.18 + 0.025 * sin(uTime * 0.9));
+    d = smoothMin(d, sphere3, k);
+
+    // Fourth floating metaball (bottom-right)
+    vec3 floatingPos4 = normalizedToShaderPos(
+        0.75 + cos(uTime * 0.5) * 0.12, // x: 0.63-0.87 (right side)
+        0.2 + sin(uTime * 0.3) * 0.1,   // y: 0.1-0.3 (bottom area)
+        cos(uTime * 0.12) * 0.25        // z: floating animation
+    );
+    float sphere4 = sdSphere(translate(p, floatingPos4), 0.14 + 0.035 * cos(uTime * 0.6));
+    d = smoothMin(d, sphere4, k);
+
+    // Fifth floating metaball (center area)
+    vec3 floatingPos5 = normalizedToShaderPos(
+        0.5 + sin(uTime * 0.8) * 0.2,   // x: 0.3-0.7 (center)
+        0.5 + cos(uTime * 0.6) * 0.2,   // y: 0.3-0.7 (center)
+        sin(uTime * 0.4) * 0.2          // z: floating animation
+    );
+    float sphere5 = sdSphere(translate(p, floatingPos5), 0.2 + 0.02 * sin(uTime * 1.1));
+    d = smoothMin(d, sphere5, k);
+
+    // Sixth floating metaball (bottom-left)
+    vec3 floatingPos6 = normalizedToShaderPos(
+        0.25 + cos(uTime * 0.35) * 0.1, // x: 0.15-0.35 (left side)
+        0.15 + sin(uTime * 0.45) * 0.1, // y: 0.05-0.25 (bottom area)
+        cos(uTime * 0.18) * 0.2         // z: floating animation
+    );
+    float sphere6 = sdSphere(translate(p, floatingPos6), 0.13 + 0.04 * cos(uTime * 0.8));
+    d = smoothMin(d, sphere6, k);
 
     return d;
 }
