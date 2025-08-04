@@ -1,8 +1,20 @@
 import { TiltCard } from '@/components/tilt-card';
 
-export function HeroIntroCard() {
+interface HeroIntroCardProps {
+  colSpan?: 1 | 2 | 3;
+  rowSpan?: 1 | 2;
+}
+
+export function HeroIntroCard({
+  colSpan = 3,
+  rowSpan = 1,
+}: HeroIntroCardProps) {
   return (
-    <TiltCard className="p-6 sm:p-8 lg:p-10" colSpan={3}>
+    <TiltCard
+      className="p-6 sm:p-8 lg:p-10"
+      colSpan={colSpan}
+      rowSpan={rowSpan}
+    >
       <section>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mb-6 font-bold text-3xl text-white sm:text-4xl lg:text-5xl">

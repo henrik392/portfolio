@@ -11,16 +11,26 @@ import { TechCard } from './tech-card';
 export function BentoGrid() {
   return (
     <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
-      <HeroIntroCard />
-      <ExpertiseCard />
-      <ProfileCard />
-      <AchievementCard />
-      <PhilosophyCard />
-      <LocationCard />
-      <TechCard description="Frontend framework" icon="⚛️" name="React" />
-      <TechCard description="Systems programming" icon="🦀" name="Rust" />
-      <ContactCard />
-      <CtaBannerCard />
+      <HeroIntroCard colSpan={3} />
+      <ExpertiseCard colSpan={3} />
+      <ProfileCard colSpan={1} />
+      <AchievementCard colSpan={2} />
+      <PhilosophyCard colSpan={2} />
+      <LocationCard colSpan={1} rowSpan={2} />
+      <TechCard
+        colSpan={1}
+        description="Frontend framework"
+        icon="⚛️"
+        name="React"
+      />
+      <TechCard
+        colSpan={1}
+        description="Systems programming"
+        icon="🦀"
+        name="Rust"
+      />
+      <ContactCard colSpan={1} />
+      <CtaBannerCard colSpan={3} />
     </div>
   );
 }

@@ -31,15 +31,17 @@ export function TiltCard({
   );
 
   return (
-    <div className={gridClasses}>
-      <Tilt tiltMaxAngleX={tiltMaxAngleX} tiltMaxAngleY={tiltMaxAngleY}>
-        <div
-          className={cn('glass-card w-full overflow-hidden', className)}
-          {...props}
-        >
-          {children}
-        </div>
-      </Tilt>
-    </div>
+    <Tilt
+      className={gridClasses}
+      tiltMaxAngleX={tiltMaxAngleX}
+      tiltMaxAngleY={tiltMaxAngleY}
+    >
+      <div
+        className={cn('glass-card w-full overflow-hidden', className)}
+        {...props}
+      >
+        {children}
+      </div>
+    </Tilt>
   );
 }

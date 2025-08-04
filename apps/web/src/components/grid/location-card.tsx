@@ -1,8 +1,17 @@
 import { TiltCard } from '@/components/tilt-card';
 
-export function LocationCard() {
+interface LocationCardProps {
+  colSpan?: 1 | 2 | 3;
+  rowSpan?: 1 | 2;
+}
+
+export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
   return (
-    <TiltCard className="flex h-full flex-col p-6" colSpan={1} rowSpan={2}>
+    <TiltCard
+      className="flex h-full flex-col p-6"
+      colSpan={colSpan}
+      rowSpan={rowSpan}
+    >
       <h3 className="mb-4 font-semibold text-sm text-white/70">Location</h3>
       <div className="flex flex-1 flex-col justify-center text-center">
         <div className="mb-3 text-4xl">📍</div>

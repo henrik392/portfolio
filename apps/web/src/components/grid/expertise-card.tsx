@@ -1,8 +1,16 @@
 import { TiltCard } from '@/components/tilt-card';
 
-export function ExpertiseCard() {
+interface ExpertiseCardProps {
+  colSpan?: 1 | 2 | 3;
+  rowSpan?: 1 | 2;
+}
+
+export function ExpertiseCard({
+  colSpan = 3,
+  rowSpan = 1,
+}: ExpertiseCardProps) {
   return (
-    <TiltCard className="p-8 lg:p-10" colSpan={4}>
+    <TiltCard className="p-8 lg:p-10" colSpan={colSpan} rowSpan={rowSpan}>
       <h3 className="mb-2 font-semibold text-sm text-white/70">Expertise</h3>
       <h2 className="mb-4 font-bold text-2xl text-white tracking-tight sm:text-3xl lg:text-4xl">
         Full-Stack Engineering

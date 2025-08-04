@@ -1,8 +1,16 @@
 import { TiltCard } from '@/components/tilt-card';
 
-export function PhilosophyCard() {
+interface PhilosophyCardProps {
+  colSpan?: 1 | 2 | 3;
+  rowSpan?: 1 | 2;
+}
+
+export function PhilosophyCard({
+  colSpan = 2,
+  rowSpan = 1,
+}: PhilosophyCardProps) {
   return (
-    <TiltCard className="p-8" colSpan={3}>
+    <TiltCard className="p-8" colSpan={colSpan} rowSpan={rowSpan}>
       <h3 className="mb-2 font-semibold text-sm text-white/70">Philosophy</h3>
       <h2 className="mb-4 font-bold text-white text-xl tracking-tight">
         User Experience First

@@ -1,10 +1,16 @@
 import { TiltCard } from '@/components/tilt-card';
 
-export function ContactCard() {
+interface ContactCardProps {
+  colSpan?: 1 | 2 | 3;
+  rowSpan?: 1 | 2;
+}
+
+export function ContactCard({ colSpan = 1, rowSpan = 1 }: ContactCardProps) {
   return (
     <TiltCard
       className="flex h-full flex-col justify-center p-6 text-center"
-      colSpan={1}
+      colSpan={colSpan}
+      rowSpan={rowSpan}
     >
       <h3 className="mb-2 font-semibold text-sm text-white/70">Contact</h3>
       <div className="space-y-2">

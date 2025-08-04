@@ -1,8 +1,16 @@
 import { TiltCard } from '@/components/tilt-card';
 
-export function AchievementCard() {
+interface AchievementCardProps {
+  colSpan?: 1 | 2 | 3;
+  rowSpan?: 1 | 2;
+}
+
+export function AchievementCard({
+  colSpan = 2,
+  rowSpan = 1,
+}: AchievementCardProps) {
   return (
-    <TiltCard className="p-8" colSpan={3}>
+    <TiltCard className="p-8" colSpan={colSpan} rowSpan={rowSpan}>
       <h3 className="mb-2 font-semibold text-sm text-white/70">Achievement</h3>
       <div className="flex items-center gap-6">
         <div className="text-center">
