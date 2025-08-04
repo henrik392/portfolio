@@ -42,7 +42,11 @@ export default function Hero() {
         <div className="w-full max-w-sm text-center sm:max-w-2xl md:max-w-4xl">
           <WordRotate
             className="font-[family-name:var(--font-uncial-antiqua)] font-bold text-7xl text-white/80 mix-blend-difference drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] md:text-8xl lg:text-9xl"
-            words={['Developer', 'Designer', 'Creator']}
+            words={[
+              'Full-Stack Developer',
+              'AI Engineer',
+              'Creative Technologist',
+            ]}
           />
         </div>
       </div>
