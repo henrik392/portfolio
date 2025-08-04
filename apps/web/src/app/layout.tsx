@@ -40,7 +40,7 @@ export default function RootLayout({
         <Providers>
           <div className="relative h-svh bg-black">
             {/* Overlay header */}
-            <div className="absolute top-0 right-0 left-0 z-50 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="absolute top-0 right-0 left-0 z-50 mx-auto w-full max-w-7xl">
               <Header />
             </div>
 
