@@ -1,6 +1,45 @@
-# portfolio
+# Henrik Kvamme - Portfolio
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Next, and more.
+> Full-Stack Developer, AI Engineer & Creative Technologist
+
+Interactive portfolio showcasing a decade of development experience, featuring advanced 3D graphics with ray marching and metaballs.
+
+## About Me
+
+I'm Henrik Kvamme, a passionate developer with **10 years of experience** starting from age 10. Currently working as a **consultant at Texicon** while taking on exciting freelance projects.
+
+### What I Do
+
+- **Full-Stack Development** - Crafting complete web applications from frontend to backend
+- **Mobile Development** - Building native and cross-platform mobile apps  
+- **AI Engineering** - Implementing machine learning and AI solutions
+- **Algorithm Design** - Competitive programming and optimization
+
+### Current Tech Stack
+
+- **Go-To Stack**: Next.js + oRPC + PostgreSQL + Drizzle
+- **Frontend**: React, Next.js, TypeScript
+- **Backend**: Rust, Python (FastAPI/Django), Hono, Java Spring Boot
+- **Databases**: PostgreSQL, SQLite, MySQL, Prisma/Drizzle
+- **AI/ML**: Python, TensorFlow, PyTorch
+
+### Philosophy
+
+I believe in **user experience first** - crafting technology that feels intuitive and delightful. Great software should be invisible to users, allowing them to focus on their goals.
+
+### Achievements
+
+🏆 **5th place** - Norwegian Olympiad of Informatics
+
+### Location & Interests
+
+📍 **Trondheim, Norway** | 🏃‍♂️ **Gym Enthusiast** | 🎸 **Guitar Player**
+
+---
+
+## Technical Details
+
+This portfolio was built with a modern TypeScript stack, featuring interactive 3D graphics using ray marching and signed distance functions.
 
 ## Features
 
@@ -51,3 +90,11 @@ portfolio/
 - `bun dev:server`: Start only the server
 - `bun check-types`: Check TypeScript types across all apps
 - `bun check`: Run Biome formatting and linting
+
+---
+
+## Let's Connect
+
+I'm always open for **freelance opportunities** and interesting challenges. Whether you have a project in mind, want to collaborate, or just want to chat about tech - let's build something amazing together!
+
+*Ready to create exceptional user experiences that users love.*
