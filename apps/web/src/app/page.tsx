@@ -118,10 +118,12 @@ export default function Home() {
                 <div className="relative">
                   <div
                     className="float-right mb-4 ml-6 w-56 rounded-2xl border border-white/10 bg-white/5 p-6 text-center sm:w-64"
-                    style={{
-                      shapeOutside: 'border-radius(1rem)',
-                      WebkitShapeOutside: 'border-radius(1rem)',
-                    }}
+                    style={
+                      {
+                        shapeOutside: 'border-radius(1rem)',
+                        WebkitShapeOutside: 'border-radius(1rem)',
+                      } as React.CSSProperties
+                    }
                   >
                     <div className="mb-3 text-3xl">✨</div>
                     <p className="font-medium text-sm text-white">
