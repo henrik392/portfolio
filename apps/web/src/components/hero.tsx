@@ -7,6 +7,7 @@ import { WordRotate } from './magicui/word-rotate';
 
 export default function Hero() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const isThreeJSDisabled = process.env.NEXT_PUBLIC_DISABLE_THREEJS === 'true';
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -28,14 +29,21 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full">
-      <Canvas
-        className="absolute inset-0"
-        resize={{ scroll: false, debounce: { scroll: 50, resize: 0 } }}
-        style={{ width: dimensions.width, height: dimensions.height }}
-      >
-        <ambientLight intensity={Math.PI / 2} />
-        <Metaball />
-      </Canvas>
+      {!isThreeJSDisabled && (
+        <Canvas
+          className="absolute inset-0"
+          resize={{ scroll: false, debounce: { scroll: 50, resize: 0 } }}
+          style={{ width: dimensions.width, height: dimensions.height }}
+        >
+          <ambientLight intensity={Math.PI / 2} />
+          <Metaball />
+        </Canvas>
+      )}
+
+      {/* Fallback background when three.js is disabled */}
+      {isThreeJSDisabled && (
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900" />
+      )}
 
       {/* Content that can be scrolled to */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-4 sm:px-8 md:px-12">
