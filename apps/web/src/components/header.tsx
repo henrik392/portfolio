@@ -34,10 +34,10 @@ export default function Header() {
       }`}
     >
       <div
-        className={`glass-navbar w-full backdrop-blur-sm transition-all duration-300 ${
+        className={`glass-navbar w-full py-2 backdrop-blur-sm transition-all duration-300 ${
           isScrolled
-            ? 'border-white/20 border-b px-4 py-3'
-            : 'border-transparent border-b px-6 py-4'
+            ? 'border-white/20 border-b px-4'
+            : 'border-transparent border-b px-6'
         }`}
       >
         <div className="flex items-center justify-between">

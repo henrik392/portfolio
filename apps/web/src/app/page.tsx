@@ -1,7 +1,7 @@
 'use client';
 
-import Tilt from 'react-parallax-tilt';
 import Hero from '@/components/hero';
+import { TiltCard } from '@/components/tilt-card';
 
 export default function Home() {
   return (
@@ -12,8 +12,8 @@ export default function Home() {
       {/* Constrained content sections */}
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Hero intro - compact */}
-        <Tilt tiltMaxAngleX={3} tiltMaxAngleY={3}>
-          <section className="glass-card mb-16 p-6 sm:p-8 lg:mb-20 lg:p-10">
+        <TiltCard className="mb-16 p-6 sm:p-8 lg:mb-20 lg:p-10">
+          <section>
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="mb-6 font-bold text-3xl text-white sm:text-4xl lg:text-5xl">
                 Building the Future, One Line at a Time
@@ -31,14 +31,14 @@ export default function Home() {
               </p>
             </div>
           </section>
-        </Tilt>
+        </TiltCard>
 
         {/* Simplified Layout */}
         <div className="space-y-8">
           {/* First Row - Technical & Achievement */}
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Large Technical Expertise */}
-            <section className="glass-card p-8 sm:p-10 lg:col-span-2 lg:p-12">
+            <TiltCard className="p-8 sm:p-10 lg:col-span-2 lg:p-12">
               <h2 className="mb-6 font-bold text-2xl text-white sm:text-3xl lg:text-4xl">
                 Technical Expertise
               </h2>
@@ -71,10 +71,10 @@ export default function Home() {
                   <p className="text-white/60 text-xs">PostgreSQL, AI/ML</p>
                 </div>
               </div>
-            </section>
+            </TiltCard>
 
             {/* Achievement Card */}
-            <section className="glass-card flex flex-col p-6 sm:p-8">
+            <TiltCard className="flex flex-col p-6 sm:p-8">
               <div className="mb-6 text-center">
                 <div className="mb-4 text-5xl">🏆</div>
                 <h2 className="mb-4 font-bold text-white text-xl">
@@ -104,13 +104,13 @@ export default function Home() {
                   <p className="text-white/60 text-xs">Complex challenges</p>
                 </div>
               </div>
-            </section>
+            </TiltCard>
           </div>
 
           {/* Second Row - Philosophy & Skills */}
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Philosophy Card */}
-            <section className="glass-card p-6 sm:p-8 lg:col-span-2">
+            <TiltCard className="p-6 sm:p-8 lg:col-span-2">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
                 <div className="flex-1">
                   <h2 className="mb-4 font-bold text-white text-xl sm:text-2xl">
@@ -134,10 +134,10 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </section>
+            </TiltCard>
 
             {/* Current Stack */}
-            <section className="glass-card p-6 sm:p-8">
+            <TiltCard className="p-6 sm:p-8">
               <h2 className="mb-6 font-bold text-white text-xl">
                 Current Stack
               </h2>
@@ -162,14 +162,14 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </section>
+            </TiltCard>
           </div>
         </div>
 
         {/* Personal & CTA Layout */}
         <div className="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-7">
           {/* Personal Info */}
-          <section className="glass-card p-8 lg:col-span-4">
+          <TiltCard className="p-8 lg:col-span-4">
             <h2 className="mb-8 font-bold text-2xl text-white sm:text-3xl">
               Beyond the Code
             </h2>
@@ -211,10 +211,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </section>
+          </TiltCard>
 
           {/* CTA */}
-          <section className="glass-card flex flex-col justify-center p-8 lg:col-span-3">
+          <TiltCard className="flex flex-col justify-center p-8 lg:col-span-3">
             <div className="text-center">
               <h2 className="mb-4 font-bold text-white text-xl sm:text-2xl">
                 Ready to Collaborate?
@@ -244,11 +244,11 @@ export default function Home() {
                 </button>
               </div>
             </div>
-          </section>
+          </TiltCard>
         </div>
 
         {/* Large CTA Banner */}
-        <section className="glass-card mt-8 p-8 sm:p-12 lg:p-16">
+        <TiltCard className="mt-8 p-8 sm:p-12 lg:p-16">
           <div className="text-center">
             <h2 className="mb-4 font-bold text-3xl text-white sm:text-4xl lg:text-5xl">
               Let's Build Something Amazing
@@ -258,7 +258,7 @@ export default function Home() {
               want to chat about tech
             </p>
           </div>
-        </section>
+        </TiltCard>
       </div>
     </div>
   );
