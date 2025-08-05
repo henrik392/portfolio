@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
+import type { MapRef } from 'react-map-gl/mapbox';
 import { Map as MapboxMap, Marker } from 'react-map-gl/mapbox';
 import { TiltCard } from '@/components/tilt-card';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -11,6 +13,19 @@ interface LocationCardProps {
 
 export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
   const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+  const mapRef = useRef<MapRef>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (mapRef.current) {
+        // Force map to resize
+        mapRef.current.getMap().resize();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <TiltCard
@@ -35,6 +50,7 @@ export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
           keyboard={true}
           mapboxAccessToken={MAPBOX_TOKEN}
           mapStyle="mapbox://styles/mapbox/dark-v11"
+          ref={mapRef}
           scrollZoom={true}
           style={{ width: '100%', height: '100%' }}
           touchZoomRotate={true}

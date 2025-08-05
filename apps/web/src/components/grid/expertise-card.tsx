@@ -28,7 +28,7 @@ export function ExpertiseCard({
         </div>
         <div className="rounded-xl border border-white/10 bg-white/5 p-4">
           <h4 className="mb-1 font-medium text-sm text-white">Backend</h4>
-          <p className="text-white/60 text-xs">Rust, Python, Hono</p>
+          <p className="text-white/60 text-xs">Rust, Python, Node.js</p>
         </div>
         <div className="rounded-xl border border-white/10 bg-white/5 p-4">
           <h4 className="mb-1 font-medium text-sm text-white">Data & AI</h4>
@@ -36,7 +36,7 @@ export function ExpertiseCard({
         </div>
         <div className="rounded-xl border border-white/10 bg-white/5 p-4">
           <h4 className="mb-1 font-medium text-sm text-white">Mobile</h4>
-          <p className="text-white/60 text-xs">React Native, Swift</p>
+          <p className="text-white/60 text-xs">React Native, Flutter, Dart</p>
         </div>
       </div>
     </TiltCard>
