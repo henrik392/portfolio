@@ -17,6 +17,8 @@ export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
       className="flex h-full flex-col overflow-hidden p-0"
       colSpan={colSpan}
       rowSpan={rowSpan}
+      tiltMaxAngleX={0}
+      tiltMaxAngleY={0}
     >
       <div className="relative h-full w-full">
         <MapboxMap
@@ -38,10 +40,10 @@ export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-        <div className="absolute right-0 bottom-0 left-0 p-4">
+        <div className="absolute right-4 bottom-4 text-right">
           <h3 className="mb-2 font-semibold text-sm text-white/70">Location</h3>
           <h2 className="mb-1 font-bold text-lg text-white">Trondheim</h2>
-          <p className="mb-3 text-sm text-white/60">Norway</p>
+          <p className="text-sm text-white/60">Norway</p>
         </div>
       </div>
     </TiltCard>
