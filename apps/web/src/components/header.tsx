@@ -1,6 +1,8 @@
 'use client';
 
+import { FolderOpen, Github, Linkedin, Mail } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
 import Logo from './logo';
 
 export default function Header() {
@@ -25,6 +27,18 @@ export default function Header() {
     }
   }, []);
 
+  const scrollToProjects = () => {
+    const projectsSection = document.querySelector('section');
+    const mainElement = document.querySelector('main');
+    if (projectsSection && mainElement) {
+      const offsetTop = projectsSection.offsetTop - 100; // Account for header height
+      mainElement.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <header
       className={`w-full transition-all duration-300 ${
@@ -42,13 +56,58 @@ export default function Header() {
       >
         <div className="flex items-center justify-between">
           <Logo />
-          <div className="flex items-center gap-4">
-            <button
-              className="rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-              type="button"
+          <div className="flex items-center gap-2 sm:gap-4">
+            <Button
+              asChild
+              className="border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              size="icon"
+              variant="ghost"
             >
-              Contact
-            </button>
+              <a
+                aria-label="GitHub"
+                href="https://github.com/henrik392"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Github className="h-4 w-4" />
+              </a>
+            </Button>
+
+            <Button
+              asChild
+              className="border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              size="icon"
+              variant="ghost"
+            >
+              <a
+                aria-label="LinkedIn"
+                href="https://linkedin.com/in/henrik-kvamme"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </Button>
+
+            <Button
+              className="border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              onClick={scrollToProjects}
+              variant="ghost"
+            >
+              <FolderOpen className="mr-2 h-4 w-4" />
+              Projects
+            </Button>
+
+            <Button
+              asChild
+              className="border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              variant="ghost"
+            >
+              <a href="mailto:henrik@henrikkvamme.dev">
+                <Mail className="mr-2 h-4 w-4" />
+                Contact
+              </a>
+            </Button>
           </div>
         </div>
       </div>
