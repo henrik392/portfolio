@@ -31,9 +31,17 @@ export default function Hero() {
     <section className="relative h-screen w-full">
       {!isThreeJSDisabled && (
         <Canvas
-          className="absolute inset-0"
+          className="absolute inset-0 touch-none select-none overflow-hidden"
           resize={{ scroll: false, debounce: { scroll: 50, resize: 0 } }}
-          style={{ width: dimensions.width, height: dimensions.height }}
+          style={{
+            width: dimensions.width,
+            height: dimensions.height,
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
+            WebkitTouchCallout: 'none',
+            touchAction: 'pan-y pinch-zoom',
+            overscrollBehavior: 'none',
+          }}
         >
           <ambientLight intensity={Math.PI / 2} />
           <Metaball />
