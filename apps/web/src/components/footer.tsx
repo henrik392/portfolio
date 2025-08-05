@@ -26,7 +26,7 @@ export function Footer() {
               </a>
               <a
                 className="text-sm text-white/60 transition-colors hover:text-white"
-                href="https://linkedin.com/in/henrikkvamme"
+                href="https://linkedin.com/in/henrik-kvamme"
                 rel="noopener noreferrer"
                 target="_blank"
               >

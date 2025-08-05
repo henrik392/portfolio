@@ -1,6 +1,14 @@
 'use client';
 
+import { FolderOpen, Github, Linkedin, Mail, Menu } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import Logo from './logo';
 
 export default function Header() {
@@ -42,13 +50,123 @@ export default function Header() {
       >
         <div className="flex items-center justify-between">
           <Logo />
-          <div className="flex items-center gap-4">
-            <button
-              className="rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-              type="button"
+
+          {/* Desktop Navigation */}
+          <div className="hidden items-center gap-2 sm:gap-4 md:flex">
+            <Button
+              asChild
+              className="border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              size="icon"
+              variant="ghost"
             >
-              Contact
-            </button>
+              <a
+                aria-label="GitHub"
+                href="https://github.com/henrik392"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Github className="h-4 w-4" />
+              </a>
+            </Button>
+
+            <Button
+              asChild
+              className="border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              size="icon"
+              variant="ghost"
+            >
+              <a
+                aria-label="LinkedIn"
+                href="https://linkedin.com/in/henrik-kvamme"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </Button>
+
+            <Button
+              asChild
+              className="border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              variant="ghost"
+            >
+              <a href="#projects">
+                <FolderOpen className="mr-2 h-4 w-4" />
+                Projects
+              </a>
+            </Button>
+
+            <Button
+              asChild
+              className="border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              variant="ghost"
+            >
+              <a href="mailto:henrik@henrikkvamme.dev">
+                <Mail className="mr-2 h-4 w-4" />
+                Contact
+              </a>
+            </Button>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="md:hidden">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  aria-label="Open menu"
+                  className="border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+                  size="icon"
+                  variant="ghost"
+                >
+                  <Menu className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="end"
+                className="w-56 border border-white/20 bg-black/90 backdrop-blur-sm"
+              >
+                <DropdownMenuItem asChild>
+                  <a
+                    className="flex items-center text-white hover:text-white/80"
+                    href="https://github.com/henrik392"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <Github className="mr-2 h-4 w-4" />
+                    GitHub
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a
+                    className="flex items-center text-white hover:text-white/80"
+                    href="https://linkedin.com/in/henrik-kvamme"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <Linkedin className="mr-2 h-4 w-4" />
+                    LinkedIn
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a
+                    className="flex items-center text-white hover:text-white/80"
+                    href="#projects"
+                  >
+                    <FolderOpen className="mr-2 h-4 w-4" />
+                    Projects
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a
+                    className="flex items-center text-white hover:text-white/80"
+                    href="mailto:henrik@henrikkvamme.dev"
+                  >
+                    <Mail className="mr-2 h-4 w-4" />
+                    Contact
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </div>

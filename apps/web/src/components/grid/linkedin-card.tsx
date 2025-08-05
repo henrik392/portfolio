@@ -11,7 +11,7 @@ export function LinkedinCard({ colSpan = 1, rowSpan = 1 }: LinkedinCardProps) {
     <TiltCard className="p-6" colSpan={colSpan} rowSpan={rowSpan}>
       <a
         className="flex h-full flex-col items-center justify-center text-center transition-colors hover:text-white/90"
-        href="https://linkedin.com/in/henrikkvamme"
+        href="https://linkedin.com/in/henrik-kvamme"
         rel="noopener noreferrer"
         target="_blank"
       >

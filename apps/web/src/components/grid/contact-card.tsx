@@ -35,7 +35,7 @@ export function ContactCard({ colSpan = 1, rowSpan = 1 }: ContactCardProps) {
           </a>
           <a
             className="inline-flex items-center justify-center rounded-xl border border-blue-400/30 bg-blue-500/10 px-8 py-4 font-medium text-blue-200 backdrop-blur-sm transition-all hover:scale-105 hover:bg-blue-500/20"
-            href="https://linkedin.com/in/henrikkvamme"
+            href="https://linkedin.com/in/henrik-kvamme"
             rel="noopener noreferrer"
             target="_blank"
           >

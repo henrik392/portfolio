@@ -24,8 +24,8 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'portfolio',
-  description: 'portfolio',
+  title: 'Henrik Kvamme',
+  description: 'Henrik Kvamme - Portfolio',
 };
 
 export default function RootLayout({
