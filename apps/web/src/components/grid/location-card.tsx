@@ -1,4 +1,8 @@
+'use client';
+
+import { Map as MapboxMap, Marker } from 'react-map-gl/mapbox';
 import { TiltCard } from '@/components/tilt-card';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 interface LocationCardProps {
   colSpan?: 1 | 2 | 3;
@@ -6,27 +10,38 @@ interface LocationCardProps {
 }
 
 export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
+  const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+
   return (
     <TiltCard
-      className="flex h-full flex-col p-6"
+      className="flex h-full flex-col overflow-hidden p-0"
       colSpan={colSpan}
       rowSpan={rowSpan}
     >
-      <h3 className="mb-4 font-semibold text-sm text-white/70">Location</h3>
-      <div className="flex flex-1 flex-col justify-center text-center">
-        <div className="mb-3 text-4xl">📍</div>
-        <h2 className="mb-1 font-bold text-sm text-white">Trondheim</h2>
-        <p className="text-white/60 text-xs">Norway</p>
-      </div>
+      <div className="relative h-full w-full">
+        <MapboxMap
+          attributionControl={false}
+          initialViewState={{
+            longitude: 10.4036,
+            latitude: 63.4305,
+            zoom: 10,
+          }}
+          interactive={true}
+          mapboxAccessToken={MAPBOX_TOKEN}
+          mapStyle="mapbox://styles/mapbox/dark-v11"
+          style={{ width: '100%', height: '100%' }}
+        >
+          <Marker anchor="bottom" latitude={63.4305} longitude={10.4036}>
+            <div className="animate-pulse text-2xl">📍</div>
+          </Marker>
+        </MapboxMap>
 
-      <div className="mt-6 space-y-3">
-        <div className="text-center">
-          <div className="mb-1 text-xl">🏃‍♂️</div>
-          <p className="text-white/60 text-xs">Active lifestyle</p>
-        </div>
-        <div className="text-center">
-          <div className="mb-1 text-xl">🎸</div>
-          <p className="text-white/60 text-xs">Music & guitar</p>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+        <div className="absolute right-0 bottom-0 left-0 p-4">
+          <h3 className="mb-2 font-semibold text-sm text-white/70">Location</h3>
+          <h2 className="mb-1 font-bold text-lg text-white">Trondheim</h2>
+          <p className="mb-3 text-sm text-white/60">Norway</p>
         </div>
       </div>
     </TiltCard>
