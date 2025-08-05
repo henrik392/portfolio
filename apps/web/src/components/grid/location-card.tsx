@@ -23,22 +23,26 @@ export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
       <div className="relative h-full w-full">
         <MapboxMap
           attributionControl={false}
+          doubleClickZoom={true}
+          dragPan={true}
+          dragRotate={true}
           initialViewState={{
             longitude: 10.4036,
             latitude: 63.4305,
             zoom: 10,
           }}
           interactive={true}
+          keyboard={true}
           mapboxAccessToken={MAPBOX_TOKEN}
           mapStyle="mapbox://styles/mapbox/dark-v11"
+          scrollZoom={true}
           style={{ width: '100%', height: '100%' }}
+          touchZoomRotate={true}
         >
           <Marker anchor="bottom" latitude={63.4305} longitude={10.4036}>
             <div className="animate-pulse text-2xl">📍</div>
           </Marker>
         </MapboxMap>
-
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
         <div className="absolute right-4 bottom-4 text-right">
           <h3 className="mb-2 font-semibold text-sm text-white/70">Location</h3>
