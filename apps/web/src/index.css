@@ -16,6 +16,8 @@ html,
 body {
   @apply bg-black text-white;
   scroll-behavior: smooth;
+  overscroll-behavior-x: none;
+  touch-action: pan-y;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
