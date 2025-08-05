@@ -6,7 +6,11 @@
       "Bash(nslookup:*)",
       "Bash(dig:*)",
       "Bash(bun run:*)",
-      "Bash(biome check:*)"
+      "Bash(biome check:*)",
+      "WebFetch(domain:www.mapbox.com)",
+      "Bash(bun add:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs"
     ]
   },
   "hooks": {

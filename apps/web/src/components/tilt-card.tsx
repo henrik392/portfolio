@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'motion/react';
 import type * as React from 'react';
 import Tilt from 'react-parallax-tilt';
 import { cn } from '@/lib/utils';
@@ -9,6 +10,8 @@ interface TiltCardProps extends React.HTMLAttributes<HTMLDivElement> {
   tiltMaxAngleX?: number;
   tiltMaxAngleY?: number;
   className?: string;
+  colSpan?: 1 | 2 | 3;
+  rowSpan?: 1 | 2;
 }
 
 export function TiltCard({
@@ -16,13 +19,38 @@ export function TiltCard({
   className,
   tiltMaxAngleX = 3,
   tiltMaxAngleY = 3,
+  colSpan = 1,
+  rowSpan = 1,
   ...props
 }: TiltCardProps) {
+  const gridClasses = cn(
+    'flex min-h-[300px] p-px',
+    colSpan === 1 && 'lg:col-span-1',
+    colSpan === 2 && 'lg:col-span-2',
+    colSpan === 3 && 'lg:col-span-3',
+    rowSpan === 2 && 'lg:row-span-2 lg:min-h-0'
+  );
+
   return (
-    <Tilt tiltMaxAngleX={tiltMaxAngleX} tiltMaxAngleY={tiltMaxAngleY}>
-      <div className={cn('glass-card', className)} {...props}>
-        {children}
-      </div>
-    </Tilt>
+    <motion.div
+      className={gridClasses}
+      initial={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, margin: '-50px' }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
+      <Tilt
+        className="w-full"
+        tiltMaxAngleX={tiltMaxAngleX}
+        tiltMaxAngleY={tiltMaxAngleY}
+      >
+        <div
+          className={cn('glass-card h-full w-full overflow-hidden', className)}
+          {...props}
+        >
+          {children}
+        </div>
+      </Tilt>
+    </motion.div>
   );
 }

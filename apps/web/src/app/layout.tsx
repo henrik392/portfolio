@@ -1,10 +1,5 @@
 import type { Metadata } from 'next';
-import {
-  Geist_Mono,
-  JetBrains_Mono,
-  Mona_Sans,
-  Uncial_Antiqua,
-} from 'next/font/google';
+import { Geist_Mono, JetBrains_Mono, Mona_Sans } from 'next/font/google';
 import '../index.css';
 import Header from '@/components/header';
 import Providers from '@/components/providers';
@@ -28,12 +23,6 @@ const monoFont = JetBrains_Mono({
   display: 'swap',
 });
 
-const uncialAntiqua = Uncial_Antiqua({
-  variable: '--font-uncial-antiqua',
-  subsets: ['latin'],
-  weight: '400',
-});
-
 export const metadata: Metadata = {
   title: 'portfolio',
   description: 'portfolio',
@@ -47,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistMono.variable} ${monaSans.variable} ${monoFont.variable} ${uncialAntiqua.variable} overflow-x-hidden antialiased`}
+        className={`${geistMono.variable} ${monaSans.variable} ${monoFont.variable} overflow-x-hidden antialiased`}
       >
         <Providers>
           <div className="relative h-svh bg-black">
