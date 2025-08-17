@@ -3,11 +3,14 @@
 import { Canvas } from '@react-three/fiber';
 import { useEffect, useState } from 'react';
 import Metaball from '@/components/metaball';
+import { useAnimation } from '@/contexts/animation-context';
 import { WordRotate } from './magicui/word-rotate';
 
 export default function Hero() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const isThreeJSDisabled = process.env.NEXT_PUBLIC_DISABLE_THREEJS === 'true';
+  const { isAnimationEnabled } = useAnimation();
+  const isThreeJSDisabled =
+    process.env.NEXT_PUBLIC_DISABLE_THREEJS === 'true' || !isAnimationEnabled;
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -49,9 +52,7 @@ export default function Hero() {
       )}
 
       {/* Fallback background when three.js is disabled */}
-      {isThreeJSDisabled && (
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900" />
-      )}
+      {isThreeJSDisabled && <div className="absolute inset-0 bg-black" />}
 
       {/* Content that can be scrolled to */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-4 sm:px-8 md:px-12">

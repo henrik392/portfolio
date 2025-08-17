@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
+import { AnimationProvider } from '@/contexts/animation-context';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -11,8 +12,10 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       disableTransitionOnChange
       enableSystem
     >
-      {children}
-      <Toaster richColors />
+      <AnimationProvider>
+        {children}
+        <Toaster richColors />
+      </AnimationProvider>
     </ThemeProvider>
   );
 }

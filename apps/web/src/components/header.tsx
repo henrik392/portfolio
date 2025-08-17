@@ -1,6 +1,6 @@
 'use client';
 
-import { FolderOpen, Github, Linkedin, Mail, Menu } from 'lucide-react';
+import { FolderOpen, Github, Linkedin, Mail, Menu, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
@@ -9,10 +9,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Switch } from '@/components/ui/switch';
+import { useAnimation } from '@/contexts/animation-context';
 import Logo from './logo';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isAnimationEnabled, toggleAnimation } = useAnimation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,6 +56,15 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-2 sm:gap-4 md:flex">
+            <div className="flex items-center gap-2 rounded-md border border-white/20 bg-white/10 px-3 py-2 backdrop-blur-sm">
+              <Zap className="h-4 w-4 text-white" />
+              <span className="text-sm text-white">Animation</span>
+              <Switch
+                checked={isAnimationEnabled}
+                className="data-[state=checked]:bg-white/20 data-[state=unchecked]:bg-white/10"
+                onCheckedChange={toggleAnimation}
+              />
+            </div>
             <Button
               asChild
               className="border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
@@ -125,6 +137,17 @@ export default function Header() {
                 align="end"
                 className="w-56 border border-white/20 bg-black/90 backdrop-blur-sm"
               >
+                <DropdownMenuItem className="flex items-center justify-between text-white">
+                  <div className="flex items-center">
+                    <Zap className="mr-2 h-4 w-4" />
+                    Animation
+                  </div>
+                  <Switch
+                    checked={isAnimationEnabled}
+                    className="data-[state=checked]:bg-white/20 data-[state=unchecked]:bg-white/10"
+                    onCheckedChange={toggleAnimation}
+                  />
+                </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <a
                     className="flex items-center text-white hover:text-white/80"
