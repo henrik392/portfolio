@@ -1,6 +1,8 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber';
+import { ChevronDown } from 'lucide-react';
+import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import Metaball from '@/components/metaball';
 import { useAnimation } from '@/contexts/animation-context';
@@ -11,6 +13,17 @@ export default function Hero() {
   const { isAnimationEnabled } = useAnimation();
   const isThreeJSDisabled =
     process.env.NEXT_PUBLIC_DISABLE_THREEJS === 'true' || !isAnimationEnabled;
+
+  const scrollToContent = () => {
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+      // Scroll to the height of the hero section (100vh)
+      mainElement.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -71,6 +84,24 @@ export default function Hero() {
           />
         </div>
       </div>
+
+      {/* Scroll hint arrow */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        className="-translate-x-1/2 absolute bottom-8 left-1/2 z-10 cursor-pointer"
+        onClick={scrollToContent}
+        transition={{
+          duration: 2,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: 'easeInOut',
+        }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <div className="flex items-center justify-center rounded-full border border-white/20 bg-white/10 p-3 backdrop-blur-sm transition-all hover:bg-white/20">
+          <ChevronDown className="h-6 w-6 text-white" />
+        </div>
+      </motion.div>
     </section>
   );
 }

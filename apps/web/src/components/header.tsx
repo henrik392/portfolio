@@ -56,15 +56,54 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-2 sm:gap-4 md:flex">
-            <div className="flex items-center gap-2 rounded-md border border-white/20 bg-white/10 px-3 py-2 backdrop-blur-sm">
-              <Zap className="h-4 w-4 text-white" />
-              <span className="text-sm text-white">Animation</span>
-              <Switch
-                checked={isAnimationEnabled}
-                className="data-[state=checked]:bg-white/20 data-[state=unchecked]:bg-white/10"
-                onCheckedChange={toggleAnimation}
-              />
-            </div>
+            <Button
+              className="flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              onClick={toggleAnimation}
+              variant="ghost"
+            >
+              <Zap className="h-4 w-4" />
+              <span className="text-sm">Animation</span>
+              <span
+                className="flex items-center"
+                onClick={(e) => e.stopPropagation()}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }
+                }}
+                role="presentation"
+              >
+                <Switch
+                  checked={isAnimationEnabled}
+                  className="data-[state=checked]:bg-white/20 data-[state=unchecked]:bg-white/10"
+                  onCheckedChange={toggleAnimation}
+                />
+              </span>
+            </Button>
+
+            <Button
+              asChild
+              className="border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              variant="ghost"
+            >
+              <a href="#projects">
+                <FolderOpen className="mr-2 h-4 w-4" />
+                Projects
+              </a>
+            </Button>
+
+            <Button
+              asChild
+              className="border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              variant="ghost"
+            >
+              <a href="mailto:henrik@henrikkvamme.dev">
+                <Mail className="mr-2 h-4 w-4" />
+                Contact
+              </a>
+            </Button>
+
             <Button
               asChild
               className="border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
@@ -94,28 +133,6 @@ export default function Header() {
                 target="_blank"
               >
                 <Linkedin className="h-4 w-4" />
-              </a>
-            </Button>
-
-            <Button
-              asChild
-              className="border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
-              variant="ghost"
-            >
-              <a href="#projects">
-                <FolderOpen className="mr-2 h-4 w-4" />
-                Projects
-              </a>
-            </Button>
-
-            <Button
-              asChild
-              className="border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
-              variant="ghost"
-            >
-              <a href="mailto:henrik@henrikkvamme.dev">
-                <Mail className="mr-2 h-4 w-4" />
-                Contact
               </a>
             </Button>
           </div>
