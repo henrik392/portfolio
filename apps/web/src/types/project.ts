@@ -4,6 +4,9 @@ export interface Project {
   description: string;
   longDescription?: string;
   image?: string;
+  heroImage?: string | null;
+  screenshots: string[];
+  screenshotCount: number;
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -20,7 +23,14 @@ export interface Project {
 export interface ProjectCardProps
   extends Pick<
     Project,
-    'title' | 'description' | 'image' | 'technologies' | 'githubUrl' | 'liveUrl'
+    | 'id'
+    | 'title'
+    | 'description'
+    | 'image'
+    | 'heroImage'
+    | 'technologies'
+    | 'githubUrl'
+    | 'liveUrl'
   > {
   status?: Project['status'];
   featured?: boolean;

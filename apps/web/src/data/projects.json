@@ -18,6 +18,9 @@
     "status": "completed",
     "featured": true,
     "category": ["AI/ML", "Web App", "Audio Processing"],
+    "heroImage": "/images/projects/voice-cloner/screenshot_1.jpeg",
+    "screenshots": ["/images/projects/voice-cloner/screenshot_1.jpeg"],
+    "screenshotCount": 1,
     "highlights": [
       "Three input modes: URL, file upload, microphone",
       "Support for YouTube, TikTok, and Instagram URLs",
@@ -45,6 +48,9 @@
     "status": "completed",
     "featured": true,
     "category": ["Web App", "Utility", "Print"],
+    "heroImage": "/images/projects/samfundet-medlemskort/screenshot_1.jpeg",
+    "screenshots": ["/images/projects/samfundet-medlemskort/screenshot_1.jpeg"],
+    "screenshotCount": 1,
     "highlights": [
       "Exact sizing: 25mm × 30mm per photo on A4",
       "Drag & drop upload with enforced crop ratio",
@@ -73,6 +79,14 @@
     "status": "in-progress",
     "featured": true,
     "category": ["E-commerce", "Web App", "Design Tool"],
+    "heroImage": "/images/projects/merch-whiz/screenshot_1.jpeg",
+    "screenshots": [
+      "/images/projects/merch-whiz/screenshot_1.jpeg",
+      "/images/projects/merch-whiz/screenshot_2.jpeg",
+      "/images/projects/merch-whiz/screenshot_3.jpeg",
+      "/images/projects/merch-whiz/screenshot_4.jpeg"
+    ],
+    "screenshotCount": 4,
     "highlights": [
       "User authentication with Google OAuth",
       "Intuitive design creation with product previews",
@@ -99,6 +113,9 @@
     "status": "in-progress",
     "featured": false,
     "category": ["Web App", "Portfolio"],
+    "heroImage": null,
+    "screenshots": [],
+    "screenshotCount": 0,
     "highlights": [
       "Beautiful bento grid layout",
       "Smooth animations with Framer Motion",

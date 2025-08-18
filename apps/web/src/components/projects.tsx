@@ -105,6 +105,8 @@ export function Projects() {
               description={project.description}
               featured={project.featured}
               githubUrl={project.githubUrl}
+              heroImage={project.heroImage}
+              id={project.id}
               image={project.image}
               key={project.id}
               liveUrl={project.liveUrl}
