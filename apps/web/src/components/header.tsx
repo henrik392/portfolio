@@ -54,14 +54,16 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full transition-all duration-300 ${
-        isScrolled ? 'px-8 py-4 lg:px-20 lg:py-8' : 'px-6 py-4 lg:px-8 lg:py-8'
+      className={`mx-auto w-full px-6 transition-all duration-300 lg:px-8 ${
+        isScrolled
+          ? 'max-w-6xl py-4 md:px-12 lg:px-6 lg:py-8'
+          : 'max-w-7xl py-4 lg:py-8'
       }`}
     >
       <div
         className={`glass-navbar w-full py-2 backdrop-blur-sm transition-all duration-300 ${
           isScrolled
-            ? 'border-white/20 border-b px-5'
+            ? 'border-white/20 border-b px-2 sm:px-4 lg:px-5'
             : 'border-transparent border-b px-3 lg:px-4'
         }`}
       >
