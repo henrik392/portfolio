@@ -159,7 +159,7 @@ export function WorkExperience() {
   const experiences = getExperiences();
 
   return (
-    <section className="relative space-y-8">
+    <section className="relative space-y-8" id="work">
       {/* Section header */}
       <motion.div
         className="text-center"

@@ -37,13 +37,10 @@ export function Projects() {
   }
 
   return (
-    <section className="relative mt-36">
+    <section className="relative mt-36" id="projects">
       {/* Section Header */}
       <div className="mb-12 flex flex-col items-center text-center">
-        <h2
-          className="mb-3 font-bold text-4xl text-white sm:text-5xl lg:text-6xl"
-          id="projects"
-        >
+        <h2 className="mb-3 font-bold text-4xl text-white sm:text-5xl lg:text-6xl">
           Projects
         </h2>
         <p className="text-white/70 text-xl sm:text-2xl">

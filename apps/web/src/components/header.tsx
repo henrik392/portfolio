@@ -2,6 +2,7 @@
 
 import {
   ArrowLeft,
+  Briefcase,
   FolderOpen,
   Github,
   Linkedin,
@@ -32,6 +33,39 @@ export default function Header() {
   // Check if we're on a specific project page (not the projects list)
   const isProjectPage =
     pathname?.startsWith('/projects/') && pathname !== '/projects';
+
+  // Smooth scroll to section with offset
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    const mainElement = document.querySelector('main');
+
+    console.log('Scrolling to:', sectionId);
+    console.log('Element found:', element);
+    console.log('Main element:', mainElement);
+
+    if (element && mainElement) {
+      const elementPosition = element.offsetTop;
+      const offsetPosition = elementPosition - 120; // Offset for navbar height
+
+      console.log('Element position:', elementPosition);
+      console.log('Offset position:', offsetPosition);
+
+      mainElement.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    } else {
+      console.log('Element or main not found, falling back to regular scroll');
+      // Fallback to regular browser scrolling
+      const fallbackElement = document.getElementById(sectionId);
+      if (fallbackElement) {
+        fallbackElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,11 +120,14 @@ export default function Header() {
           <div className="hidden items-center gap-2 sm:gap-4 lg:flex">
             <AnimationToggle />
 
-            <Button asChild variant="glass">
-              <a href="#projects">
-                <FolderOpen className="mr-2 h-4 w-4" />
-                Projects
-              </a>
+            <Button onClick={() => scrollToSection('projects')} variant="glass">
+              <FolderOpen className="mr-2 h-4 w-4" />
+              Projects
+            </Button>
+
+            <Button onClick={() => scrollToSection('work')} variant="glass">
+              <Briefcase className="mr-2 h-4 w-4" />
+              Work
             </Button>
 
             <Button asChild variant="glass">
@@ -179,14 +216,19 @@ export default function Header() {
                     LinkedIn
                   </a>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <a
-                    className="flex items-center text-white hover:text-white/80"
-                    href="#projects"
-                  >
-                    <FolderOpen className="mr-2 h-4 w-4" />
-                    Projects
-                  </a>
+                <DropdownMenuItem
+                  className="flex cursor-pointer items-center text-white hover:text-white/80"
+                  onClick={() => scrollToSection('projects')}
+                >
+                  <FolderOpen className="mr-2 h-4 w-4" />
+                  Projects
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="flex cursor-pointer items-center text-white hover:text-white/80"
+                  onClick={() => scrollToSection('work')}
+                >
+                  <Briefcase className="mr-2 h-4 w-4" />
+                  Work
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <a
