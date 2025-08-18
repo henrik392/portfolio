@@ -14,7 +14,7 @@ interface TiltCardProps extends React.HTMLAttributes<HTMLDivElement> {
   rowSpan?: 1 | 2;
   clickable?: boolean;
   hoverBrightness?: boolean;
-  tiltIntensity?: 'none' | 'subtle' | 'normal' | 'strong';
+  tiltIntensity?: 'none' | 'weak' | 'subtle' | 'normal' | 'strong';
 }
 
 export function TiltCard({
@@ -38,6 +38,8 @@ export function TiltCard({
     switch (tiltIntensity) {
       case 'none':
         return { x: 0, y: 0 };
+      case 'weak':
+        return { x: 1, y: 1 };
       case 'subtle':
         return { x: 2, y: 2 };
       case 'normal':

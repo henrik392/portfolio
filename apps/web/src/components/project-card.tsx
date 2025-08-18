@@ -42,7 +42,7 @@ export function ProjectCard({
     <TiltCard
       className={`p-4 sm:p-6 ${featured ? 'ring-1 ring-blue-400/30' : ''}`}
       colSpan={1}
-      tiltIntensity="subtle"
+      tiltIntensity="weak"
     >
       <div className="flex flex-col gap-4">
         {/* Hero Image */}

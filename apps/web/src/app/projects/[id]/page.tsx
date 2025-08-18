@@ -72,7 +72,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="mt-24 min-h-screen bg-black">
       <div className="mx-auto max-w-7xl px-6 py-12">
         {/* Hero Section */}
         <div className="mb-16">
