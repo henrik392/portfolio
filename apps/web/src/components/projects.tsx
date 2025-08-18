@@ -54,7 +54,7 @@ export function Projects() {
       <div className="mb-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
         {/* Category Filter */}
         <select
-          className="w-full rounded-lg border border-white/20 bg-black/40 py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50 sm:w-auto"
+          className="w-full rounded-lg border border-white/20 bg-black/40 py-2 pr-3 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50 sm:w-auto"
           onChange={(e) =>
             setFilters((prev) => ({ ...prev, category: e.target.value }))
           }
@@ -70,7 +70,7 @@ export function Projects() {
 
         {/* Technology Filter */}
         <select
-          className="rounded-lg border border-white/20 bg-black/40 py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
+          className="rounded-lg border border-white/20 bg-black/40 py-2 pr-3 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
           onChange={(e) =>
             setFilters((prev) => ({ ...prev, technology: e.target.value }))
           }
@@ -86,7 +86,7 @@ export function Projects() {
 
         {/* Status Filter */}
         <select
-          className="rounded-lg border border-white/20 bg-black/40 py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
+          className="rounded-lg border border-white/20 bg-black/40 py-2 pr-3 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
           onChange={(e) =>
             setFilters((prev) => ({
               ...prev,

@@ -6,7 +6,7 @@ import { LinkedinCard } from './linkedin-card';
 import { LocationCard } from './location-card';
 import { PhilosophyCard } from './philosophy-card';
 import { ProfileCard } from './profile-card';
-import { TechCard } from './tech-card';
+import { TechStackCard } from './tech-stack-card';
 
 export function BentoGrid() {
   return (
@@ -16,18 +16,7 @@ export function BentoGrid() {
       <AchievementCard colSpan={2} />
       <PhilosophyCard colSpan={2} />
       <LocationCard colSpan={1} rowSpan={2} />
-      <TechCard
-        colSpan={1}
-        description="Frontend framework"
-        icon="⚛️"
-        name="React"
-      />
-      <TechCard
-        colSpan={1}
-        description="Systems programming"
-        icon="🦀"
-        name="Rust"
-      />
+      <TechStackCard colSpan={2} />
       <ContactCard colSpan={2} rowSpan={2} />
       <GithubCard colSpan={1} rowSpan={1} />
       <LinkedinCard colSpan={1} rowSpan={1} />

@@ -43,18 +43,6 @@ export function ContactCard({ colSpan = 1, rowSpan = 1 }: ContactCardProps) {
             LinkedIn
           </a>
         </div>
-
-        <div className="mt-8 flex justify-center">
-          <a
-            className="text-white/60 transition-colors hover:text-white"
-            href="https://twitter.com/henrikkvamme"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span className="sr-only">Twitter</span>
-            <span className="text-2xl">🐦</span>
-          </a>
-        </div>
       </div>
     </TiltCard>
   );

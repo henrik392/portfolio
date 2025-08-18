@@ -20,9 +20,10 @@ export function AchievementCard({
         </div>
         <div className="flex-1">
           <h2 className="mb-2 font-bold text-white text-xl tracking-tight">
-            1+ Year, 3 Companies
+            10+ Years, 3 Companies
           </h2>
           <p className="text-white/80 leading-relaxed">
+            What started as a hobby in secondary school, is now my career.
             Full-stack development across startups and consultancy. From
             maritime tech to AI platforms, delivering solutions with modern tech
             stacks.

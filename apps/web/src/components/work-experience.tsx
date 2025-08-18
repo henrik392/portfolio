@@ -138,10 +138,10 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
                 <div className="space-y-1">
                   {experience.highlights.slice(0, 2).map((highlight) => (
                     <div
-                      className="flex items-start gap-1.5 text-white/60 text-xs"
+                      className="flex items-start gap-1.5 align-middle text-white/60 text-xs"
                       key={highlight}
                     >
-                      <span className="mt-1 block h-0.5 w-0.5 flex-shrink-0 rounded-full bg-theme-secondary" />
+                      <span className="mt-1.5 block h-0.5 w-0.5 flex-shrink-0 rounded-full bg-theme-secondary" />
                       {highlight}
                     </div>
                   ))}
