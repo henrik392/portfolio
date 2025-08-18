@@ -20,7 +20,9 @@ export function ExpertiseCard({
       <p className="mb-8 max-w-2xl text-white/80 leading-relaxed">
         Versatile developer with a decade of development experience and
         cutting-edge tech and startup expertise. Ready to deliver immediate
-        value through rapid development and innovative solutions.
+        value through rapid development and innovative solutions. I currently
+        study computer science at NTNU, Norway's top university, and work
+        part-time.
       </p>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
