@@ -36,35 +36,36 @@ export default function Header() {
 
   // Smooth scroll to section with offset
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    const mainElement = document.querySelector('main');
+    // Wait for animations and layout to settle
+    const tryScroll = () => {
+      const element = document.getElementById(sectionId);
+      const mainElement = document.querySelector('main');
 
-    console.log('Scrolling to:', sectionId);
-    console.log('Element found:', element);
-    console.log('Main element:', mainElement);
+      if (element && mainElement) {
+        // Force layout recalculation
+        element.getBoundingClientRect();
 
-    if (element && mainElement) {
-      const elementPosition = element.offsetTop;
-      const offsetPosition = elementPosition - 120; // Offset for navbar height
+        const elementPosition = element.offsetTop;
+        const offsetPosition = elementPosition - 120; // Offset for navbar height
 
-      console.log('Element position:', elementPosition);
-      console.log('Offset position:', offsetPosition);
-
-      mainElement.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    } else {
-      console.log('Element or main not found, falling back to regular scroll');
-      // Fallback to regular browser scrolling
-      const fallbackElement = document.getElementById(sectionId);
-      if (fallbackElement) {
-        fallbackElement.scrollIntoView({
+        mainElement.scrollTo({
+          top: offsetPosition,
           behavior: 'smooth',
-          block: 'start',
         });
+      } else {
+        // Fallback to regular browser scrolling
+        const fallbackElement = document.getElementById(sectionId);
+        if (fallbackElement) {
+          fallbackElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
       }
-    }
+    };
+
+    // Add delay to ensure animations have loaded and positioned elements correctly
+    setTimeout(tryScroll, 300);
   };
 
   useEffect(() => {
@@ -120,14 +121,14 @@ export default function Header() {
           <div className="hidden items-center gap-2 sm:gap-4 lg:flex">
             <AnimationToggle />
 
-            <Button onClick={() => scrollToSection('projects')} variant="glass">
-              <FolderOpen className="mr-2 h-4 w-4" />
-              Projects
-            </Button>
-
             <Button onClick={() => scrollToSection('work')} variant="glass">
               <Briefcase className="mr-2 h-4 w-4" />
               Work
+            </Button>
+
+            <Button onClick={() => scrollToSection('projects')} variant="glass">
+              <FolderOpen className="mr-2 h-4 w-4" />
+              Projects
             </Button>
 
             <Button asChild variant="glass">
@@ -218,17 +219,17 @@ export default function Header() {
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   className="flex cursor-pointer items-center text-white hover:text-white/80"
-                  onClick={() => scrollToSection('projects')}
-                >
-                  <FolderOpen className="mr-2 h-4 w-4" />
-                  Projects
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  className="flex cursor-pointer items-center text-white hover:text-white/80"
                   onClick={() => scrollToSection('work')}
                 >
                   <Briefcase className="mr-2 h-4 w-4" />
                   Work
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="flex cursor-pointer items-center text-white hover:text-white/80"
+                  onClick={() => scrollToSection('projects')}
+                >
+                  <FolderOpen className="mr-2 h-4 w-4" />
+                  Projects
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <a

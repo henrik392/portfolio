@@ -51,6 +51,7 @@ export default function Home() {
         {/* Work Experience Section */}
         <motion.div
           className="mb-20"
+          id="work"
           initial={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true, margin: '-50px' }}
@@ -61,6 +62,7 @@ export default function Home() {
 
         {/* Projects */}
         <motion.div
+          id="projects"
           initial={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true, margin: '-50px' }}
