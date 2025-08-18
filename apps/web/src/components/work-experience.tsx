@@ -169,7 +169,7 @@ export function WorkExperience() {
         whileInView={{ opacity: 1, y: 0 }}
       >
         <h2 className="mb-4 font-bold text-3xl text-white md:text-4xl">
-          My Journey
+          Work Experience
         </h2>
         <p className="mx-auto max-w-2xl text-lg text-white/70">
           From startup environments to consultancy work, building modern

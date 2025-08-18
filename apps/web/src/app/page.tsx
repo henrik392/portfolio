@@ -47,6 +47,7 @@ export default function Home() {
         viewport={{ once: true, margin: '-100px' }}
         whileInView={{ opacity: 1 }}
       >
+        <BentoGrid />
         {/* Work Experience Section */}
         <motion.div
           className="mb-20"
@@ -57,8 +58,6 @@ export default function Home() {
         >
           <WorkExperience />
         </motion.div>
-
-        <BentoGrid />
 
         {/* Projects */}
         <motion.div

@@ -24,11 +24,10 @@ export function ExpertiseCard({
         Full-Stack Developer
       </h2>
       <p className="mb-8 max-w-2xl text-white/80 leading-relaxed">
-        Versatile developer with a decade of development experience and
-        cutting-edge tech and startup expertise. Ready to deliver immediate
-        value through rapid development and innovative solutions. I currently
-        study computer science at NTNU, Norway's top university, and work
-        part-time.
+        Computer science student at NTNU (Norway's leading technical university)
+        with competitive programming background and practical startup
+        experience. Comfortable with modern tech stacks and rapid development
+        cycles. Available for part-time work while studying.
       </p>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

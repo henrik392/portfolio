@@ -17,22 +17,19 @@ export function AchievementCard({
       rowSpan={rowSpan}
       tiltIntensity="subtle"
     >
-      <h3 className="mb-2 font-semibold text-sm text-white/70">
-        Experience Summary
-      </h3>
+      <h3 className="mb-2 font-semibold text-sm text-white/70">Background</h3>
       <div className="flex items-center gap-6">
         <div className="text-center">
           <div className="mb-3 text-5xl">🚀</div>
         </div>
         <div className="flex-1">
           <h2 className="mb-2 font-bold text-white text-xl tracking-tight">
-            10+ Years, 3 Companies
+            Programming Journey
           </h2>
           <p className="text-white/80 leading-relaxed">
-            What started as a hobby in secondary school, is now my career.
-            Full-stack development across startups and consultancy. From
-            maritime tech to AI platforms, delivering solutions with modern tech
-            stacks.
+            Programming since age 10, competed nationally in algorithms, now
+            building real solutions for startups. From maritime tech to AI
+            platforms, focused on practical development with modern tech stacks.
           </p>
         </div>
       </div>

@@ -10,10 +10,10 @@
     "location": "Remote",
     "isCurrentRole": true,
     "keyAchievements": [
-      "Leading full-stack development of student platform",
-      "Coaching and mentoring a junior developer on the team",
-      "Architecting scalable solutions for educational technology",
-      "Building user-focused features to improve student outcomes"
+      "Full-stack development of student platform",
+      "Mentoring a junior developer on best practices",
+      "Contributing to scalable architecture design",
+      "Developing user-focused features for student support"
     ],
     "businessValue": [
       "Developing platform to help students achieve academic success",
@@ -32,7 +32,7 @@
       "Focus on student success and education technology",
       "Building for real impact in education"
     ],
-    "description": "Leading development of an educational platform designed to help students succeed, while coaching a junior developer. Focused on creating meaningful tools that make a difference in students' academic journeys.",
+    "description": "Contributing to development of an educational platform while mentoring a junior developer. Working on practical tools to support student success.",
     "impactMetrics": [
       "2+ months of development",
       "1 junior developer mentored",
@@ -83,7 +83,7 @@
       "Built systems using gRPC and Protobuf",
       "Long-term consultant engagement"
     ],
-    "description": "Trondheim based technology consultancy. Working on multiple projects with focus on modern technologies including Rust and gRPC.",
+    "description": "Technology consultancy role working across multiple projects. Gaining experience with modern technologies including Rust and gRPC in production environments.",
     "impactMetrics": [
       "2 projects worked on",
       "Various technologies learned and applied"
@@ -129,7 +129,7 @@
       "Received equity offer recognition",
       "Rapid prototyping and MVP development"
     ],
-    "description": "Worked on marketplace aggregation platform during intensive month-long development cycle. Focused on web scraping and data integration across multiple platforms.",
+    "description": "Contributed to marketplace aggregation platform during intensive development cycle. Worked on web scraping and data integration across multiple resale platforms.",
     "impactMetrics": [
       "1 month intensive development",
       "Multiple platforms integrated",
@@ -179,7 +179,7 @@
       "Full-stack development across frontend, backend, and databases",
       "Experience working in startup environment"
     ],
-    "description": "Worked part-time on maritime technology platform while studying, contributing to full-stack development of a digital shipping marketplace.",
+    "description": "Part-time role developing maritime technology platform while studying. Contributed to full-stack development of digital shipping marketplace.",
     "impactMetrics": [
       "9 months part-time work",
       "Multiple feature releases",
