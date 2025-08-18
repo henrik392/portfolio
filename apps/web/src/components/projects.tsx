@@ -54,7 +54,7 @@ export function Projects() {
       <div className="mb-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
         {/* Category Filter */}
         <select
-          className="w-full rounded-lg border border-white/20 bg-black/40 py-2 pr-3 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50 sm:w-auto"
+          className="w-full appearance-none rounded-lg border border-white/20 bg-[length:12px_8px] bg-[position:calc(100%-12px)_center] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=')] bg-black/40 bg-no-repeat py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm transition-all duration-200 hover:border-blue-400/70 hover:bg-black/60 hover:shadow-blue-400/20 hover:shadow-lg focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50 sm:w-auto"
           onChange={(e) =>
             setFilters((prev) => ({ ...prev, category: e.target.value }))
           }
@@ -70,7 +70,7 @@ export function Projects() {
 
         {/* Technology Filter */}
         <select
-          className="rounded-lg border border-white/20 bg-black/40 py-2 pr-3 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
+          className="appearance-none rounded-lg border border-white/20 bg-[length:12px_8px] bg-[position:calc(100%-12px)_center] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=')] bg-black/40 bg-no-repeat py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm transition-all duration-200 hover:border-blue-400/70 hover:bg-black/60 hover:shadow-blue-400/20 hover:shadow-lg focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
           onChange={(e) =>
             setFilters((prev) => ({ ...prev, technology: e.target.value }))
           }
@@ -86,7 +86,7 @@ export function Projects() {
 
         {/* Status Filter */}
         <select
-          className="rounded-lg border border-white/20 bg-black/40 py-2 pr-3 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
+          className="appearance-none rounded-lg border border-white/20 bg-[length:12px_8px] bg-[position:calc(100%-12px)_center] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=')] bg-black/40 bg-no-repeat py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm transition-all duration-200 hover:border-blue-400/70 hover:bg-black/60 hover:shadow-blue-400/20 hover:shadow-lg focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
           onChange={(e) =>
             setFilters((prev) => ({
               ...prev,
