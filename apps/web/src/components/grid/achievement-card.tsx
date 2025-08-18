@@ -10,7 +10,13 @@ export function AchievementCard({
   rowSpan = 1,
 }: AchievementCardProps) {
   return (
-    <TiltCard className="p-8" colSpan={colSpan} rowSpan={rowSpan}>
+    <TiltCard
+      className="p-8"
+      colSpan={colSpan}
+      hoverBrightness={true}
+      rowSpan={rowSpan}
+      tiltIntensity="subtle"
+    >
       <h3 className="mb-2 font-semibold text-sm text-white/70">
         Experience Summary
       </h3>

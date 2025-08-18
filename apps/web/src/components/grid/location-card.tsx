@@ -31,9 +31,9 @@ export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
     <TiltCard
       className="flex h-full flex-col overflow-hidden p-0"
       colSpan={colSpan}
+      hoverBrightness={true}
       rowSpan={rowSpan}
-      tiltMaxAngleX={0}
-      tiltMaxAngleY={0}
+      tiltIntensity="none"
     >
       <div className="relative h-full w-full">
         <MapboxMap

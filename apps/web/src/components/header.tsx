@@ -59,11 +59,7 @@ export default function Header() {
           <div className="hidden items-center gap-2 sm:gap-4 lg:flex">
             <AnimationToggle />
 
-            <Button
-              asChild
-              className="border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
-              variant="ghost"
-            >
+            <Button asChild variant="glass">
               <a href="#projects">
                 <FolderOpen className="mr-2 h-4 w-4" />
                 Projects

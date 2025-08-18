@@ -11,7 +11,9 @@ export function ProfileCard({ colSpan = 1, rowSpan = 1 }: ProfileCardProps) {
     <TiltCard
       className="flex h-full flex-col items-center justify-center p-6 text-center"
       colSpan={colSpan}
+      hoverBrightness={true}
       rowSpan={rowSpan}
+      tiltIntensity="subtle"
     >
       <div className="mb-4">
         <Image

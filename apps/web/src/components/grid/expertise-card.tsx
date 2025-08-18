@@ -10,7 +10,13 @@ export function ExpertiseCard({
   rowSpan = 1,
 }: ExpertiseCardProps) {
   return (
-    <TiltCard className="p-8 lg:p-10" colSpan={colSpan} rowSpan={rowSpan}>
+    <TiltCard
+      className="p-8 lg:p-10"
+      colSpan={colSpan}
+      hoverBrightness={true}
+      rowSpan={rowSpan}
+      tiltIntensity="subtle"
+    >
       <h3 className="mb-2 font-semibold text-sm text-white/70">
         Ready to hire
       </h3>

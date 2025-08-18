@@ -21,43 +21,43 @@ const technologies: Technology[] = [
     name: 'React',
     icon: '⚛️',
     category: 'frontend',
-    color: 'from-blue-400 to-cyan-400',
+    color: 'from-theme-primary/60 to-theme-primary/80',
   },
   {
     name: 'Next.js',
     icon: '▲',
     category: 'frontend',
-    color: 'from-gray-700 to-gray-900',
+    color: 'from-theme-dark/60 to-theme-secondary/80',
   },
   {
     name: 'TypeScript',
     icon: '🔷',
     category: 'frontend',
-    color: 'from-blue-500 to-blue-700',
+    color: 'from-theme-primary/50 to-blue-500/60',
   },
   {
     name: 'TailwindCSS',
     icon: '🎨',
     category: 'frontend',
-    color: 'from-teal-400 to-cyan-500',
+    color: 'from-theme-secondary/60 to-theme-primary/70',
   },
   {
     name: 'HTMX',
     icon: '🔥',
     category: 'frontend',
-    color: 'from-orange-400 to-red-500',
+    color: 'from-orange-400/60 to-theme-secondary/70',
   },
   {
     name: 'Framer Motion',
     icon: '🎭',
     category: 'frontend',
-    color: 'from-purple-400 to-pink-500',
+    color: 'from-theme-primary/70 to-pink-500/60',
   },
   {
     name: 'shadcn/ui',
     icon: '🎪',
     category: 'frontend',
-    color: 'from-violet-400 to-purple-600',
+    color: 'from-theme-primary/60 to-theme-secondary/80',
   },
 
   // Backend
@@ -65,61 +65,61 @@ const technologies: Technology[] = [
     name: 'Node.js',
     icon: '🟢',
     category: 'backend',
-    color: 'from-green-400 to-green-600',
+    color: 'from-green-400/60 to-theme-primary/60',
   },
   {
     name: 'Rust',
     icon: '🦀',
     category: 'backend',
-    color: 'from-orange-600 to-red-700',
+    color: 'from-orange-600/60 to-theme-secondary/70',
   },
   {
     name: 'Go',
     icon: '🐹',
     category: 'backend',
-    color: 'from-cyan-400 to-blue-500',
+    color: 'from-cyan-400/60 to-theme-primary/60',
   },
   {
     name: 'Python',
     icon: '🐍',
     category: 'backend',
-    color: 'from-yellow-400 to-green-500',
+    color: 'from-yellow-400/60 to-theme-primary/60',
   },
   {
     name: 'Flask',
     icon: '🌶️',
     category: 'backend',
-    color: 'from-red-400 to-red-600',
+    color: 'from-red-400/60 to-theme-secondary/70',
   },
   {
     name: 'Hono',
     icon: '🔥',
     category: 'backend',
-    color: 'from-orange-400 to-yellow-500',
+    color: 'from-orange-400/60 to-theme-primary/70',
   },
   {
     name: 'tRPC',
     icon: '🔗',
     category: 'backend',
-    color: 'from-blue-400 to-indigo-500',
+    color: 'from-blue-400/60 to-theme-secondary/70',
   },
   {
     name: 'gRPC',
     icon: '📡',
     category: 'backend',
-    color: 'from-green-500 to-blue-500',
+    color: 'from-green-500/60 to-theme-primary/60',
   },
   {
     name: 'Protobuf',
     icon: '📦',
     category: 'backend',
-    color: 'from-gray-500 to-gray-700',
+    color: 'from-gray-500/60 to-theme-dark/70',
   },
   {
     name: 'Tokio',
     icon: '⚡',
     category: 'backend',
-    color: 'from-yellow-400 to-orange-500',
+    color: 'from-yellow-400/60 to-theme-secondary/70',
   },
 
   // Database
@@ -127,19 +127,19 @@ const technologies: Technology[] = [
     name: 'PostgreSQL',
     icon: '🐘',
     category: 'database',
-    color: 'from-blue-600 to-indigo-700',
+    color: 'from-blue-600/60 to-theme-primary/70',
   },
   {
     name: 'MongoDB',
     icon: '🍃',
     category: 'database',
-    color: 'from-green-500 to-green-700',
+    color: 'from-green-500/60 to-theme-secondary/70',
   },
   {
     name: 'Prisma',
     icon: '▲',
     category: 'database',
-    color: 'from-indigo-400 to-purple-600',
+    color: 'from-theme-primary/60 to-theme-secondary/80',
   },
 
   // Mobile
@@ -147,13 +147,13 @@ const technologies: Technology[] = [
     name: 'Flutter',
     icon: '🐦',
     category: 'mobile',
-    color: 'from-blue-400 to-blue-600',
+    color: 'from-blue-400/60 to-theme-primary/70',
   },
   {
     name: 'Dart',
     icon: '🎯',
     category: 'mobile',
-    color: 'from-cyan-400 to-blue-500',
+    color: 'from-cyan-400/60 to-theme-secondary/70',
   },
 
   // Tools
@@ -161,43 +161,43 @@ const technologies: Technology[] = [
     name: 'Docker',
     icon: '🐳',
     category: 'tools',
-    color: 'from-blue-500 to-cyan-600',
+    color: 'from-blue-500/60 to-theme-primary/70',
   },
   {
     name: 'Puppeteer',
     icon: '🎭',
     category: 'tools',
-    color: 'from-green-400 to-teal-500',
+    color: 'from-green-400/60 to-theme-secondary/70',
   },
   {
     name: 'NextAuth.js',
     icon: '🔐',
     category: 'tools',
-    color: 'from-purple-500 to-pink-600',
+    color: 'from-theme-primary/70 to-pink-600/60',
   },
   {
     name: 'jsPDF',
     icon: '📄',
     category: 'tools',
-    color: 'from-red-400 to-pink-500',
+    color: 'from-red-400/60 to-theme-primary/60',
   },
   {
     name: 'Figma',
     icon: '🎨',
     category: 'tools',
-    color: 'from-purple-400 to-pink-500',
+    color: 'from-theme-primary/60 to-pink-500/60',
   },
   {
     name: 'Bun',
     icon: '🥟',
     category: 'tools',
-    color: 'from-orange-400 to-red-500',
+    color: 'from-orange-400/60 to-theme-secondary/70',
   },
   {
     name: 'Turbo',
     icon: '⚡',
     category: 'tools',
-    color: 'from-blue-400 to-purple-500',
+    color: 'from-blue-400/60 to-theme-primary/70',
   },
 
   // AI/ML
@@ -205,13 +205,13 @@ const technologies: Technology[] = [
     name: 'AI/ML',
     icon: '🤖',
     category: 'ai',
-    color: 'from-purple-500 to-pink-600',
+    color: 'from-theme-primary/70 to-pink-600/60',
   },
   {
     name: 'yt-dlp',
     icon: '📺',
     category: 'tools',
-    color: 'from-red-500 to-pink-600',
+    color: 'from-red-500/60 to-theme-primary/60',
   },
 ];
 
@@ -244,7 +244,9 @@ export function TechStackCard({
     <TiltCard
       className="flex h-full flex-col p-6"
       colSpan={colSpan}
+      hoverBrightness={true}
       rowSpan={rowSpan}
+      tiltIntensity="subtle"
     >
       <div className="mb-4 flex items-center justify-between">
         <div>

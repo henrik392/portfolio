@@ -8,7 +8,13 @@ interface GithubCardProps {
 
 export function GithubCard({ colSpan = 1, rowSpan = 1 }: GithubCardProps) {
   return (
-    <TiltCard className="p-6" colSpan={colSpan} rowSpan={rowSpan}>
+    <TiltCard
+      className="p-6"
+      clickable={true}
+      colSpan={colSpan}
+      hoverBrightness={true}
+      rowSpan={rowSpan}
+    >
       <a
         className="flex h-full flex-col items-center justify-center text-center transition-colors hover:text-white/90"
         href="https://github.com/henrik392"

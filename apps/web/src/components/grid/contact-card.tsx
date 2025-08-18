@@ -9,7 +9,9 @@ export function ContactCard({ colSpan = 1, rowSpan = 1 }: ContactCardProps) {
   return (
     <TiltCard
       className="flex h-full flex-col justify-center p-8 lg:p-10"
+      clickable={true}
       colSpan={colSpan}
+      hoverBrightness={true}
       rowSpan={rowSpan}
     >
       <div className="text-center">
