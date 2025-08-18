@@ -24,7 +24,7 @@ export function ExpertiseCard({
         Full-Stack Developer
       </h2>
       <p className="mb-8 max-w-2xl text-white/80 leading-relaxed">
-        Computer science student at NTNU (Norway's leading technical university)
+        Computer science student at NTNU (Norway’s top technology university)
         with competitive programming background and practical startup
         experience. Comfortable with modern tech stacks and rapid development
         cycles. Available for summer internships and part-time work while
