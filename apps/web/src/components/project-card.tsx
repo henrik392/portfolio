@@ -46,7 +46,7 @@ export function ProjectCard({
       <div className="flex flex-col gap-4">
         {/* Hero Image */}
         {heroImage && (
-          <div className="relative aspect-video overflow-hidden rounded-lg border border-white/10 bg-white/5">
+          <div className="relative aspect-[2/1] overflow-hidden rounded-lg border border-white/10 bg-white/5 sm:aspect-video">
             <Link href={`/projects/${id}`}>
               <Image
                 alt={`${title} screenshot`}

@@ -1,7 +1,6 @@
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { TechPill } from '@/components/tech-pill';
 import { Button } from '@/components/ui/button';
@@ -73,23 +72,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-black pt-20">
-      {/* Header with back button */}
-      <div className="fixed top-0 right-0 left-0 z-40 border-white/10 border-b bg-black/50 backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-6 py-4">
-          <Button
-            asChild
-            className="text-white/80 hover:text-white"
-            variant="ghost"
-          >
-            <Link href="/#projects">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Projects
-            </Link>
-          </Button>
-        </div>
-      </div>
-
+    <div className="mt-24 min-h-screen bg-black">
       <div className="mx-auto max-w-7xl px-6 py-12">
         {/* Hero Section */}
         <div className="mb-16">

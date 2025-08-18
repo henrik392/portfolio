@@ -1,6 +1,16 @@
 'use client';
 
-import { FolderOpen, Github, Linkedin, Mail, Menu, Zap } from 'lucide-react';
+import {
+  ArrowLeft,
+  FolderOpen,
+  Github,
+  Linkedin,
+  Mail,
+  Menu,
+  Zap,
+} from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
@@ -17,6 +27,11 @@ import Logo from './logo';
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { isAnimationEnabled, toggleAnimation } = useAnimation();
+  const pathname = usePathname();
+
+  // Check if we're on a specific project page (not the projects list)
+  const isProjectPage =
+    pathname?.startsWith('/projects/') && pathname !== '/projects';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,7 +68,19 @@ export default function Header() {
         }`}
       >
         <div className="flex items-center justify-between">
-          <Logo />
+          <div className="flex items-center gap-3">
+            <Link href="/">
+              <Logo />
+            </Link>
+            {isProjectPage && (
+              <Button asChild size="sm" variant="glass">
+                <Link href="/#projects">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Projects
+                </Link>
+              </Button>
+            )}
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-2 sm:gap-4 lg:flex">
@@ -108,6 +135,17 @@ export default function Header() {
                 align="end"
                 className="w-56 border border-white/20 bg-black/90 backdrop-blur-sm"
               >
+                {isProjectPage && (
+                  <DropdownMenuItem asChild>
+                    <Link
+                      className="flex items-center text-white hover:text-white/80"
+                      href="/#projects"
+                    >
+                      <ArrowLeft className="mr-2 h-4 w-4" />
+                      Back to Projects
+                    </Link>
+                  </DropdownMenuItem>
+                )}
                 <DropdownMenuItem className="flex items-center justify-between text-white">
                   <div className="flex items-center">
                     <Zap className="mr-2 h-4 w-4" />
