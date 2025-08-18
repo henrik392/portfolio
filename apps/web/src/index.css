@@ -10,6 +10,12 @@
     "Noto Color Emoji";
   --font-geist-mono:
     ui-monospace, "Cascadia Code", "Roboto Mono", Menlo, monospace;
+
+  /* Custom Theme Colors */
+  --color-theme-primary: #804bf2; /* vibrant purple */
+  --color-theme-secondary: #4a2b8c; /* darker purple */
+  --color-theme-accent: #231640; /* darkest purple */
+  --color-theme-dark: #231640; /* darkest purple */
 }
 
 html,

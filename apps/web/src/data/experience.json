@@ -1,0 +1,189 @@
+[
+  {
+    "id": "upcoming-project",
+    "company": "Student Success Startup",
+    "companyDescription": "EdTech startup developing tools to help students succeed academically",
+    "role": "Lead Developer & Coach",
+    "employmentType": "consultant",
+    "startDate": "2025-06-01",
+    "endDate": null,
+    "location": "Remote",
+    "isCurrentRole": true,
+    "keyAchievements": [
+      "Leading full-stack development of student success platform",
+      "Coaching and mentoring a junior developer on the team",
+      "Architecting scalable solutions for educational technology",
+      "Building user-focused features to improve student outcomes"
+    ],
+    "businessValue": [
+      "Developing platform to help students achieve academic success",
+      "Creating intuitive tools for educational support",
+      "Building scalable architecture for future growth"
+    ],
+    "technologies": ["React", "TypeScript", "Node.js", "PostgreSQL", "Next.js"],
+    "teamCollaboration": [
+      "Coaching junior developer on best practices",
+      "Working closely with startup founders",
+      "Collaborative development and code reviews"
+    ],
+    "highlights": [
+      "2+ months of active development",
+      "Mentoring and coaching team member",
+      "Focus on student success and education technology",
+      "Building for real impact in education"
+    ],
+    "description": "Leading development of an educational platform designed to help students succeed, while coaching a junior developer. Focused on creating meaningful tools that make a difference in students' academic journeys.",
+    "impactMetrics": [
+      "2+ months of development",
+      "1 junior developer mentored",
+      "Educational platform in active development"
+    ]
+  },
+  {
+    "id": "texicon-consultant",
+    "company": "Texicon AS",
+    "companyDescription": "Technology consultancy firm specializing in enterprise solutions and emerging technologies",
+    "role": "Consultant Developer",
+    "employmentType": "consultant",
+    "startDate": "2024-09-01",
+    "endDate": null,
+    "location": "Trondheim, Norway",
+    "isCurrentRole": true,
+    "keyAchievements": [
+      "Worked on multiple projects including SSESH platform",
+      "Built solutions across web, mobile, and backend systems",
+      "Used cutting-edge technologies like Rust, gRPC, and Protobuf",
+      "Contributed to modern architecture patterns"
+    ],
+    "businessValue": [
+      "Contributed to project delivery with full-stack development",
+      "Worked with modern architecture patterns",
+      "Developed backend solutions using Rust"
+    ],
+    "technologies": [
+      "TypeScript",
+      "Rust",
+      "Flutter",
+      "Dart",
+      "Hono",
+      "PostgreSQL",
+      "Prisma",
+      "gRPC",
+      "Tokio",
+      "Protobuf"
+    ],
+    "teamCollaboration": [
+      "Collaborated on multiple projects simultaneously",
+      "Worked with team members on tech stack decisions",
+      "Participated in architectural discussions"
+    ],
+    "highlights": [
+      "Developed solutions in iterative sprint cycles",
+      "Gained experience with Rust in production environment",
+      "Built systems using gRPC and Protobuf",
+      "Long-term consultant engagement"
+    ],
+    "description": "Working on multiple projects with focus on modern technologies including Rust and gRPC at Bergen technology consultancy.",
+    "impactMetrics": [
+      "2 projects worked on",
+      "Various technologies learned and applied"
+    ]
+  },
+  {
+    "id": "barebrukt-fullstack",
+    "company": "BareBrukt AS",
+    "companyDescription": "Platform aggregating second-hand products from multiple resale platforms",
+    "role": "Full Stack Developer",
+    "employmentType": "full-time",
+    "startDate": "2024-08-01",
+    "endDate": "2024-08-31",
+    "location": "Norway (Remote)",
+    "isCurrentRole": false,
+    "keyAchievements": [
+      "Developed web scraping system using Puppeteer",
+      "Built aggregation platform handling multiple data sources",
+      "Worked in intensive 30-day development cycle",
+      "Received equity offer from the company"
+    ],
+    "businessValue": [
+      "Helped create unified marketplace for second-hand products",
+      "Automated data collection from multiple resale platforms",
+      "Contributed to consolidated product search functionality"
+    ],
+    "technologies": [
+      "Node.js",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Puppeteer",
+      "PostgreSQL"
+    ],
+    "teamCollaboration": [
+      "Worked with 3-person development team",
+      "Participated in daily standups and iteration cycles",
+      "Contributed to technical architecture discussions"
+    ],
+    "highlights": [
+      "30-day intensive development period",
+      "Web scraping implementation with dynamic content",
+      "Received equity offer recognition",
+      "Rapid prototyping and MVP development"
+    ],
+    "description": "Worked on marketplace aggregation platform during intensive month-long development cycle. Focused on web scraping and data integration across multiple platforms.",
+    "impactMetrics": [
+      "1 month intensive development",
+      "Multiple platforms integrated",
+      "Equity offer received"
+    ]
+  },
+  {
+    "id": "keelspot-fullstack",
+    "company": "Keelspot AS",
+    "companyDescription": "Bergen-based maritime technology startup creating digital marketplace solutions for the shipping industry",
+    "role": "Full Stack Developer",
+    "employmentType": "part-time",
+    "startDate": "2023-07-01",
+    "endDate": "2024-04-30",
+    "location": "Bergen, Norway",
+    "isCurrentRole": false,
+    "keyAchievements": [
+      "Developed digital marketplace platform for shipping industry",
+      "Built algorithmic matching system using Python and Flask",
+      "Created responsive React frontend with TypeScript",
+      "Implemented Docker containerization for deployment"
+    ],
+    "businessValue": [
+      "Contributed to digitizing shipping marketplace processes",
+      "Helped build automated matching algorithms",
+      "Worked on modern web interface for users",
+      "Supported system scalability with containerization"
+    ],
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Python",
+      "Flask",
+      "MongoDB",
+      "Docker",
+      "Figma"
+    ],
+    "teamCollaboration": [
+      "Balanced part-time development with academic studies",
+      "Collaborated with product team on user experience",
+      "Worked in startup environment with iteration cycles"
+    ],
+    "highlights": [
+      "9-month part-time tenure while studying",
+      "Algorithm development for maritime logistics",
+      "Full-stack development across frontend, backend, and databases",
+      "Experience working in startup environment"
+    ],
+    "description": "Worked part-time on maritime technology platform while studying, contributing to full-stack development of a digital shipping marketplace.",
+    "impactMetrics": [
+      "9 months part-time work",
+      "Multiple feature releases",
+      "Algorithm development experience"
+    ]
+  }
+]

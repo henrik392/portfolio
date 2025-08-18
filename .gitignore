@@ -2,3 +2,4 @@ node_modules
 .turbo
 .env
 .env.local
+PORTFOLIO_ENHANCEMENT_PLAN.md

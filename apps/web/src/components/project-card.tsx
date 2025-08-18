@@ -42,7 +42,7 @@ export function ProjectCard({
       <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
         {/* Project Image */}
         <div className="flex-shrink-0 self-center sm:self-start">
-          <div className="relative flex h-20 w-20 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-blue-500/20 to-purple-500/20 sm:h-24 sm:w-24">
+          <div className="relative flex h-20 w-20 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-blue-500/20 to-theme-primary/20 sm:h-24 sm:w-24">
             {image ? (
               <Image
                 alt={title}

@@ -7,7 +7,7 @@ export function TechPill({ children, variant = 'default' }: TechPillProps) {
   const variants = {
     default: 'bg-white/10 border-white/20 text-white/80',
     primary: 'bg-blue-500/20 border-blue-400/30 text-blue-200',
-    secondary: 'bg-purple-500/20 border-purple-400/30 text-purple-200',
+    secondary: 'bg-theme-primary/25 border-theme-primary/40 text-theme-accent',
   };
 
   return (

@@ -7,6 +7,7 @@ import { Footer } from '@/components/footer';
 import { BentoGrid } from '@/components/grid/bento-grid';
 import Hero from '@/components/hero';
 import { Projects } from '@/components/projects';
+import { WorkExperience } from '@/components/work-experience';
 
 export default function Home() {
   useEffect(() => {
@@ -46,6 +47,17 @@ export default function Home() {
         viewport={{ once: true, margin: '-100px' }}
         whileInView={{ opacity: 1 }}
       >
+        {/* Work Experience Section */}
+        <motion.div
+          className="mb-20"
+          initial={{ opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true, margin: '-50px' }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          <WorkExperience />
+        </motion.div>
+
         <BentoGrid />
 
         {/* Projects */}
