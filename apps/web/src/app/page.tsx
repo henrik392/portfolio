@@ -14,7 +14,7 @@ export default function Home() {
     // Show development toast after a short delay
     const timer = setTimeout(() => {
       toast.warning(
-        '🚧 This website is still under development - not all information may be accurate',
+        '🚧 This website is still in beta - some issues might occur',
         {
           duration: 8000,
           dismissible: true,
