@@ -7,9 +7,9 @@ import { Button } from '@/components/ui/button';
 import projects from '@/data/projects.json' with { type: 'json' };
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 function getProject(id: string) {
@@ -22,8 +22,11 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: ProjectPageProps): Metadata {
-  const project = getProject(params.id);
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const project = getProject(id);
 
   if (!project) {
     return {
@@ -64,8 +67,9 @@ function getStatusText(status: string) {
   }
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = getProject(params.id);
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { id } = await params;
+  const project = getProject(id);
 
   if (!project) {
     notFound();
