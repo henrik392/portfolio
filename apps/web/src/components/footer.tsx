@@ -34,6 +34,14 @@ export function Footer() {
               </a>
               <a
                 className="text-sm text-white/60 transition-colors hover:text-white"
+                href="https://www.instagram.com/henrikhalvorsenkvamme/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Instagram
+              </a>
+              <a
+                className="text-sm text-white/60 transition-colors hover:text-white"
                 href="mailto:henrik@example.com"
               >
                 Email
