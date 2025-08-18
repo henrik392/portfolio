@@ -66,23 +66,14 @@ export default function Header() {
               </a>
             </Button>
 
-            <Button
-              asChild
-              className="border border-white/20 bg-white/10 px-4 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
-              variant="ghost"
-            >
+            <Button asChild variant="glass">
               <a href="mailto:henrik@henrikkvamme.dev">
                 <Mail className="mr-2 h-4 w-4" />
                 Contact
               </a>
             </Button>
 
-            <Button
-              asChild
-              className="border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
-              size="icon"
-              variant="ghost"
-            >
+            <Button asChild size="icon" variant="glass">
               <a
                 aria-label="GitHub"
                 href="https://github.com/henrik392"
@@ -93,12 +84,7 @@ export default function Header() {
               </a>
             </Button>
 
-            <Button
-              asChild
-              className="border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
-              size="icon"
-              variant="ghost"
-            >
+            <Button asChild size="icon" variant="glass">
               <a
                 aria-label="LinkedIn"
                 href="https://linkedin.com/in/henrik-kvamme"
@@ -114,12 +100,7 @@ export default function Header() {
           <div className="lg:hidden">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button
-                  aria-label="Open menu"
-                  className="border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
-                  size="icon"
-                  variant="ghost"
-                >
+                <Button aria-label="Open menu" size="icon" variant="glass">
                   <Menu className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>

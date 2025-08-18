@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ProjectCard } from '@/components/project-card';
+import { SelectFilter } from '@/components/ui/select-filter';
 import {
   getAllCategories,
   getAllTechnologies,
@@ -53,53 +54,47 @@ export function Projects() {
       {/* Filters */}
       <div className="mb-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
         {/* Category Filter */}
-        <select
-          className="w-full appearance-none rounded-lg border border-white/20 bg-[length:12px_8px] bg-[position:calc(100%-12px)_center] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=')] bg-black/40 bg-no-repeat py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm transition-all duration-200 hover:border-blue-400/70 hover:bg-black/60 hover:shadow-blue-400/20 hover:shadow-lg focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50 sm:w-auto"
+        <SelectFilter
           onChange={(e) =>
             setFilters((prev) => ({ ...prev, category: e.target.value }))
           }
+          options={categories.map((category) => ({
+            value: category,
+            label: category,
+          }))}
+          placeholder="All Categories"
           value={filters.category}
-        >
-          <option value="all">All Categories</option>
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
+        />
 
         {/* Technology Filter */}
-        <select
-          className="appearance-none rounded-lg border border-white/20 bg-[length:12px_8px] bg-[position:calc(100%-12px)_center] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=')] bg-black/40 bg-no-repeat py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm transition-all duration-200 hover:border-blue-400/70 hover:bg-black/60 hover:shadow-blue-400/20 hover:shadow-lg focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
+        <SelectFilter
           onChange={(e) =>
             setFilters((prev) => ({ ...prev, technology: e.target.value }))
           }
+          options={technologies.map((tech) => ({
+            value: tech,
+            label: tech,
+          }))}
+          placeholder="All Technologies"
           value={filters.technology}
-        >
-          <option value="all">All Technologies</option>
-          {technologies.map((tech) => (
-            <option key={tech} value={tech}>
-              {tech}
-            </option>
-          ))}
-        </select>
+        />
 
         {/* Status Filter */}
-        <select
-          className="appearance-none rounded-lg border border-white/20 bg-[length:12px_8px] bg-[position:calc(100%-12px)_center] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=')] bg-black/40 bg-no-repeat py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm transition-all duration-200 hover:border-blue-400/70 hover:bg-black/60 hover:shadow-blue-400/20 hover:shadow-lg focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
+        <SelectFilter
           onChange={(e) =>
             setFilters((prev) => ({
               ...prev,
               status: e.target.value as ProjectsFilterState['status'],
             }))
           }
+          options={[
+            { value: 'completed', label: 'Completed' },
+            { value: 'in-progress', label: 'In Progress' },
+            { value: 'archived', label: 'Archived' },
+          ]}
+          placeholder="All Status"
           value={filters.status}
-        >
-          <option value="all">All Status</option>
-          <option value="completed">Completed</option>
-          <option value="in-progress">In Progress</option>
-          <option value="archived">Archived</option>
-        </select>
+        />
       </div>
 
       {/* All Projects */}
