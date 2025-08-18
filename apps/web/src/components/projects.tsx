@@ -1,33 +1,40 @@
-import { ProjectCard } from '@/components/project-card';
+'use client';
 
-// Placeholder project data
-const projects = [
-  {
-    title: 'AI Chat Application',
-    description:
-      'A modern chat application with AI-powered responses, real-time messaging, and beautiful UI.',
-    technologies: ['React', 'TypeScript', 'Node.js', 'WebSocket', 'OpenAI'],
-    githubUrl: 'https://github.com/henrik392/ai-chat',
-    liveUrl: 'https://ai-chat-demo.vercel.app',
-  },
-  {
-    title: 'E-commerce Platform',
-    description:
-      'Full-stack e-commerce solution with payment processing, inventory management, and admin dashboard.',
-    technologies: ['Next.js', 'Rust', 'PostgreSQL', 'Stripe', 'Tailwind'],
-    githubUrl: 'https://github.com/henrik392/ecommerce',
-  },
-  {
-    title: 'Developer Portfolio',
-    description:
-      'This very portfolio website built with modern technologies and beautiful animations.',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind', 'Framer Motion'],
-    githubUrl: 'https://github.com/henrik392/portfolio',
-    liveUrl: 'https://henrikkvamme.dev',
-  },
-];
+import { useState } from 'react';
+import { ProjectCard } from '@/components/project-card';
+import {
+  getAllCategories,
+  getAllTechnologies,
+  getProjectsByCategory,
+  getProjectsByTechnology,
+  projects,
+} from '@/data/projects';
+import type { ProjectsFilterState } from '@/types/project';
 
 export function Projects() {
+  const [filters, setFilters] = useState<ProjectsFilterState>({
+    category: 'all',
+    technology: 'all',
+    status: 'all',
+  });
+
+  const categories = getAllCategories();
+  const technologies = getAllTechnologies();
+
+  // Apply filters
+  let filteredProjects = projects;
+  if (filters.category !== 'all') {
+    filteredProjects = getProjectsByCategory(filters.category);
+  }
+  if (filters.technology !== 'all') {
+    filteredProjects = getProjectsByTechnology(filters.technology);
+  }
+  if (filters.status !== 'all') {
+    filteredProjects = filteredProjects.filter(
+      (project) => project.status === filters.status
+    );
+  }
+
   return (
     <section className="relative mt-36">
       {/* Section Header */}
@@ -38,25 +45,86 @@ export function Projects() {
         >
           Projects
         </h2>
-        <p className="text-white/70 text-xl sm:text-2xl">In progress 🚧</p>
+        <p className="text-white/70 text-xl sm:text-2xl">
+          Here are some projects I've worked on
+        </p>
       </div>
-      {/* Projects List with Blur Overlay */}
-      <div className="relative">
-        <div className="space-y-4">
-          {projects.map((project) => (
+
+      {/* Filters */}
+      <div className="mb-8 flex flex-wrap justify-center gap-4">
+        {/* Category Filter */}
+        <select
+          className="rounded-lg border border-white/20 bg-black/40 px-3 py-2 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
+          onChange={(e) =>
+            setFilters((prev) => ({ ...prev, category: e.target.value }))
+          }
+          value={filters.category}
+        >
+          <option value="all">All Categories</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
+
+        {/* Technology Filter */}
+        <select
+          className="rounded-lg border border-white/20 bg-black/40 py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
+          onChange={(e) =>
+            setFilters((prev) => ({ ...prev, technology: e.target.value }))
+          }
+          value={filters.technology}
+        >
+          <option value="all">All Technologies</option>
+          {technologies.map((tech) => (
+            <option key={tech} value={tech}>
+              {tech}
+            </option>
+          ))}
+        </select>
+
+        {/* Status Filter */}
+        <select
+          className="rounded-lg border border-white/20 bg-black/40 py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
+          onChange={(e) =>
+            setFilters((prev) => ({
+              ...prev,
+              status: e.target.value as ProjectsFilterState['status'],
+            }))
+          }
+          value={filters.status}
+        >
+          <option value="all">All Status</option>
+          <option value="completed">Completed</option>
+          <option value="in-progress">In Progress</option>
+          <option value="archived">Archived</option>
+        </select>
+      </div>
+
+      {/* All Projects */}
+      <div className="space-y-4">
+        {filteredProjects.length > 0 ? (
+          filteredProjects.map((project) => (
             <ProjectCard
               description={project.description}
+              featured={project.featured}
               githubUrl={project.githubUrl}
-              key={project.title}
+              image={project.image}
+              key={project.id}
               liveUrl={project.liveUrl}
+              status={project.status}
               technologies={project.technologies}
               title={project.title}
             />
-          ))}
-        </div>
-
-        {/* Blur Overlay - Only over Projects List */}
-        <div className="pointer-events-none absolute inset-0 bg-black/10 backdrop-blur-sm" />
+          ))
+        ) : (
+          <div className="py-12 text-center">
+            <p className="text-lg text-white/60">
+              No projects found matching the selected filters.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

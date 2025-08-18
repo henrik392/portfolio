@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Switch } from '@/components/ui/switch';
 import { useAnimation } from '@/contexts/animation-context';
+import AnimationToggle from './animation-toggle';
 import Logo from './logo';
 
 export default function Header() {
@@ -56,31 +57,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-2 sm:gap-4 md:flex">
-            <Button
-              className="flex items-center gap-2 border border-white/20 bg-white/10 px-3 py-2 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
-              onClick={toggleAnimation}
-              variant="ghost"
-            >
-              <Zap className="h-4 w-4" />
-              <span className="text-sm">Animation</span>
-              <span
-                className="flex items-center"
-                onClick={(e) => e.stopPropagation()}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    e.stopPropagation();
-                  }
-                }}
-                role="presentation"
-              >
-                <Switch
-                  checked={isAnimationEnabled}
-                  className="data-[state=checked]:bg-white/20 data-[state=unchecked]:bg-white/10"
-                  onCheckedChange={toggleAnimation}
-                />
-              </span>
-            </Button>
+            <AnimationToggle />
 
             <Button
               asChild

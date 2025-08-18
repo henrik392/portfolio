@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "title",
+      "description",
+      "technologies",
+      "status",
+      "featured",
+      "category"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "Unique identifier for the project"
+      },
+      "title": {
+        "type": "string",
+        "description": "Project title"
+      },
+      "description": {
+        "type": "string",
+        "description": "Short description of the project"
+      },
+      "longDescription": {
+        "type": "string",
+        "description": "Detailed description of the project"
+      },
+      "image": {
+        "type": "string",
+        "description": "Path to project image/screenshot"
+      },
+      "technologies": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of technologies used in the project"
+      },
+      "githubUrl": {
+        "type": "string",
+        "format": "uri",
+        "description": "GitHub repository URL"
+      },
+      "liveUrl": {
+        "type": "string",
+        "format": "uri",
+        "description": "Live demo URL"
+      },
+      "status": {
+        "type": "string",
+        "enum": ["completed", "in-progress", "archived"],
+        "description": "Current status of the project"
+      },
+      "featured": {
+        "type": "boolean",
+        "description": "Whether the project is featured"
+      },
+      "category": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Categories the project belongs to"
+      },
+      "startDate": {
+        "type": "string",
+        "format": "date",
+        "description": "Project start date"
+      },
+      "endDate": {
+        "type": "string",
+        "format": "date",
+        "description": "Project end date"
+      },
+      "teamSize": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Number of team members"
+      },
+      "role": {
+        "type": "string",
+        "description": "Role in the project"
+      },
+      "highlights": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Key highlights or features of the project"
+      }
+    },
+    "additionalProperties": false
+  }
+}

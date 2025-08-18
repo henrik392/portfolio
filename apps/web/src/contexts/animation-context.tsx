@@ -1,6 +1,12 @@
 'use client';
 
-import { createContext, type ReactNode, useContext, useState } from 'react';
+import {
+  createContext,
+  type ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
 interface AnimationContextType {
   isAnimationEnabled: boolean;
@@ -14,8 +20,19 @@ const AnimationContext = createContext<AnimationContextType | undefined>(
 export function AnimationProvider({ children }: { children: ReactNode }) {
   const [isAnimationEnabled, setIsAnimationEnabled] = useState(true);
 
+  useEffect(() => {
+    const stored = localStorage.getItem('animationEnabled');
+    if (stored !== null) {
+      setIsAnimationEnabled(JSON.parse(stored));
+    }
+  }, []);
+
   const toggleAnimation = () => {
-    setIsAnimationEnabled((prev) => !prev);
+    setIsAnimationEnabled((prev) => {
+      const newValue = !prev;
+      localStorage.setItem('animationEnabled', JSON.stringify(newValue));
+      return newValue;
+    });
   };
 
   return (
