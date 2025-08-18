@@ -42,7 +42,7 @@ export default function Header() {
       className={`w-full transition-all duration-300 ${
         isScrolled
           ? 'px-4 py-4 sm:px-12 sm:py-6 lg:px-20 lg:py-8'
-          : 'px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8'
+          : 'px-6 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8'
       }`}
     >
       <div

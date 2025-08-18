@@ -41,7 +41,7 @@ export default function Home() {
 
       {/* Constrained content sections */}
       <motion.div
-        className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
+        className="mx-auto max-w-7xl px-6 py-20 sm:px-6 lg:px-8"
         initial={{ opacity: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         viewport={{ once: true, margin: '-100px' }}

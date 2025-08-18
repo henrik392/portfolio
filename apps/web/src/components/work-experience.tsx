@@ -19,7 +19,7 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
 
   return (
     <motion.div
-      className={`relative flex w-full items-center ${isLeft ? 'lg:justify-start' : 'lg:justify-end'} justify-start`}
+      className={`relative flex w-full items-center ${isLeft ? 'lg:justify-start' : 'lg:justify-end'} justify-center`}
       initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
       viewport={{ once: true, margin: '-50px' }}
@@ -43,7 +43,7 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
       />
 
       {/* Card */}
-      <div className={`w-full max-w-md ${isLeft ? 'lg:pr-8' : 'lg:pl-8'}`}>
+      <div className={`w-full lg:max-w-md ${isLeft ? 'lg:pr-8' : 'lg:pl-8'}`}>
         <Tilt
           className="w-full"
           glareEnable={false}
@@ -178,7 +178,7 @@ export function WorkExperience() {
       </motion.div>
 
       {/* Journey timeline */}
-      <div className="relative mx-auto max-w-4xl px-4 lg:px-0">
+      <div className="relative mx-auto max-w-4xl lg:px-0">
         {/* Central timeline line */}
         <div className="absolute top-0 bottom-0 left-1/2 hidden w-px bg-gradient-to-b from-transparent via-white/20 to-transparent lg:block" />
 
