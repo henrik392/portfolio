@@ -10,7 +10,7 @@ import { TechStackCard } from './tech-stack-card';
 
 export function BentoGrid() {
   return (
-    <div className="mb-24 grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
+    <div className="mb-40 grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
       <ExpertiseCard colSpan={3} />
       <ProfileCard colSpan={1} />
       <AchievementCard colSpan={2} />

@@ -162,18 +162,17 @@ export function WorkExperience() {
     <section className="relative space-y-8" id="work">
       {/* Section header */}
       <motion.div
-        className="text-center"
+        className="mb-12 flex flex-col items-center text-center"
         initial={{ opacity: 0, y: 30 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true, margin: '-50px' }}
         whileInView={{ opacity: 1, y: 0 }}
       >
-        <h2 className="mb-4 font-bold text-3xl text-white md:text-4xl">
+        <h2 className="mb-3 font-bold text-4xl text-white sm:text-5xl md:text-6xl">
           Work Experience
         </h2>
-        <p className="mx-auto max-w-2xl text-lg text-white/70">
-          From startup environments to consultancy work, building modern
-          solutions with cutting-edge technologies
+        <p className="mx-auto max-w-lg text-white/70 text-xl">
+          From startup environments to consultancy work
         </p>
       </motion.div>
 
