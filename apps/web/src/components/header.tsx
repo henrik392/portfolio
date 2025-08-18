@@ -68,19 +68,19 @@ export default function Header() {
         }`}
       >
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          {isProjectPage ? (
+            <Link
+              className="flex items-center gap-2 text-white/80 transition-colors hover:text-white"
+              href="/#projects"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              <span className="font-medium">Back to Projects</span>
+            </Link>
+          ) : (
             <Link href="/">
               <Logo />
             </Link>
-            {isProjectPage && (
-              <Button asChild size="sm" variant="glass">
-                <Link href="/#projects">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Projects
-                </Link>
-              </Button>
-            )}
-          </div>
+          )}
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-2 sm:gap-4 lg:flex">
