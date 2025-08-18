@@ -51,10 +51,10 @@ export function Projects() {
       </div>
 
       {/* Filters */}
-      <div className="mb-8 flex flex-wrap justify-center gap-4">
+      <div className="mb-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
         {/* Category Filter */}
         <select
-          className="rounded-lg border border-white/20 bg-black/40 px-3 py-2 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50"
+          className="w-full rounded-lg border border-white/20 bg-black/40 py-2 pr-8 pl-3 text-sm text-white backdrop-blur-sm focus:border-blue-400/50 focus:outline-none focus:ring-1 focus:ring-blue-400/50 sm:w-auto"
           onChange={(e) =>
             setFilters((prev) => ({ ...prev, category: e.target.value }))
           }

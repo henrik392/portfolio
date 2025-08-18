@@ -24,10 +24,11 @@ export function TiltCard({
   ...props
 }: TiltCardProps) {
   const gridClasses = cn(
-    'flex min-h-[300px] p-px',
+    'flex p-px',
     colSpan === 1 && 'lg:col-span-1',
     colSpan === 2 && 'lg:col-span-2',
     colSpan === 3 && 'lg:col-span-3',
+    rowSpan === 1 && 'min-h-fit',
     rowSpan === 2 && 'lg:row-span-2 lg:min-h-0'
   );
 
