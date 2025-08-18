@@ -1,8 +1,8 @@
 [
   {
     "id": "upcoming-project",
-    "company": "Student Success Startup",
-    "companyDescription": "EdTech startup developing tools to help students succeed academically",
+    "company": "Student Success Startup (TBA)",
+    "companyDescription": "To be announced startup developing tools to help students succeed academically",
     "role": "Lead Developer & Coach",
     "employmentType": "consultant",
     "startDate": "2025-06-01",
@@ -10,7 +10,7 @@
     "location": "Remote",
     "isCurrentRole": true,
     "keyAchievements": [
-      "Leading full-stack development of student success platform",
+      "Leading full-stack development of student platform",
       "Coaching and mentoring a junior developer on the team",
       "Architecting scalable solutions for educational technology",
       "Building user-focused features to improve student outcomes"
