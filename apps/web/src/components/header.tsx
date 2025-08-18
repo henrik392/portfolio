@@ -56,7 +56,7 @@ export default function Header() {
           <Logo />
 
           {/* Desktop Navigation */}
-          <div className="hidden items-center gap-2 sm:gap-4 md:flex">
+          <div className="hidden items-center gap-2 sm:gap-4 lg:flex">
             <AnimationToggle />
 
             <Button
@@ -115,7 +115,7 @@ export default function Header() {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button

@@ -19,7 +19,7 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
 
   return (
     <motion.div
-      className={`relative flex w-full items-center ${isLeft ? 'justify-start' : 'justify-end'}`}
+      className={`relative flex w-full items-center ${isLeft ? 'lg:justify-start' : 'lg:justify-end'} justify-start`}
       initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
       viewport={{ once: true, margin: '-50px' }}
@@ -34,7 +34,7 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
             '0 0 12px 4px rgba(128,75,242,0.4)',
           ],
         }}
-        className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 z-20 h-3 w-3 rounded-full bg-theme-primary shadow-[0_0_12px_4px_rgba(128,75,242,0.4)]"
+        className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 z-20 hidden h-3 w-3 rounded-full bg-theme-primary shadow-[0_0_12px_4px_rgba(128,75,242,0.4)] lg:block"
         transition={{
           duration: 2,
           repeat: Number.POSITIVE_INFINITY,
@@ -43,8 +43,14 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
       />
 
       {/* Card */}
-      <div className={`w-full max-w-md ${isLeft ? 'pr-8' : 'pl-8'}`}>
-        <Tilt className="w-full" tiltMaxAngleX={3} tiltMaxAngleY={3}>
+      <div className={`w-full max-w-md ${isLeft ? 'lg:pr-8' : 'lg:pl-8'}`}>
+        <Tilt
+          className="w-full"
+          glareEnable={false}
+          tiltEnable={false}
+          tiltMaxAngleX={3}
+          tiltMaxAngleY={3}
+        >
           <div
             className={`group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/10 ${isSpecialProject ? 'border-theme-primary/60 bg-theme-primary/10' : ''}`}
           >
@@ -55,9 +61,9 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
 
             <div className="relative z-10">
               {/* Header */}
-              <div className="mb-3 flex items-start justify-between">
+              <div className="mb-3 flex flex-col gap-2 lg:flex-row lg:items-start lg:justify-between lg:gap-0">
                 <div className="flex-1">
-                  <div className="mb-1 flex items-center gap-2">
+                  <div className="mb-1 flex flex-wrap items-center gap-2">
                     <h3 className="font-semibold text-lg text-white">
                       {experience.role}
                     </h3>
@@ -79,7 +85,7 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
                     {experience.companyDescription}
                   </p>
                 </div>
-                <div className="ml-3 text-right">
+                <div className="lg:ml-3 lg:text-right">
                   <p className="font-medium text-sm text-white/80">
                     {calculateDuration(
                       experience.startDate,
@@ -172,12 +178,12 @@ export function WorkExperience() {
       </motion.div>
 
       {/* Journey timeline */}
-      <div className="relative mx-auto max-w-4xl">
+      <div className="relative mx-auto max-w-4xl px-4 lg:px-0">
         {/* Central timeline line */}
-        <div className="absolute top-0 bottom-0 left-1/2 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+        <div className="absolute top-0 bottom-0 left-1/2 hidden w-px bg-gradient-to-b from-transparent via-white/20 to-transparent lg:block" />
 
         {/* Experience cards */}
-        <div className="space-y-12">
+        <div className="space-y-8 lg:space-y-12">
           {experiences.map((experience, index) => (
             <JourneyCard
               experience={experience}
