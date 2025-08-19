@@ -23,18 +23,6 @@ I'm Henrik Kvamme, a passionate developer with **10 years of experience** starti
 - **Databases**: PostgreSQL, SQLite, MySQL, Prisma/Drizzle
 - **AI/ML**: Python, TensorFlow, PyTorch
 
-### Philosophy
-
-I believe in **user experience first** - crafting technology that feels intuitive and delightful. Great software should be invisible to users, allowing them to focus on their goals.
-
-### Achievements
-
-🏆 **5th place** - Norwegian Olympiad of Informatics
-
-### Location & Interests
-
-📍 **Trondheim, Norway** | 🏃‍♂️ **Gym Enthusiast** | 🎸 **Guitar Player**
-
 ---
 
 ## Technical Details
