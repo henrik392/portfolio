@@ -2,15 +2,15 @@ import Image from 'next/image';
 
 export default function Logo() {
   return (
-    <div className="flex items-center gap-1 sm:gap-1">
+    <div className="flex items-center gap-2">
       {/* Logo image */}
       <div className="relative">
         <Image
           alt="Henrik Kvamme Logo"
-          className="h-8 w-8 object-contain sm:h-12 sm:w-12"
+          className="h-7 w-7 object-contain sm:h-8 sm:w-8"
           height={64}
           priority
-          src="/images/logo-white.png"
+          src="/images/logo.png"
           width={64}
         />
       </div>
