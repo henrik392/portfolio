@@ -31,8 +31,8 @@ export function CogitoCard({ colSpan = 1, rowSpan = 1 }: CogitoCardProps) {
               Project Lead
             </h4>
             <p className="text-white/60 text-xs leading-relaxed">
-              Led team of 5 developers building AI social media content
-              generator. Coordinated project timeline and technical decisions.
+              Leading team of 5 developers building AI social media content
+              generator. Coordinate project timeline and technical decisions.
             </p>
           </div>
         </div>

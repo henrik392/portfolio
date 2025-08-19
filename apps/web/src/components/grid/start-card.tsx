@@ -39,11 +39,9 @@ export function StartCard({ colSpan = 1, rowSpan = 1 }: StartCardProps) {
 
         <div className="space-y-3">
           <div className="rounded-lg border border-orange-400/20 bg-orange-500/10 p-3">
-            <h4 className="mb-1 font-medium text-orange-200 text-sm">
-              Sponsors
-            </h4>
+            <h4 className="mb-1 font-medium text-orange-200 text-sm">Impact</h4>
             <p className="text-orange-300/80 text-xs">
-              Jane Street • Equinor • Event management • Business development
+              Event management • Sponsorship acquisition • Marketing
             </p>
           </div>
 
