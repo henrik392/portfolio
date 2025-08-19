@@ -7,7 +7,7 @@ export default function Logo() {
       <div className="relative">
         <Image
           alt="Henrik Kvamme Logo"
-          className="h-7 w-7 object-contain sm:h-8 sm:w-8"
+          className="m-1 h-7 w-7 object-contain sm:h-8 sm:w-8"
           height={64}
           priority
           src="/images/logo.png"

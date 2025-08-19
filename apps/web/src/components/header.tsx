@@ -118,7 +118,7 @@ export default function Header() {
           )}
 
           {/* Desktop Navigation */}
-          <div className="hidden items-center gap-2 sm:gap-4 lg:flex">
+          <div className="hidden items-center gap-2 sm:gap-3 lg:flex">
             <AnimationToggle />
 
             <Button onClick={() => scrollToSection('work')} variant="glass">
