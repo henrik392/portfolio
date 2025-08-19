@@ -32,7 +32,7 @@ export function CogitoCard({ colSpan = 1, rowSpan = 1 }: CogitoCardProps) {
             </h4>
             <p className="text-white/60 text-xs leading-relaxed">
               Leading team of 5 developers building AI social media content
-              generator. Coordinate project timeline and technical decisions.
+              generator. Coordinated project timeline and technical decisions.
             </p>
           </div>
         </div>

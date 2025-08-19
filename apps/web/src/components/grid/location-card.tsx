@@ -42,9 +42,9 @@ export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
           dragPan={true}
           dragRotate={true}
           initialViewState={{
-            longitude: 10.4036,
-            latitude: 63.4305,
-            zoom: 10,
+            longitude: 10.4018,
+            latitude: 63.4178,
+            zoom: 14,
           }}
           interactive={true}
           keyboard={true}
@@ -55,15 +55,19 @@ export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
           style={{ width: '100%', height: '100%' }}
           touchZoomRotate={true}
         >
-          <Marker anchor="bottom" latitude={63.4305} longitude={10.4036}>
-            <div className="animate-pulse text-2xl">📍</div>
+          <Marker anchor="center" latitude={63.4178} longitude={10.4018}>
+            <div className="h-3 w-3 animate-pulse rounded-full bg-white shadow-lg" />
           </Marker>
         </MapboxMap>
 
-        <div className="absolute right-4 bottom-4 text-right">
-          <h3 className="mb-2 font-semibold text-sm text-white/70">Location</h3>
-          <h2 className="mb-1 font-bold text-lg text-white">Trondheim</h2>
-          <p className="text-sm text-white/60">Norway</p>
+        <div className="absolute right-6 bottom-6 text-right">
+          <p className="mb-1 font-medium text-white/50 text-xs uppercase tracking-wide">
+            Location
+          </p>
+          <h2 className="mb-0.5 font-bold text-white text-xl">
+            Gløshaugen NTNU
+          </h2>
+          <p className="text-sm text-white/70">Trondheim, Norway</p>
         </div>
       </div>
     </TiltCard>
