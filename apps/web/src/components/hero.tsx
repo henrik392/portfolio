@@ -3,13 +3,15 @@
 import { Canvas } from '@react-three/fiber';
 import { ChevronDown } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Metaball from '@/components/metaball';
 import { useAnimation } from '@/contexts/animation-context';
 import { WordRotate } from './magicui/word-rotate';
 
 export default function Hero() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [isInView, setIsInView] = useState(true);
+  const heroRef = useRef<HTMLElement>(null);
   const { isAnimationEnabled } = useAnimation();
   const isThreeJSDisabled =
     process.env.NEXT_PUBLIC_DISABLE_THREEJS === 'true' || !isAnimationEnabled;
@@ -43,9 +45,31 @@ export default function Hero() {
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => {
+      if (heroRef.current) {
+        observer.unobserve(heroRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative h-screen w-full">
-      {!isThreeJSDisabled && (
+    <section className="relative h-screen w-full" ref={heroRef}>
+      {!isThreeJSDisabled && isInView && (
         <Canvas
           className="absolute inset-0 touch-none select-none overflow-hidden"
           resize={{ scroll: false, debounce: { scroll: 50, resize: 0 } }}
