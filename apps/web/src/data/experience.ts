@@ -20,6 +20,25 @@ export function getCurrentRole(): WorkExperience | undefined {
   return experiences.find((exp) => exp.isCurrentRole);
 }
 
+export function formatDatePeriod(
+  startDate: string,
+  endDate?: string | null
+): string {
+  const start = new Date(startDate);
+  const end = endDate ? new Date(endDate) : null;
+
+  const formatDate = (date: Date) => {
+    const month = date.toLocaleDateString('en-US', { month: 'short' });
+    const year = date.getFullYear();
+    return `${month} ${year}`;
+  };
+
+  const startFormatted = formatDate(start);
+  const endFormatted = end ? formatDate(end) : 'Present';
+
+  return `${startFormatted} - ${endFormatted}`;
+}
+
 export function calculateDuration(
   startDate: string,
   endDate?: string | null

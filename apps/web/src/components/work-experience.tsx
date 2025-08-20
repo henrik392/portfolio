@@ -3,7 +3,11 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import Tilt from 'react-parallax-tilt';
-import { calculateDuration, getExperiences } from '@/data/experience';
+import {
+  calculateDuration,
+  formatDatePeriod,
+  getExperiences,
+} from '@/data/experience';
 import type { WorkExperience as WorkExperienceType } from '@/types/experience';
 import { TechPill } from './tech-pill';
 
@@ -61,9 +65,9 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
 
             <div className="relative z-10">
               {/* Header */}
-              <div className="mb-3 flex flex-col gap-2 lg:flex-row lg:items-start lg:justify-between lg:gap-0">
-                <div className="flex-1">
-                  <div className="mb-1 flex flex-wrap items-center gap-2">
+              <div className="mb-3">
+                <div className="mb-2 flex items-start justify-between gap-3">
+                  <div className="flex flex-wrap items-center gap-2">
                     <h3 className="font-semibold text-lg text-white">
                       {experience.role}
                     </h3>
@@ -78,22 +82,28 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
                       </span>
                     )}
                   </div>
-                  <p className="font-medium text-base text-blue-300">
-                    {experience.company}
-                  </p>
-                  <p className="text-sm text-white/60 leading-tight">
-                    {experience.companyDescription}
-                  </p>
+                  <div className="flex-shrink-0 text-right">
+                    <p className="font-medium text-sm text-white/80">
+                      {formatDatePeriod(
+                        experience.startDate,
+                        experience.endDate
+                      )}
+                    </p>
+                    <p className="text-white/60 text-xs">
+                      {calculateDuration(
+                        experience.startDate,
+                        experience.endDate
+                      )}{' '}
+                      • {experience.location}
+                    </p>
+                  </div>
                 </div>
-                <div className="lg:ml-3 lg:text-right">
-                  <p className="font-medium text-sm text-white/80">
-                    {calculateDuration(
-                      experience.startDate,
-                      experience.endDate
-                    )}
-                  </p>
-                  <p className="text-white/60 text-xs">{experience.location}</p>
-                </div>
+                <p className="mb-1 font-medium text-base text-blue-300">
+                  {experience.company}
+                </p>
+                <p className="text-sm text-white/60 leading-relaxed">
+                  {experience.companyDescription}
+                </p>
               </div>
 
               {/* Description */}
@@ -171,7 +181,7 @@ export function WorkExperience() {
         <h2 className="mb-3 font-bold text-4xl text-white sm:text-5xl md:text-6xl">
           Work Experience
         </h2>
-        <p className="mx-auto max-w-lg text-white/70 text-xl">
+        <p className="mx-auto max-w-2xl text-white/70 text-xl">
           From startup environments to consultancy work
         </p>
       </motion.div>
