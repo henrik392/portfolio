@@ -31,7 +31,7 @@ export function ContactCard({ colSpan = 1, rowSpan = 1 }: ContactCardProps) {
 
         <div className="space-y-3">
           <Button asChild className="w-full" size="sm" variant="glass">
-            <a href="mailto:henrik@henrikkvamme.dev">
+            <a href="mailto:henrik.halvorsen.kvamme@gmail.com">
               <Mail className="mr-2 h-4 w-4" />
               Email
             </a>
