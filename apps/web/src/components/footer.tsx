@@ -42,7 +42,7 @@ export function Footer() {
               </a>
               <a
                 className="text-sm text-white/60 transition-colors hover:text-white"
-                href="mailto:henrik@example.com"
+                href="mailto:henrik.halvorsen.kvamme@gmail.com"
               >
                 Email
               </a>
