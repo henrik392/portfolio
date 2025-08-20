@@ -233,14 +233,27 @@ export default function Metaball() {
   const { size } = useThree();
   const materialRef = useRef<RawShaderMaterial>(null);
   const [mouseTrail, setMouseTrail] = useState<Vector2[]>([]);
+  const [isInteracting, setIsInteracting] = useState(false);
+  const lastMoveTime = useRef(Date.now());
+  const lastPointerUpdate = useRef(0);
+  const frameCount = useRef(0);
   const [uniforms] = useState(() =>
     createUniforms(new Vector2(size.width, size.height))
   );
 
-  // Handle mouse movement
+  // Handle mouse movement with throttling
   const handlePointerMove = useCallback((event: PointerEvent) => {
+    const now = Date.now();
+    lastMoveTime.current = now;
+    setIsInteracting(true);
+
+    // Throttle pointer updates to ~60fps
+    if (now - lastPointerUpdate.current < 16) {
+      return;
+    }
+    lastPointerUpdate.current = now;
+
     // Convert to normalized coordinates that match the shader's coordinate system
-    // The shader converts: (gl_FragCoord.xy * 2.0 - uResolution) / min(uResolution.x, uResolution.y)
     const resolution = new Vector2(window.innerWidth, window.innerHeight);
     const minDimension = Math.min(resolution.x, resolution.y);
 
@@ -257,7 +270,7 @@ export default function Metaball() {
     });
   }, []);
 
-  // Set up mouse listener
+  // Set up mouse listener and interaction timeout
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('pointermove', handlePointerMove);
@@ -265,12 +278,40 @@ export default function Metaball() {
     }
   }, [handlePointerMove]);
 
+  // Reset interaction state after inactivity
+  useEffect(() => {
+    const checkInteraction = () => {
+      const now = Date.now();
+      if (now - lastMoveTime.current > 1000) {
+        setIsInteracting(false);
+      }
+    };
+
+    const interval = setInterval(checkInteraction, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   useFrame((_state, delta) => {
-    if (uniforms.uTime) {
-      uniforms.uTime.value += delta;
+    frameCount.current++;
+
+    // Reduce frame rate when not interacting
+    const targetFps = isInteracting ? 60 : 30;
+    const frameSkip = Math.ceil(60 / targetFps);
+
+    if (frameCount.current % frameSkip !== 0) {
+      return;
     }
 
-    if (uniforms.uResolution) {
+    if (uniforms.uTime) {
+      uniforms.uTime.value += delta * frameSkip;
+    }
+
+    // Only update resolution if it actually changed
+    if (
+      uniforms.uResolution &&
+      (uniforms.uResolution.value.x !== size.width ||
+        uniforms.uResolution.value.y !== size.height)
+    ) {
       uniforms.uResolution.value.set(size.width, size.height);
     }
 

@@ -54,6 +54,13 @@ export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
           scrollZoom={true}
           style={{ width: '100%', height: '100%' }}
           touchZoomRotate={true}
+          transformRequest={(url, _resourceType) => {
+            // Block telemetry requests to prevent console errors
+            if (url.includes('events.mapbox.com')) {
+              return { url: '' };
+            }
+            return { url };
+          }}
         >
           <Marker anchor="center" latitude={63.4178} longitude={10.4018}>
             <div className="h-3 w-3 animate-pulse rounded-full bg-white shadow-lg" />
