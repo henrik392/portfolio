@@ -234,6 +234,7 @@ export default function Metaball() {
   const materialRef = useRef<RawShaderMaterial>(null);
   const [mouseTrail, setMouseTrail] = useState<Vector2[]>([]);
   const [isInteracting, setIsInteracting] = useState(false);
+  const [isAnimationActive, setIsAnimationActive] = useState(true);
   const lastMoveTime = useRef(Date.now());
   const lastPointerUpdate = useRef(0);
   const frameCount = useRef(0);
@@ -246,6 +247,7 @@ export default function Metaball() {
     const now = Date.now();
     lastMoveTime.current = now;
     setIsInteracting(true);
+    setIsAnimationActive(true); // Reactivate animation on mouse movement
 
     // Throttle pointer updates to ~60fps
     if (now - lastPointerUpdate.current < 16) {
@@ -278,12 +280,18 @@ export default function Metaball() {
     }
   }, [handlePointerMove]);
 
-  // Reset interaction state after inactivity
+  // Reset interaction state after inactivity and stop animation after 10s
   useEffect(() => {
     const checkInteraction = () => {
       const now = Date.now();
-      if (now - lastMoveTime.current > 1000) {
+      const timeSinceLastMove = now - lastMoveTime.current;
+
+      if (timeSinceLastMove > 1000) {
         setIsInteracting(false);
+      }
+
+      if (timeSinceLastMove > 10_000) {
+        setIsAnimationActive(false);
       }
     };
 
@@ -291,7 +299,38 @@ export default function Metaball() {
     return () => clearInterval(interval);
   }, []);
 
+  const updateUniforms = useCallback(
+    (delta: number, frameSkip: number) => {
+      if (uniforms.uTime) {
+        uniforms.uTime.value += delta * frameSkip;
+      }
+
+      // Only update resolution if it actually changed
+      if (
+        uniforms.uResolution &&
+        (uniforms.uResolution.value.x !== size.width ||
+          uniforms.uResolution.value.y !== size.height)
+      ) {
+        uniforms.uResolution.value.set(size.width, size.height);
+      }
+
+      if (uniforms.uPointerTrail) {
+        const trail = mouseTrail.slice(0, 15);
+        while (trail.length < 15) {
+          trail.push(new Vector2(0, 0));
+        }
+        uniforms.uPointerTrail.value = trail;
+      }
+    },
+    [uniforms, size.width, size.height, mouseTrail]
+  );
+
   useFrame((_state, delta) => {
+    // Stop rendering entirely when animation is inactive
+    if (!isAnimationActive) {
+      return;
+    }
+
     frameCount.current++;
 
     // Reduce frame rate when not interacting
@@ -302,26 +341,7 @@ export default function Metaball() {
       return;
     }
 
-    if (uniforms.uTime) {
-      uniforms.uTime.value += delta * frameSkip;
-    }
-
-    // Only update resolution if it actually changed
-    if (
-      uniforms.uResolution &&
-      (uniforms.uResolution.value.x !== size.width ||
-        uniforms.uResolution.value.y !== size.height)
-    ) {
-      uniforms.uResolution.value.set(size.width, size.height);
-    }
-
-    if (uniforms.uPointerTrail) {
-      const trail = mouseTrail.slice(0, 15);
-      while (trail.length < 15) {
-        trail.push(new Vector2(0, 0));
-      }
-      uniforms.uPointerTrail.value = trail;
-    }
+    updateUniforms(delta, frameSkip);
   });
 
   return (
