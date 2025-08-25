@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap");
+
+:root {
+  /* Light theme colors */
+  --hk-primary: #804bf2;
+  --hk-secondary: #4a2b8c;
+  --hk-accent: #231640;
+  --hk-background: #ffffff;
+  --hk-foreground: #000000;
+  --hk-text-primary: #000000;
+  --hk-text-secondary: rgba(0, 0, 0, 0.6);
+  --hk-text-muted: rgba(0, 0, 0, 0.4);
+  --hk-border: rgba(0, 0, 0, 0.1);
+  --hk-glass-bg: rgba(255, 255, 255, 0.75);
+  --hk-glass-border: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"],
+.dark {
+  /* Dark theme colors */
+  --hk-background: #000000;
+  --hk-foreground: #ffffff;
+  --hk-text-primary: #ffffff;
+  --hk-text-secondary: rgba(255, 255, 255, 0.6);
+  --hk-text-muted: rgba(255, 255, 255, 0.4);
+  --hk-border: rgba(255, 255, 255, 0.1);
+  --hk-glass-bg: rgba(0, 0, 0, 0.75);
+  --hk-glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* Font family */
+.hk-font-mono {
+  font-family:
+    "Geist Mono", ui-monospace, "Cascadia Code", "Roboto Mono", Menlo, monospace;
+}
+
+/* Base styles */
+.hk-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hk-logo-image {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  margin: 4px;
+}
+
+@media (min-width: 640px) {
+  .hk-logo-image {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.hk-logo-text {
+  font-size: 1.125rem;
+  color: var(--hk-text-primary);
+  letter-spacing: 0.025em;
+  font-weight: 500;
+}
+
+@media (min-width: 640px) {
+  .hk-logo-text {
+    font-size: 1.25rem;
+  }
+}
+
+/* Footer styles */
+.hk-footer {
+  margin-top: 5rem;
+  border-top: 1px solid var(--hk-border);
+  background: var(--hk-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hk-footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .hk-footer-container {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hk-footer-container {
+    padding: 3rem 2rem;
+  }
+}
+
+.hk-footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .hk-footer-content {
+    flex-direction: row;
+  }
+}
+
+.hk-footer-brand {
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .hk-footer-brand {
+    text-align: left;
+  }
+}
+
+.hk-footer-brand h3 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--hk-text-primary);
+  margin: 0 0 0.25rem 0;
+}
+
+.hk-footer-brand p {
+  font-size: 0.875rem;
+  color: var(--hk-text-secondary);
+  margin: 0;
+}
+
+.hk-footer-links-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .hk-footer-links-section {
+    align-items: flex-end;
+  }
+}
+
+.hk-footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.hk-footer-link {
+  font-size: 0.875rem;
+  color: var(--hk-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hk-footer-link:hover {
+  color: var(--hk-text-primary);
+}
+
+.hk-footer-copyright {
+  color: var(--hk-text-muted);
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+/* Glass morphism utilities */
+.hk-glass {
+  background: var(--hk-glass-bg);
+  backdrop-filter: blur(30px) saturate(200%) brightness(80%);
+  -webkit-backdrop-filter: blur(60px) saturate(200%) brightness(80%);
+  border-radius: 16px;
+  border: 1px solid var(--hk-glass-border);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .hk-glass,
+.dark .hk-glass {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Theme transition */
+* {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}

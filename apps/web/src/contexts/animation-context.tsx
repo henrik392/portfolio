@@ -8,10 +8,10 @@ import {
   useState,
 } from 'react';
 
-interface AnimationContextType {
+type AnimationContextType = {
   isAnimationEnabled: boolean;
   toggleAnimation: () => void;
-}
+};
 
 const AnimationContext = createContext<AnimationContextType | undefined>(
   undefined

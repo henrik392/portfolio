@@ -1,9 +1,9 @@
 import { TiltCard } from '@/components/tilt-card';
 
-interface AchievementCardProps {
+type AchievementCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function AchievementCard({
   colSpan = 2,

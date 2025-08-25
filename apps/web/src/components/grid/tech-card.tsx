@@ -1,12 +1,12 @@
 import { TiltCard } from '@/components/tilt-card';
 
-interface TechCardProps {
+type TechCardProps = {
   icon: string;
   name: string;
   description: string;
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function TechCard({
   icon,

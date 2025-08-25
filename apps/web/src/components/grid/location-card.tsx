@@ -6,10 +6,10 @@ import { Map as MapboxMap, Marker } from 'react-map-gl/mapbox';
 import { TiltCard } from '@/components/tilt-card';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-interface LocationCardProps {
+type LocationCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function LocationCard({ colSpan = 1, rowSpan = 2 }: LocationCardProps) {
   const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;

@@ -3,17 +3,17 @@
 import { useRef } from 'react';
 import { TiltCard } from '@/components/tilt-card';
 
-interface TechStackCardProps {
+type TechStackCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
-interface Technology {
+type Technology = {
   name: string;
   icon: string;
   category: 'frontend' | 'backend' | 'database' | 'tools' | 'mobile' | 'ai';
   color: string;
-}
+};
 
 const technologies: Technology[] = [
   // Frontend

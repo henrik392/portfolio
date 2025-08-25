@@ -1,0 +1,28 @@
+# Source files
+src/
+rollup.config.js
+tsconfig.json
+
+# Development files
+*.log
+*.tgz
+node_modules/
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing files
+coverage/
+*.test.*
+*.spec.*
+
+# Build scripts and configs
+.eslintrc*
+.prettierrc*
+.babelrc*
+jest.config.*

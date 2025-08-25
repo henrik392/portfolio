@@ -2,10 +2,10 @@ import { Brain, ExternalLink } from 'lucide-react';
 import { TiltCard } from '@/components/tilt-card';
 import { Button } from '@/components/ui/button';
 
-interface CogitoCardProps {
+type CogitoCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function CogitoCard({ colSpan = 1, rowSpan = 1 }: CogitoCardProps) {
   return (

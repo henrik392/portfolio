@@ -1,10 +1,10 @@
 import { Users } from 'lucide-react';
 import { TiltCard } from '@/components/tilt-card';
 
-interface VolunteerCardProps {
+type VolunteerCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function VolunteerCard({
   colSpan = 1,

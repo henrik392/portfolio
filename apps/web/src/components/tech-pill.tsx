@@ -1,7 +1,7 @@
-interface TechPillProps {
+type TechPillProps = {
   children: React.ReactNode;
   variant?: 'default' | 'primary' | 'secondary';
-}
+};
 
 export function TechPill({ children, variant = 'default' }: TechPillProps) {
   const variants = {

@@ -1,4 +1,4 @@
-export interface WorkExperience {
+export type WorkExperience = {
   id: string;
   company: string;
   companyDescription: string;
@@ -16,7 +16,7 @@ export interface WorkExperience {
   highlights: string[];
   description: string;
   impactMetrics?: string[];
-}
+};
 
 export interface WorkExperienceCardProps
   extends Pick<

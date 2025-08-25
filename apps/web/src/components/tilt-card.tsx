@@ -54,13 +54,19 @@ export function TiltCard({
   const { x: tiltX, y: tiltY } = getTiltAngles();
   const tiltEnabled = tiltX > 0 || tiltY > 0;
 
+  const SINGLE_COL = 1;
+  const DOUBLE_COL = 2;
+  const TRIPLE_COL = 3;
+  const SINGLE_ROW = 1;
+  const DOUBLE_ROW = 2;
+
   const gridClasses = cn(
     'flex p-px',
-    colSpan === 1 && 'lg:col-span-1',
-    colSpan === 2 && 'lg:col-span-2',
-    colSpan === 3 && 'lg:col-span-3',
-    rowSpan === 1 && 'min-h-fit',
-    rowSpan === 2 && 'lg:row-span-2 lg:min-h-0'
+    colSpan === SINGLE_COL && 'lg:col-span-1',
+    colSpan === DOUBLE_COL && 'lg:col-span-2',
+    colSpan === TRIPLE_COL && 'lg:col-span-3',
+    rowSpan === SINGLE_ROW && 'min-h-fit',
+    rowSpan === DOUBLE_ROW && 'lg:row-span-2 lg:min-h-0'
   );
 
   const cardClasses = cn(

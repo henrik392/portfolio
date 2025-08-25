@@ -1,10 +1,10 @@
 import { Github } from 'lucide-react';
 import { TiltCard } from '@/components/tilt-card';
 
-interface GithubCardProps {
+type GithubCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function GithubCard({ colSpan = 1, rowSpan = 1 }: GithubCardProps) {
   return (

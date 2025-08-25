@@ -2,10 +2,10 @@ import { ExternalLink, Rocket } from 'lucide-react';
 import { TiltCard } from '@/components/tilt-card';
 import { Button } from '@/components/ui/button';
 
-interface StartCardProps {
+type StartCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function StartCard({ colSpan = 1, rowSpan = 1 }: StartCardProps) {
   return (

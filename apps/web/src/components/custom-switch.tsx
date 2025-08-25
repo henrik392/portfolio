@@ -1,10 +1,10 @@
 'use client';
 
-interface CustomSwitchProps {
+type CustomSwitchProps = {
   checked: boolean;
   onCheckedChange: (checked: boolean) => void;
   className?: string;
-}
+};
 
 export default function CustomSwitch({
   checked,

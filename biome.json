@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.1.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
   "files": {
     "ignoreUnknown": false,
     "includes": [
@@ -22,11 +22,11 @@
   "extends": ["ultracite"],
   "linter": {
     "rules": {
-      "nursery": {
-        "noUnknownAtRule": "off"
-      },
       "a11y": {
         "noStaticElementInteractions": "off"
+      },
+      "suspicious": {
+        "noUnknownAtRules": "off"
       }
     }
   }

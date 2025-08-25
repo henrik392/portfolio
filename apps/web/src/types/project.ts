@@ -1,4 +1,4 @@
-export interface Project {
+export type Project = {
   id: string;
   title: string;
   description: string;
@@ -18,7 +18,7 @@ export interface Project {
   teamSize?: number;
   role?: string;
   highlights?: string[];
-}
+};
 
 export interface ProjectCardProps
   extends Pick<
@@ -36,8 +36,8 @@ export interface ProjectCardProps
   featured?: boolean;
 }
 
-export interface ProjectsFilterState {
+export type ProjectsFilterState = {
   category: string;
   technology: string;
   status: Project['status'] | 'all';
-}
+};

@@ -11,11 +11,16 @@ import {
 import type { WorkExperience as WorkExperienceType } from '@/types/experience';
 import { TechPill } from './tech-pill';
 
-interface JourneyCardProps {
+const ANIMATION_OFFSET = 50;
+const ANIMATION_DURATION = 0.6;
+const ANIMATION_DELAY_MULTIPLIER = 0.2;
+const TECH_DISPLAY_LIMIT = 4;
+
+type JourneyCardProps = {
   experience: WorkExperienceType;
   index: number;
   isLeft: boolean;
-}
+};
 
 function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
   const isSpecialProject = experience.id === 'upcoming-project';
@@ -24,8 +29,11 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
   return (
     <motion.div
       className={`relative flex w-full items-center ${isLeft ? 'lg:justify-start' : 'lg:justify-end'} justify-center`}
-      initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-      transition={{ duration: 0.6, delay: index * 0.2 }}
+      initial={{ opacity: 0, x: isLeft ? -ANIMATION_OFFSET : ANIMATION_OFFSET }}
+      transition={{
+        duration: ANIMATION_DURATION,
+        delay: index * ANIMATION_DELAY_MULTIPLIER,
+      }}
       viewport={{ once: true, margin: '-50px' }}
       whileInView={{ opacity: 1, x: 0 }}
     >
@@ -116,30 +124,33 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
                 <div className="flex flex-wrap gap-1">
                   {(showAllTech
                     ? experience.technologies
-                    : experience.technologies.slice(0, 4)
+                    : experience.technologies.slice(0, TECH_DISPLAY_LIMIT)
                   ).map((tech) => (
                     <TechPill key={tech} variant="default">
                       {tech}
                     </TechPill>
                   ))}
-                  {experience.technologies.length > 4 && !showAllTech && (
-                    <button
-                      className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-white/60 text-xs transition-colors hover:bg-white/10 hover:text-white/80"
-                      onClick={() => setShowAllTech(true)}
-                      type="button"
-                    >
-                      +{experience.technologies.length - 4} more
-                    </button>
-                  )}
-                  {showAllTech && experience.technologies.length > 4 && (
-                    <button
-                      className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-white/60 text-xs transition-colors hover:bg-white/10 hover:text-white/80"
-                      onClick={() => setShowAllTech(false)}
-                      type="button"
-                    >
-                      Show less
-                    </button>
-                  )}
+                  {experience.technologies.length > TECH_DISPLAY_LIMIT &&
+                    !showAllTech && (
+                      <button
+                        className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-white/60 text-xs transition-colors hover:bg-white/10 hover:text-white/80"
+                        onClick={() => setShowAllTech(true)}
+                        type="button"
+                      >
+                        +{experience.technologies.length - TECH_DISPLAY_LIMIT}{' '}
+                        more
+                      </button>
+                    )}
+                  {showAllTech &&
+                    experience.technologies.length > TECH_DISPLAY_LIMIT && (
+                      <button
+                        className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-white/60 text-xs transition-colors hover:bg-white/10 hover:text-white/80"
+                        onClick={() => setShowAllTech(false)}
+                        type="button"
+                      >
+                        Show less
+                      </button>
+                    )}
                 </div>
               </div>
 

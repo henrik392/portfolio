@@ -4,6 +4,18 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { type RawShaderMaterial, Vector2 } from 'three';
 
+// Constants
+const TRAIL_LENGTH = 15;
+const THROTTLE_INTERVAL_MS = 16; // ~60fps
+const _MIN_DIMENSION_FACTOR = 0.5;
+const INTERACTION_TIMEOUT_MS = 1000;
+const ANIMATION_TIMEOUT_MS = 10_000;
+const CHECK_INTERVAL_MS = 1000;
+const INTERACTIVE_FPS = 60;
+const IDLE_FPS = 30;
+const COORDINATE_SCALE = 4.0;
+const TRAIL_SLICE_LENGTH = 14;
+
 const vertexShader = `
 attribute vec3 position;
 varying vec2 vTexCoord;
@@ -225,7 +237,7 @@ const createUniforms = (resolution: Vector2) => {
   return {
     uResolution: { value: resolution },
     uTime: { value: 0 },
-    uPointerTrail: { value: new Array(15).fill(new Vector2()) },
+    uPointerTrail: { value: new Array(TRAIL_LENGTH).fill(new Vector2()) },
   };
 };
 
@@ -250,7 +262,7 @@ export default function Metaball() {
     setIsAnimationActive(true); // Reactivate animation on mouse movement
 
     // Throttle pointer updates to ~60fps
-    if (now - lastPointerUpdate.current < 16) {
+    if (now - lastPointerUpdate.current < THROTTLE_INTERVAL_MS) {
       return;
     }
     lastPointerUpdate.current = now;
@@ -259,15 +271,15 @@ export default function Metaball() {
     const resolution = new Vector2(window.innerWidth, window.innerHeight);
     const minDimension = Math.min(resolution.x, resolution.y);
 
-    const x = (event.clientX * 4.0 - resolution.x) / minDimension;
+    const x = (event.clientX * COORDINATE_SCALE - resolution.x) / minDimension;
     const y =
-      ((window.innerHeight - event.clientY) * 4.0 - resolution.y) /
+      ((window.innerHeight - event.clientY) * COORDINATE_SCALE - resolution.y) /
       minDimension;
 
     const newPos = new Vector2(x, y);
 
     setMouseTrail((prev) => {
-      const newTrail = [newPos, ...prev.slice(0, 14)];
+      const newTrail = [newPos, ...prev.slice(0, TRAIL_SLICE_LENGTH)];
       return newTrail;
     });
   }, []);
@@ -286,16 +298,16 @@ export default function Metaball() {
       const now = Date.now();
       const timeSinceLastMove = now - lastMoveTime.current;
 
-      if (timeSinceLastMove > 1000) {
+      if (timeSinceLastMove > INTERACTION_TIMEOUT_MS) {
         setIsInteracting(false);
       }
 
-      if (timeSinceLastMove > 10_000) {
+      if (timeSinceLastMove > ANIMATION_TIMEOUT_MS) {
         setIsAnimationActive(false);
       }
     };
 
-    const interval = setInterval(checkInteraction, 1000);
+    const interval = setInterval(checkInteraction, CHECK_INTERVAL_MS);
     return () => clearInterval(interval);
   }, []);
 
@@ -315,8 +327,8 @@ export default function Metaball() {
       }
 
       if (uniforms.uPointerTrail) {
-        const trail = mouseTrail.slice(0, 15);
-        while (trail.length < 15) {
+        const trail = mouseTrail.slice(0, TRAIL_LENGTH);
+        while (trail.length < TRAIL_LENGTH) {
           trail.push(new Vector2(0, 0));
         }
         uniforms.uPointerTrail.value = trail;
@@ -334,7 +346,7 @@ export default function Metaball() {
     frameCount.current++;
 
     // Reduce frame rate when not interacting
-    const targetFps = isInteracting ? 60 : 30;
+    const targetFps = isInteracting ? INTERACTIVE_FPS : IDLE_FPS;
     const frameSkip = Math.ceil(60 / targetFps);
 
     if (frameCount.current % frameSkip !== 0) {

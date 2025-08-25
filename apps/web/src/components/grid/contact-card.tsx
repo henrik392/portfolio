@@ -2,10 +2,10 @@ import { Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
 import { TiltCard } from '@/components/tilt-card';
 import { Button } from '@/components/ui/button';
 
-interface ContactCardProps {
+type ContactCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function ContactCard({ colSpan = 1, rowSpan = 1 }: ContactCardProps) {
   return (

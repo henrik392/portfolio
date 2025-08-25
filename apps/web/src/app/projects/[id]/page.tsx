@@ -6,11 +6,11 @@ import { TechPill } from '@/components/tech-pill';
 import { Button } from '@/components/ui/button';
 import projects from '@/data/projects.json' with { type: 'json' };
 
-interface ProjectPageProps {
+type ProjectPageProps = {
   params: Promise<{
     id: string;
   }>;
-}
+};
 
 function getProject(id: string) {
   return projects.find((project) => project.id === id);

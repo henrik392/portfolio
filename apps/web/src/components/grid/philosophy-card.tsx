@@ -1,9 +1,9 @@
 import { TiltCard } from '@/components/tilt-card';
 
-interface PhilosophyCardProps {
+type PhilosophyCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function PhilosophyCard({
   colSpan = 2,

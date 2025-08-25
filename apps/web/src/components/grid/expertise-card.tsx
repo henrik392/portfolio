@@ -1,9 +1,9 @@
 import { TiltCard } from '@/components/tilt-card';
 
-interface ExpertiseCardProps {
+type ExpertiseCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function ExpertiseCard({
   colSpan = 3,

@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { TiltCard } from '@/components/tilt-card';
 
-interface ProfileCardProps {
+type ProfileCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function ProfileCard({ colSpan = 1, rowSpan = 1 }: ProfileCardProps) {
   return (

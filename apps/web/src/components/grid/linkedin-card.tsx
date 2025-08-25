@@ -1,10 +1,10 @@
 import { Linkedin } from 'lucide-react';
 import { TiltCard } from '@/components/tilt-card';
 
-interface LinkedinCardProps {
+type LinkedinCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function LinkedinCard({ colSpan = 1, rowSpan = 1 }: LinkedinCardProps) {
   return (

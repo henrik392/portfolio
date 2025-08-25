@@ -5,12 +5,12 @@ import { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
-interface WordRotateProps {
+type WordRotateProps = {
   words: string[];
   duration?: number;
   motionProps?: MotionProps;
   className?: string;
-}
+};
 
 export function WordRotate({
   words,

@@ -13,6 +13,11 @@ import {
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
+const NAVBAR_HEIGHT_OFFSET = 120;
+const SCROLL_ANIMATION_DELAY = 300;
+const SCROLL_THRESHOLD = 50;
+
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -46,7 +51,7 @@ export default function Header() {
         element.getBoundingClientRect();
 
         const elementPosition = element.offsetTop;
-        const offsetPosition = elementPosition - 120; // Offset for navbar height
+        const offsetPosition = elementPosition - NAVBAR_HEIGHT_OFFSET;
 
         mainElement.scrollTo({
           top: offsetPosition,
@@ -65,7 +70,7 @@ export default function Header() {
     };
 
     // Add delay to ensure animations have loaded and positioned elements correctly
-    setTimeout(tryScroll, 300);
+    setTimeout(tryScroll, SCROLL_ANIMATION_DELAY);
   };
 
   useEffect(() => {
@@ -73,7 +78,7 @@ export default function Header() {
       // Find the main element that contains the scrollable content
       const mainElement = document.querySelector('main');
       if (mainElement) {
-        const scrolled = mainElement.scrollTop > 50;
+        const scrolled = mainElement.scrollTop > SCROLL_THRESHOLD;
         setIsScrolled(scrolled);
       }
     };

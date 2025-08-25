@@ -1,9 +1,9 @@
 import { TiltCard } from '@/components/tilt-card';
 
-interface CtaBannerCardProps {
+type CtaBannerCardProps = {
   colSpan?: 1 | 2 | 3;
   rowSpan?: 1 | 2;
-}
+};
 
 export function CtaBannerCard({
   colSpan = 3,
