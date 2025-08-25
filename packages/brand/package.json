@@ -1,69 +1,69 @@
 {
-  "name": "@henrikkvamme/brand",
-  "version": "1.0.1",
-  "description": "Reusable brand elements for Henrik Kvamme projects - logo, footer, and theme components",
-  "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "assets",
-    "README.md"
-  ],
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "prepare": "npm run build",
-    "clean": "rm -rf dist",
-    "check": "biome check --write .",
-    "format": "biome format --write .",
-    "lint": "biome lint .",
-    "check-types": "tsc --noEmit"
-  },
-  "keywords": [
-    "react",
-    "components",
-    "brand",
-    "logo",
-    "footer",
-    "theme",
-    "henrik-kvamme"
-  ],
-  "author": "Henrik Kvamme <henrik.halvorsen.kvamme@gmail.com>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/henrik392/portfolio.git",
-    "directory": "packages/brand"
-  },
-  "bugs": {
-    "url": "https://github.com/henrik392/portfolio/issues"
-  },
-  "homepage": "https://henrikkvamme.dev",
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "@rollup/plugin-commonjs": "^25.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.0",
-    "@rollup/plugin-typescript": "^11.0.0",
-    "@rollup/plugin-url": "^8.0.0",
-    "rollup": "^4.0.0",
-    "rollup-plugin-dts": "^6.0.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^4.0.2",
-    "typescript": "^5.0.0",
-    "postcss": "^8.4.0",
-    "autoprefixer": "^10.4.0"
-  },
-  "dependencies": {
-    "clsx": "^2.0.0"
-  }
+	"name": "@henrikkvamme/brand",
+	"version": "1.0.2",
+	"description": "Reusable brand elements for Henrik Kvamme projects - logo, footer, and theme components",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.esm.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist",
+		"assets",
+		"README.md"
+	],
+	"scripts": {
+		"build": "rollup -c",
+		"dev": "rollup -c -w",
+		"prepare": "npm run build",
+		"clean": "rm -rf dist",
+		"check": "biome check --write .",
+		"format": "biome format --write .",
+		"lint": "biome lint .",
+		"check-types": "tsc --noEmit"
+	},
+	"keywords": [
+		"react",
+		"components",
+		"brand",
+		"logo",
+		"footer",
+		"theme",
+		"henrik-kvamme"
+	],
+	"author": "Henrik Kvamme <henrik.halvorsen.kvamme@gmail.com>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/henrik392/portfolio.git",
+		"directory": "packages/brand"
+	},
+	"bugs": {
+		"url": "https://github.com/henrik392/portfolio/issues"
+	},
+	"homepage": "https://henrikkvamme.dev",
+	"publishConfig": {
+		"access": "public"
+	},
+	"peerDependencies": {
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.0",
+		"@types/react-dom": "^18.2.0",
+		"@rollup/plugin-commonjs": "^25.0.0",
+		"@rollup/plugin-node-resolve": "^15.0.0",
+		"@rollup/plugin-typescript": "^11.0.0",
+		"@rollup/plugin-url": "^8.0.0",
+		"rollup": "^4.0.0",
+		"rollup-plugin-dts": "^6.0.0",
+		"rollup-plugin-peer-deps-external": "^2.2.4",
+		"rollup-plugin-postcss": "^4.0.2",
+		"typescript": "^5.0.0",
+		"postcss": "^8.4.0",
+		"autoprefixer": "^10.4.0"
+	},
+	"dependencies": {
+		"clsx": "^2.0.0"
+	}
 }
