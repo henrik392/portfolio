@@ -61,12 +61,6 @@ export type FooterLink = {
 
 export interface FooterProps extends BaseComponentProps {
   /**
-   * The title to display in the footer
-   * @default 'Henrik Kvamme'
-   */
-  title?: string;
-
-  /**
    * The tagline/description text
    * @default 'Full-Stack Developer & AI Engineer'
    */

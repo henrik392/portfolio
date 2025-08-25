@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import type React from 'react';
 import { EXTERNAL_SOCIAL_LINKS, type FooterProps } from '../types';
+import Logo from './logo';
 
 const Footer: React.FC<FooterProps> = ({
-  title = 'Henrik Kvamme',
   tagline = 'Full-Stack Developer & AI Engineer',
   links = EXTERNAL_SOCIAL_LINKS,
   showCopyright = true,
@@ -46,26 +46,28 @@ const Footer: React.FC<FooterProps> = ({
     <footer className={clsx('border-t', styles.footer, className)}>
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-          {/* Left side - Name and tagline */}
+          {/* Left side - Logo, name and tagline */}
           <div className="text-center sm:text-left">
             {showWebsiteLink && websiteUrl ? (
-              <a
+              <Logo
                 className={clsx(
-                  'font-bold text-lg no-underline transition-colors hover:no-underline',
+                  'justify-center sm:justify-start',
                   styles.websiteLink
                 )}
                 href={websiteUrl}
-                rel="noopener noreferrer"
+                size="sm"
                 target="_blank"
-              >
-                {title}
-              </a>
+              />
             ) : (
-              <h3 className={clsx('font-bold text-lg', styles.title)}>
-                {title}
-              </h3>
+              <Logo
+                className={clsx(
+                  'justify-center sm:justify-start',
+                  styles.title
+                )}
+                size="sm"
+              />
             )}
-            <p className={clsx('text-sm', styles.tagline)}>{tagline}</p>
+            <p className={clsx('mt-1 text-sm', styles.tagline)}>{tagline}</p>
             {showWebsiteLink && websiteUrl && (
               <p className={clsx('mt-1 text-xs', styles.link)}>
                 Visit my portfolio →
