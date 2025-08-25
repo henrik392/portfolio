@@ -93,6 +93,24 @@ export interface FooterProps extends BaseComponentProps {
    * @default 'Henrik Kvamme'
    */
   copyrightHolder?: string;
+
+  /**
+   * Theme for the footer styling
+   * @default 'dark'
+   */
+  theme?: 'light' | 'dark';
+
+  /**
+   * URL to Henrik Kvamme's main website (for linking from other sites)
+   * @default 'https://henrikkvamme.no'
+   */
+  websiteUrl?: string;
+
+  /**
+   * Whether to show a link to the main website
+   * @default false
+   */
+  showWebsiteLink?: boolean;
 }
 
 export type Theme = 'light' | 'dark' | 'auto';
@@ -104,7 +122,7 @@ export type ThemeContextValue = {
 };
 
 /**
- * Default social links for Henrik Kvamme
+ * Default social links for Henrik Kvamme (for use on main portfolio website)
  */
 export const DEFAULT_SOCIAL_LINKS: FooterLink[] = [
   {
@@ -120,6 +138,27 @@ export const DEFAULT_SOCIAL_LINKS: FooterLink[] = [
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/henrikhalvorsenkvamme/',
+    external: true,
+  },
+  {
+    label: 'Email',
+    href: 'mailto:henrik.halvorsen.kvamme@gmail.com',
+    external: false,
+  },
+];
+
+/**
+ * Minimal social links for external websites (linking back to main portfolio)
+ */
+export const EXTERNAL_SOCIAL_LINKS: FooterLink[] = [
+  {
+    label: 'GitHub',
+    href: 'https://github.com/henrik392',
+    external: true,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/henrik-kvamme',
     external: true,
   },
   {

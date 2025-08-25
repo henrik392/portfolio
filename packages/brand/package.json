@@ -1,6 +1,6 @@
 {
   "name": "@henrikkvamme/brand",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reusable brand elements for Henrik Kvamme projects - logo, footer, and theme components",
   "type": "module",
   "main": "dist/index.js",
@@ -34,13 +34,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/henrik392/portfolio.git",
+    "url": "git+https://github.com/henrik392/portfolio.git",
     "directory": "packages/brand"
   },
   "bugs": {
     "url": "https://github.com/henrik392/portfolio/issues"
   },
   "homepage": "https://henrikkvamme.dev",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

@@ -16,4 +16,4 @@ export type {
   ThemeContextValue,
 } from './types';
 
-export { DEFAULT_SOCIAL_LINKS } from './types';
+export { DEFAULT_SOCIAL_LINKS, EXTERNAL_SOCIAL_LINKS } from './types';

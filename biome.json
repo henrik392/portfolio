@@ -1,33 +1,30 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
-  "files": {
-    "ignoreUnknown": false,
-    "includes": [
-      "**",
-      "!**/.next",
-      "!**/dist",
-      "!**/.turbo",
-      "!**/dev-dist",
-      "!**/.zed",
-      "!**/.vscode",
-      "!**/routeTree.gen.ts",
-      "!**/src-tauri",
-      "!**/.nuxt",
-      "!bts.jsonc",
-      "!**/.expo",
-      "!**/.wrangler",
-      "!**/.source"
-    ]
-  },
-  "extends": ["ultracite"],
-  "linter": {
-    "rules": {
-      "a11y": {
-        "noStaticElementInteractions": "off"
-      },
-      "suspicious": {
-        "noUnknownAtRules": "off"
-      }
-    }
-  }
+	"$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
+	"files": {
+		"ignoreUnknown": false,
+		"includes": [
+			"**",
+			"!**/.next",
+			"!**/dist",
+			"!**/.turbo",
+			"!**/dev-dist",
+			"!**/.zed",
+			"!**/.vscode",
+			"!**/routeTree.gen.ts",
+			"!**/src-tauri",
+			"!**/.nuxt",
+			"!bts.jsonc",
+			"!**/.expo",
+			"!**/.wrangler",
+			"!**/.source"
+		]
+	},
+	"extends": ["ultracite"],
+	"linter": {
+		"rules": {
+			"a11y": {
+				"noStaticElementInteractions": "off"
+			}
+		}
+	}
 }
