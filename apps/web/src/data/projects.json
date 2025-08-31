@@ -1,5 +1,46 @@
 [
   {
+    "id": "parti-chat",
+    "title": "Partichat",
+    "description": "A multi-party political Q&A chat application that provides neutral, side-by-side answers from Norwegian political parties based on their official party programs.",
+    "longDescription": "An advanced political Q&A application that allows users to select multiple Norwegian political parties and get grounded answers based strictly on official party programs. Features RAG-powered responses with pgvector similarity search, citation tracking with page numbers, streaming responses, and multi-party comparison summaries. All responses are in Norwegian Bokmål and strictly grounded in official party program documents.",
+    "technologies": [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "TailwindCSS",
+      "shadcn/ui",
+      "oRPC",
+      "PostgreSQL",
+      "pgvector",
+      "Drizzle ORM",
+      "OpenRouter",
+      "GPT-4o-mini",
+      "Bun",
+      "Turborepo"
+    ],
+    "githubUrl": "https://github.com/henrik392/parti-chat",
+    "liveUrl": "https://partichat.no/",
+    "status": "completed",
+    "featured": true,
+    "category": ["AI/ML", "Web App", "Political Tech", "RAG"],
+    "heroImage": "/images/projects/parti-chat/screenshot_1.jpeg",
+    "screenshots": [
+      "/images/projects/parti-chat/screenshot_1.jpeg",
+      "/images/projects/parti-chat/screenshot_2.jpeg",
+      "/images/projects/parti-chat/screenshot_3.jpeg"
+    ],
+    "screenshotCount": 3,
+    "highlights": [
+      "RAG-powered answers with pgvector similarity search",
+      "Multi-party comparison with transparent citations",
+      "Streaming responses for real-time answer generation",
+      "PDF text extraction with chunking for optimal retrieval",
+      "Norwegian Bokmål responses grounded in party programs",
+      "Conversation persistence with optional authentication"
+    ]
+  },
+  {
     "id": "voice-cloner",
     "title": "Voice Cloner",
     "description": "Clone any voice through three input modes: URL (YouTube, TikTok, Instagram), file upload, or microphone recording using advanced AI voice synthesis.",
@@ -46,7 +87,7 @@
     "githubUrl": "https://github.com/henrik392/samfundet-medlemskort",
     "liveUrl": "https://medlemskort.henrikkvamme.no/",
     "status": "completed",
-    "featured": true,
+    "featured": false,
     "category": ["Web App", "Utility", "Print"],
     "heroImage": "/images/projects/samfundet-medlemskort/screenshot_1.jpeg",
     "screenshots": ["/images/projects/samfundet-medlemskort/screenshot_1.jpeg"],
@@ -77,7 +118,7 @@
     "githubUrl": "https://github.com/henrik392/merch-whiz",
     "liveUrl": "https://merch-whiz.henrikkvamme.no/",
     "status": "in-progress",
-    "featured": true,
+    "featured": false,
     "category": ["E-commerce", "Web App", "Design Tool"],
     "heroImage": "/images/projects/merch-whiz/screenshot_1.jpeg",
     "screenshots": [
