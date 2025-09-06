@@ -42,6 +42,7 @@
       "version": "0.1.0",
       "dependencies": {
         "@henrikkvamme/brand": "workspace:*",
+        "@radix-ui/react-slot": "^1.2.3",
         "@tanstack/react-form": "^1.12.3",
         "@tanstack/react-query": "^5.80.5",
         "class-variance-authority": "^0.7.1",
@@ -73,7 +74,7 @@
     },
     "packages/brand": {
       "name": "@henrikkvamme/brand",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "dependencies": {
         "clsx": "^2.0.0",
       },

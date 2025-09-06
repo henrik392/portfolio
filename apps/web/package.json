@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@henrikkvamme/brand": "workspace:*",
+    "@radix-ui/react-slot": "^1.2.3",
     "@tanstack/react-form": "^1.12.3",
     "@tanstack/react-query": "^5.80.5",
     "class-variance-authority": "^0.7.1",
