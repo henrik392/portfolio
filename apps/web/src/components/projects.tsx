@@ -97,7 +97,7 @@ export function Projects() {
       </div>
 
       {/* All Projects */}
-      <div className="space-y-4">
+      <div className="mx-auto max-w-4xl space-y-4">
         {filteredProjects.length > 0 ? (
           filteredProjects.map((project) => (
             <ProjectCard
