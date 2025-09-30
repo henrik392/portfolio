@@ -6,17 +6,13 @@ export type Project = {
   image?: string;
   heroImage?: string | null;
   screenshots: string[];
-  screenshotCount: number;
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
+  pressUrl?: string;
   status: 'completed' | 'in-progress' | 'archived';
   featured: boolean;
   category: string[];
-  startDate?: string;
-  endDate?: string;
-  teamSize?: number;
-  role?: string;
   highlights?: string[];
 };
 
@@ -31,6 +27,7 @@ export interface ProjectCardProps
     | 'technologies'
     | 'githubUrl'
     | 'liveUrl'
+    | 'pressUrl'
   > {
   status?: Project['status'];
   featured?: boolean;

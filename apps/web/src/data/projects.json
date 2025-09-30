@@ -2,8 +2,8 @@
   {
     "id": "parti-chat",
     "title": "Partichat",
-    "description": "A multi-party political Q&A chat application that provides neutral, side-by-side answers from Norwegian political parties based on their official party programs.",
-    "longDescription": "An advanced political Q&A application that allows users to select multiple Norwegian political parties and get grounded answers based strictly on official party programs. Features RAG-powered responses with pgvector similarity search, citation tracking with page numbers, streaming responses, and multi-party comparison summaries. All responses are in Norwegian Bokmål and strictly grounded in official party program documents.",
+    "description": "Featured in Kode24 - A multi-party political Q&A chat providing neutral, side-by-side answers from Norwegian political parties based on their official programs.",
+    "longDescription": "Featured in Kode24, Norway's biggest developer news publication. An advanced political Q&A application that allows users to select multiple Norwegian political parties and get grounded answers based strictly on official party programs. Features RAG-powered responses with pgvector similarity search, citation tracking with page numbers, streaming responses, and multi-party comparison summaries. All responses are in Norwegian Bokmål and strictly grounded in official party program documents.",
     "technologies": [
       "Next.js 15",
       "React 19",
@@ -30,15 +30,15 @@
       "/images/projects/parti-chat/screenshot_2.jpeg",
       "/images/projects/parti-chat/screenshot_3.jpeg"
     ],
-    "screenshotCount": 3,
     "highlights": [
+      "Featured in Kode24 - Norway's biggest developer news publication",
       "RAG-powered answers with pgvector similarity search",
       "Multi-party comparison with transparent citations",
       "Streaming responses for real-time answer generation",
       "PDF text extraction with chunking for optimal retrieval",
-      "Norwegian Bokmål responses grounded in party programs",
-      "Conversation persistence with optional authentication"
-    ]
+      "Norwegian Bokmål responses grounded in party programs"
+    ],
+    "pressUrl": "https://www.kode24.no/artikkel/sann-bygde-han-partichatno-uten-hallusinering/244501"
   },
   {
     "id": "voice-cloner",
@@ -61,7 +61,6 @@
     "category": ["AI/ML", "Web App", "Audio Processing"],
     "heroImage": "/images/projects/voice-cloner/screenshot_1.jpeg",
     "screenshots": ["/images/projects/voice-cloner/screenshot_1.jpeg"],
-    "screenshotCount": 1,
     "highlights": [
       "Three input modes: URL, file upload, microphone",
       "Support for YouTube, TikTok, and Instagram URLs",
@@ -91,7 +90,6 @@
     "category": ["Web App", "Utility", "Print"],
     "heroImage": "/images/projects/samfundet-medlemskort/screenshot_1.jpeg",
     "screenshots": ["/images/projects/samfundet-medlemskort/screenshot_1.jpeg"],
-    "screenshotCount": 1,
     "highlights": [
       "Exact sizing: 25mm × 30mm per photo on A4",
       "Drag & drop upload with enforced crop ratio",
@@ -127,7 +125,6 @@
       "/images/projects/merch-whiz/screenshot_3.jpeg",
       "/images/projects/merch-whiz/screenshot_4.jpeg"
     ],
-    "screenshotCount": 4,
     "highlights": [
       "User authentication with Google OAuth",
       "Intuitive design creation with product previews",
@@ -157,7 +154,6 @@
     "category": ["Web App", "Portfolio"],
     "heroImage": null,
     "screenshots": [],
-    "screenshotCount": 0,
     "highlights": [
       "Beautiful bento grid layout",
       "Smooth animations with Framer Motion",

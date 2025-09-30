@@ -1,4 +1,4 @@
-import { ExternalLink, Eye, Github, Star } from 'lucide-react';
+import { ExternalLink, Eye, Github, Newspaper, Star } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TechPill } from '@/components/tech-pill';
@@ -16,6 +16,7 @@ export function ProjectCard({
   technologies,
   githubUrl,
   liveUrl,
+  pressUrl,
   status = 'completed',
   featured = false,
 }: ProjectCardProps) {
@@ -125,6 +126,24 @@ export function ProjectCard({
                     >
                       <ExternalLink className="h-3 w-3" />
                       <span className="xs:inline hidden">Live Demo</span>
+                    </a>
+                  </Button>
+                )}
+                {pressUrl && (
+                  <Button
+                    asChild
+                    className="border-purple-400/30 bg-purple-500/10 text-purple-200 hover:bg-purple-500/20"
+                    size="sm"
+                    variant="outline"
+                  >
+                    <a
+                      aria-label={`View ${title} press coverage`}
+                      href={pressUrl}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <Newspaper className="h-3 w-3" />
+                      <span className="xs:inline hidden">Press</span>
                     </a>
                   </Button>
                 )}

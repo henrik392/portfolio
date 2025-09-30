@@ -1,4 +1,4 @@
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Newspaper } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -239,6 +239,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     >
                       <Github className="mr-2 h-4 w-4" />
                       Source Code
+                    </a>
+                  </Button>
+                )}
+                {project.pressUrl && (
+                  <Button
+                    asChild
+                    className="w-full justify-start border-blue-400/30 bg-blue-500/10 text-blue-200 hover:bg-blue-500/20"
+                    variant="outline"
+                  >
+                    <a
+                      href={project.pressUrl}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <Newspaper className="mr-2 h-4 w-4" />
+                      Press Coverage
                     </a>
                   </Button>
                 )}

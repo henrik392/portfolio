@@ -109,6 +109,7 @@ export function Projects() {
               image={project.image}
               key={project.id}
               liveUrl={project.liveUrl}
+              pressUrl={project.pressUrl}
               status={project.status}
               technologies={project.technologies}
               title={project.title}
