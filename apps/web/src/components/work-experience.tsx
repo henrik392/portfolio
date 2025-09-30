@@ -8,13 +8,10 @@ import {
   formatDatePeriod,
   getExperiences,
 } from '@/data/experience';
+import { WORK_EXPERIENCE_ANIMATION } from '@/lib/animation-config';
+import { DISPLAY } from '@/lib/display-config';
 import type { WorkExperience as WorkExperienceType } from '@/types/experience';
 import { TechPill } from './tech-pill';
-
-const ANIMATION_OFFSET = 50;
-const ANIMATION_DURATION = 0.6;
-const ANIMATION_DELAY_MULTIPLIER = 0.2;
-const TECH_DISPLAY_LIMIT = 4;
 
 type JourneyCardProps = {
   experience: WorkExperienceType;
@@ -29,10 +26,15 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
   return (
     <motion.div
       className={`relative flex w-full items-center ${isLeft ? 'lg:justify-start' : 'lg:justify-end'} justify-center`}
-      initial={{ opacity: 0, x: isLeft ? -ANIMATION_OFFSET : ANIMATION_OFFSET }}
+      initial={{
+        opacity: 0,
+        x: isLeft
+          ? -WORK_EXPERIENCE_ANIMATION.OFFSET
+          : WORK_EXPERIENCE_ANIMATION.OFFSET,
+      }}
       transition={{
-        duration: ANIMATION_DURATION,
-        delay: index * ANIMATION_DELAY_MULTIPLIER,
+        duration: WORK_EXPERIENCE_ANIMATION.DURATION,
+        delay: index * WORK_EXPERIENCE_ANIMATION.DELAY_MULTIPLIER,
       }}
       viewport={{ once: true, margin: '-50px' }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -124,25 +126,32 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
                 <div className="flex flex-wrap gap-1">
                   {(showAllTech
                     ? experience.technologies
-                    : experience.technologies.slice(0, TECH_DISPLAY_LIMIT)
+                    : experience.technologies.slice(
+                        0,
+                        DISPLAY.TECH.INITIAL_LIMIT
+                      )
                   ).map((tech) => (
                     <TechPill key={tech} variant="default">
                       {tech}
                     </TechPill>
                   ))}
-                  {experience.technologies.length > TECH_DISPLAY_LIMIT &&
+                  {experience.technologies.length >
+                    DISPLAY.TECH.INITIAL_LIMIT &&
                     !showAllTech && (
                       <button
                         className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-white/60 text-xs transition-colors hover:bg-white/10 hover:text-white/80"
                         onClick={() => setShowAllTech(true)}
                         type="button"
                       >
-                        +{experience.technologies.length - TECH_DISPLAY_LIMIT}{' '}
+                        +
+                        {experience.technologies.length -
+                          DISPLAY.TECH.INITIAL_LIMIT}{' '}
                         more
                       </button>
                     )}
                   {showAllTech &&
-                    experience.technologies.length > TECH_DISPLAY_LIMIT && (
+                    experience.technologies.length >
+                      DISPLAY.TECH.INITIAL_LIMIT && (
                       <button
                         className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-white/60 text-xs transition-colors hover:bg-white/10 hover:text-white/80"
                         onClick={() => setShowAllTech(false)}
@@ -157,15 +166,17 @@ function JourneyCard({ experience, index, isLeft }: JourneyCardProps) {
               {/* Key highlights - compact */}
               {experience.highlights && experience.highlights.length > 0 && (
                 <div className="space-y-1">
-                  {experience.highlights.slice(0, 2).map((highlight) => (
-                    <div
-                      className="flex items-start gap-1.5 align-middle text-white/60 text-xs"
-                      key={highlight}
-                    >
-                      <span className="mt-1.5 block h-0.5 w-0.5 flex-shrink-0 rounded-full bg-theme-secondary" />
-                      {highlight}
-                    </div>
-                  ))}
+                  {experience.highlights
+                    .slice(0, DISPLAY.EXPERIENCE.MAX_HIGHLIGHTS)
+                    .map((highlight) => (
+                      <div
+                        className="flex items-start gap-1.5 align-middle text-white/60 text-xs"
+                        key={highlight}
+                      >
+                        <span className="mt-1.5 block h-0.5 w-0.5 flex-shrink-0 rounded-full bg-theme-secondary" />
+                        {highlight}
+                      </div>
+                    ))}
                 </div>
               )}
             </div>

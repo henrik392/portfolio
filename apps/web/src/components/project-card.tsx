@@ -4,27 +4,8 @@ import Link from 'next/link';
 import { TechPill } from '@/components/tech-pill';
 import { TiltCard } from '@/components/tilt-card';
 import { Button } from '@/components/ui/button';
+import { getStatusStyles, getStatusText } from '@/lib/status-utils';
 import type { ProjectCardProps } from '@/types/project';
-
-const getStatusStyles = (status: string) => {
-  if (status === 'completed') {
-    return 'bg-theme-primary/20 text-theme-primary/90';
-  }
-  if (status === 'in-progress') {
-    return 'bg-yellow-500/20 text-yellow-200';
-  }
-  return 'bg-theme-dark/30 text-white/60';
-};
-
-const getStatusText = (status: string) => {
-  if (status === 'completed') {
-    return '✓ Completed';
-  }
-  if (status === 'in-progress') {
-    return '🚧 In Progress';
-  }
-  return '📁 Archived';
-};
 
 export function ProjectCard({
   id,

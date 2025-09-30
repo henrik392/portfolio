@@ -1,10 +1,12 @@
 import { ExternalLink, Github } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { TechPill } from '@/components/tech-pill';
 import { Button } from '@/components/ui/button';
-import projects from '@/data/projects.json' with { type: 'json' };
+import { projects } from '@/data/projects';
+import { getStatusColor, getStatusText } from '@/lib/status-utils';
 
 type ProjectPageProps = {
   params: Promise<{
@@ -45,28 +47,6 @@ export async function generateMetadata({
   };
 }
 
-function getStatusColor(status: string) {
-  switch (status) {
-    case 'completed':
-      return 'bg-theme-primary/20 text-theme-primary/90';
-    case 'in-progress':
-      return 'bg-yellow-500/20 text-yellow-200';
-    default:
-      return 'bg-theme-dark/30 text-white/60';
-  }
-}
-
-function getStatusText(status: string) {
-  switch (status) {
-    case 'completed':
-      return '✓ Completed';
-    case 'in-progress':
-      return '🚧 In Progress';
-    default:
-      return '📁 Archived';
-  }
-}
-
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { id } = await params;
   const project = getProject(id);
@@ -104,14 +84,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="flex flex-wrap gap-4">
             {project.liveUrl && (
               <Button asChild size="lg" variant="glass">
-                <a
+                <Link
                   href={project.liveUrl}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   <ExternalLink className="mr-2 h-5 w-5" />
                   View Live Demo
-                </a>
+                </Link>
               </Button>
             )}
             {project.githubUrl && (
@@ -149,22 +129,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {/* Main Content */}
           <div className="lg:col-span-2">
             {/* Key Features */}
-            <section className="mb-12">
-              <h2 className="mb-6 font-bold text-3xl text-white">
-                Key Features
-              </h2>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {project.highlights.map((highlight) => (
-                  <div
-                    className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/5 p-4"
-                    key={highlight}
-                  >
-                    <div className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-theme-primary" />
-                    <p className="text-sm text-white/80">{highlight}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
+            {project.highlights && project.highlights.length > 0 && (
+              <section className="mb-12">
+                <h2 className="mb-6 font-bold text-3xl text-white">
+                  Key Features
+                </h2>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {project.highlights.map((highlight) => (
+                    <div
+                      className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/5 p-4"
+                      key={highlight}
+                    >
+                      <div className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-theme-primary" />
+                      <p className="text-sm text-white/80">{highlight}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Screenshots Gallery */}
             {project.screenshots.length > 1 && (
@@ -234,14 +216,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     className="w-full justify-start"
                     variant="glass"
                   >
-                    <a
+                    <Link
                       href={project.liveUrl}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Live Demo
-                    </a>
+                    </Link>
                   </Button>
                 )}
                 {project.githubUrl && (

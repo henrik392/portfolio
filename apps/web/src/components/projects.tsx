@@ -6,8 +6,6 @@ import { SelectFilter } from '@/components/ui/select-filter';
 import {
   getAllCategories,
   getAllTechnologies,
-  getProjectsByCategory,
-  getProjectsByTechnology,
   projects,
 } from '@/data/projects';
 import type { ProjectsFilterState } from '@/types/project';
@@ -22,19 +20,23 @@ export function Projects() {
   const categories = getAllCategories();
   const technologies = getAllTechnologies();
 
-  // Apply filters
-  let filteredProjects = projects;
-  if (filters.category !== 'all') {
-    filteredProjects = getProjectsByCategory(filters.category);
-  }
-  if (filters.technology !== 'all') {
-    filteredProjects = getProjectsByTechnology(filters.technology);
-  }
-  if (filters.status !== 'all') {
-    filteredProjects = filteredProjects.filter(
-      (project) => project.status === filters.status
+  // Apply filters composably - each filter operates on the previous result
+  const filteredProjects = projects
+    .filter(
+      (project) =>
+        filters.category === 'all' ||
+        project.category.includes(filters.category)
+    )
+    .filter(
+      (project) =>
+        filters.technology === 'all' ||
+        project.technologies.some((tech) =>
+          tech.toLowerCase().includes(filters.technology.toLowerCase())
+        )
+    )
+    .filter(
+      (project) => filters.status === 'all' || project.status === filters.status
     );
-  }
 
   return (
     <section className="relative mt-36">
