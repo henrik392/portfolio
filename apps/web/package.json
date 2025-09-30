@@ -22,8 +22,8 @@
     "posthog-js": "^1.260.1",
     "posthog-node": "^5.7.0",
     "radix-ui": "^1.4.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "react-parallax-tilt": "^1.7.304",
     "sonner": "^2.0.5",
     "tailwind-merge": "^3.3.1",
@@ -32,9 +32,9 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.10",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/node": "^24",
+    "@types/react": "^19.1.1",
+    "@types/react-dom": "^19.1.1",
     "tailwindcss": "^4.1.10",
     "typescript": "^5",
     "@tanstack/react-query-devtools": "^5.80.5"

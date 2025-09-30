@@ -22,14 +22,14 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <TiltCard
-      className={`p-4 sm:p-6 ${featured ? 'ring-1 ring-blue-400/30' : ''}`}
+      className={`p-3 sm:p-4 ${featured ? 'ring-1 ring-blue-400/30' : ''}`}
       colSpan={1}
       tiltIntensity="weak"
     >
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3 sm:gap-3">
         {/* Hero Image */}
         {heroImage && (
-          <div className="relative aspect-[2/1] overflow-hidden rounded-lg border border-white/10 bg-white/5 sm:aspect-video">
+          <div className="relative aspect-[2/1] overflow-hidden rounded-lg border border-white/10 bg-white/5 sm:aspect-[21/9]">
             <Link href={`/projects/${id}`}>
               <Image
                 alt={`${title} screenshot`}
@@ -46,11 +46,11 @@ export function ProjectCard({
           </div>
         )}
 
-        <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
           {/* Fallback Project Icon (only shown if no hero image) */}
           {!heroImage && (
             <div className="flex-shrink-0 self-center sm:self-start">
-              <div className="relative flex h-20 w-20 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-blue-500/20 to-theme-primary/20 sm:h-24 sm:w-24">
+              <div className="relative flex h-16 w-16 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-blue-500/20 to-theme-primary/20 sm:h-16 sm:w-16">
                 {image ? (
                   <Image
                     alt={title}
@@ -73,12 +73,12 @@ export function ProjectCard({
 
           {/* Project Details */}
           <div className="min-w-0 flex-1">
-            <div className="mb-3 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-0">
+            <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-0">
               <div className="flex flex-col">
-                <h3 className="text-center font-bold text-lg text-white sm:text-left sm:text-xl">
+                <h3 className="text-center font-bold text-base text-white sm:text-left sm:text-lg">
                   {title}
                 </h3>
-                <div className="mt-1 flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+                <div className="mt-1 flex flex-wrap items-center justify-center gap-1.5 sm:justify-start">
                   <span
                     className={`inline-flex items-center rounded-full px-2 py-1 font-medium text-xs ${getStatusStyles(status)}`}
                   >
@@ -91,7 +91,7 @@ export function ProjectCard({
                   )}
                 </div>
               </div>
-              <div className="flex justify-center gap-2 sm:ml-4 sm:justify-end">
+              <div className="flex justify-center gap-1.5 sm:ml-3 sm:justify-end">
                 <Button asChild size="sm" variant="glass">
                   <Link href={`/projects/${id}`}>
                     <Eye className="h-3 w-3" />
@@ -125,7 +125,7 @@ export function ProjectCard({
                       target="_blank"
                     >
                       <ExternalLink className="h-3 w-3" />
-                      <span className="xs:inline hidden">Live Demo</span>
+                      <span className="xs:inline hidden">Live</span>
                     </a>
                   </Button>
                 )}
@@ -150,12 +150,12 @@ export function ProjectCard({
               </div>
             </div>
 
-            <p className="mb-3 text-center text-sm text-white/80 leading-relaxed sm:text-left">
+            <p className="mb-2 text-center text-white/80 text-xs leading-relaxed sm:text-left sm:text-sm">
               {description}
             </p>
 
             {/* Technology Pills */}
-            <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
+            <div className="flex flex-wrap justify-center gap-1.5 sm:justify-start">
               {technologies.map((tech) => (
                 <TechPill key={tech}>{tech}</TechPill>
               ))}
